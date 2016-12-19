@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  	<div style="margin-left:20px;margin-right:20px"> 
+  		<h1><%= @person.name %> <%= @person.sname %> <%= @person.tname %></h1>
+  		<div class="form-group row">
+  			<label class="col-sm-2 form-control-label">Документ: <%= @person.doc_serie %> <%= @person.doc_number %></label>
+  			<label class="col-sm-3 form-control-label">Дата рождения: <%= @person.birthday.blank? ? '' : @person.birthday.strftime('%d.%m.%Y') %></label>
+  		</div>
+  	</div>	
+</div>
+
+<%= link_to 'Редактировать', edit_person_path(@person), html_options={ :class => "btn btn-default", :method => :get} %> |
+<%= link_to 'Назад', people_path, html_options={ :class => "btn btn-default", :method => :get} %>

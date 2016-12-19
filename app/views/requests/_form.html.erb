@@ -1,0 +1,330 @@
+<%= form_for(@request) do |f| %>
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% @request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <%= render(:partial => 'part01',:locals => {:f => f}) %>
+  <%= render(:partial => 'part02',:locals => {:f => f}) %>
+  
+
+
+  <div class="field">
+    <%= f.label :firstAmount %><br>
+    <%= f.number_field :firstAmount %>
+  </div>
+  <div class="field">
+    <%= f.label :source_accumulation %><br>
+    <%= f.check_box :source_accumulation %>
+  </div>
+  <div class="field">
+    <%= f.label :source_sell %><br>
+    <%= f.check_box :source_sell %>
+  </div>
+  <div class="field">
+    <%= f.label :source_help %><br>
+    <%= f.check_box :source_help %>
+  </div>
+  <div class="field">
+    <%= f.label :source_otherCredit %><br>
+    <%= f.check_box :source_otherCredit %>
+  </div>
+  <div class="field">
+    <%= f.label :source_other %><br>
+    <%= f.text_field :source_other %>
+  </div>
+  <div class="field">
+    <%= f.label :target %><br>
+    <%= f.number_field :target %>
+  </div>
+  <div class="field">
+    <%= f.label :estate_deposit_new %><br>
+    <%= f.check_box :estate_deposit_new %>
+  </div>
+  <div class="field">
+    <%= f.label :estate_deposit_old %><br>
+    <%= f.check_box :estate_deposit_old %>
+  </div>
+  <div class="field">
+    <%= f.label :estate_deposit_amount %><br>
+    <%= f.number_field :estate_deposit_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :region %><br>
+    <%= f.text_field :region %>
+  </div>
+  <div class="field">
+    <%= f.label :military %><br>
+    <%= f.check_box :military %>
+  </div>
+  <div class="field">
+    <%= f.label :mat_cap %><br>
+    <%= f.check_box :mat_cap %>
+  </div>
+  <div class="field">
+    <%= f.label :many_children %><br>
+    <%= f.check_box :many_children %>
+  </div>
+  <div class="field">
+    <%= f.label :russian_family %><br>
+    <%= f.check_box :russian_family %>
+  </div>
+  <div class="field">
+    <%= f.label :aizhk_estate %><br>
+    <%= f.check_box :aizhk_estate %>
+  </div>
+  <div class="field">
+    <%= f.label :apartament %><br>
+    <%= f.check_box :apartament %>
+  </div>
+  <div class="field">
+    <%= f.label :salary_cred_form %><br>
+    <%= f.check_box :salary_cred_form %>
+  </div>
+  <div class="field">
+    <%= f.label :floatRate %><br>
+    <%= f.check_box :floatRate %>
+  </div>
+  <div class="field">
+    <%= f.label :insurance %><br>
+    <%= f.check_box :insurance %>
+  </div>
+  <div class="field">
+    <%= f.label :seniorityyears %><br>
+    <%= f.number_field :seniorityyears %>
+  </div>
+  <div class="field">
+    <%= f.label :senioritymonths %><br>
+    <%= f.number_field :senioritymonths %>
+  </div>
+  <div class="field">
+    <%= f.label :emplFixedRecr %><br>
+    <%= f.check_box :emplFixedRecr %>
+  </div>
+  <div class="field">
+    <%= f.label :emplFloatRecr %><br>
+    <%= f.check_box :emplFloatRecr %>
+  </div>
+  <div class="field">
+    <%= f.label :emplIP %><br>
+    <%= f.check_box :emplIP %>
+  </div>
+  <div class="field">
+    <%= f.label :emplCEO %><br>
+    <%= f.check_box :emplCEO %>
+  </div>
+  <div class="field">
+    <%= f.label :emplPensioner %><br>
+    <%= f.check_box :emplPensioner %>
+  </div>
+  <div class="field">
+    <%= f.label :emplNone %><br>
+    <%= f.check_box :emplNone %>
+  </div>
+  <div class="field">
+    <%= f.label :emplOther %><br>
+    <%= f.check_box :emplOther %>
+  </div>
+  <div class="field">
+    <%= f.label :emplOtherText %><br>
+    <%= f.text_field :emplOtherText %>
+  </div>
+  <div class="field">
+    <%= f.label :mainWorkYears %><br>
+    <%= f.number_field :mainWorkYears %>
+  </div>
+  <div class="field">
+    <%= f.label :mainWorkMonths %><br>
+    <%= f.number_field :mainWorkMonths %>
+  </div>
+  <div class="field">
+    <%= f.label :mainWorkPosition %><br>
+    <%= f.text_field :mainWorkPosition %>
+  </div>
+  <div class="field">
+    <%= f.label :mainWorkPosCategoryOwner %><br>
+    <%= f.check_box :mainWorkPosCategoryOwner %>
+  </div>
+  <div class="field">
+    <%= f.label :mainWorkPosCategoryGeneral %><br>
+    <%= f.check_box :mainWorkPosCategoryGeneral %>
+  </div>
+  <div class="field">
+    <%= f.label :mainWorkPosCategoryDepManager %><br>
+    <%= f.check_box :mainWorkPosCategoryDepManager %>
+  </div>
+  <div class="field">
+    <%= f.label :mainWorkPosCategoryOther %><br>
+    <%= f.check_box :mainWorkPosCategoryOther %>
+  </div>
+  <div class="field">
+    <%= f.label :mainWorkAmount %><br>
+    <%= f.number_field :mainWorkAmount %>
+  </div>
+  <div class="field">
+    <%= f.label :sWorkYears %><br>
+    <%= f.number_field :sWorkYears %>
+  </div>
+  <div class="field">
+    <%= f.label :sWorkMonths %><br>
+    <%= f.number_field :sWorkMonths %>
+  </div>
+  <div class="field">
+    <%= f.label :sWorkPosition %><br>
+    <%= f.text_field :sWorkPosition %>
+  </div>
+  <div class="field">
+    <%= f.label :sWorkPosCategoryOwner %><br>
+    <%= f.check_box :sWorkPosCategoryOwner %>
+  </div>
+  <div class="field">
+    <%= f.label :sWorkPosCategoryGeneral %><br>
+    <%= f.check_box :sWorkPosCategoryGeneral %>
+  </div>
+  <div class="field">
+    <%= f.label :sWorkPosCategoryDepManager %><br>
+    <%= f.check_box :sWorkPosCategoryDepManager %>
+  </div>
+  <div class="field">
+    <%= f.label :sWorkPosCategoryOther %><br>
+    <%= f.check_box :sWorkPosCategoryOther %>
+  </div>
+  <div class="field">
+    <%= f.label :sWorkAmount %><br>
+    <%= f.number_field :sWorkAmount %>
+  </div>
+  <div class="field">
+    <%= f.label :otherIncomePension %><br>
+    <%= f.check_box :otherIncomePension %>
+  </div>
+  <div class="field">
+    <%= f.label :otherIncomeLease %><br>
+    <%= f.check_box :otherIncomeLease %>
+  </div>
+  <div class="field">
+    <%= f.label :otherIncomeOther %><br>
+    <%= f.check_box :otherIncomeOther %>
+  </div>
+  <div class="field">
+    <%= f.label :otherIncomeOtherText %><br>
+    <%= f.check_box :otherIncomeOtherText %>
+  </div>
+  <div class="field">
+    <%= f.label :otherIncomeAmount %><br>
+    <%= f.number_field :otherIncomeAmount %>
+  </div>
+  <div class="field">
+    <%= f.label :expenseAlimony %><br>
+    <%= f.check_box :expenseAlimony %>
+  </div>
+  <div class="field">
+    <%= f.label :expenseAlimonyAmount %><br>
+    <%= f.check_box :expenseAlimonyAmount %>
+  </div>
+  <div class="field">
+    <%= f.label :expenseCredit %><br>
+    <%= f.check_box :expenseCredit %>
+  </div>
+  <div class="field">
+    <%= f.label :estFlat %><br>
+    <%= f.check_box :estFlat %>
+  </div>
+  <div class="field">
+    <%= f.label :estFlatPart %><br>
+    <%= f.number_field :estFlatPart %>
+  </div>
+  <div class="field">
+    <%= f.label :estRoom %><br>
+    <%= f.check_box :estRoom %>
+  </div>
+  <div class="field">
+    <%= f.label :estRoomPart %><br>
+    <%= f.number_field :estRoomPart %>
+  </div>
+  <div class="field">
+    <%= f.label :estHouse %><br>
+    <%= f.check_box :estHouse %>
+  </div>
+  <div class="field">
+    <%= f.label :estHousePart %><br>
+    <%= f.number_field :estHousePart %>
+  </div>
+  <div class="field">
+    <%= f.label :estOther %><br>
+    <%= f.text_field :estOther %>
+  </div>
+  <div class="field">
+    <%= f.label :estOtherTest %><br>
+    <%= f.text_field :estOtherTest %>
+  </div>
+  <div class="field">
+    <%= f.label :estOtherPart %><br>
+    <%= f.number_field :estOtherPart %>
+  </div>
+  <div class="field">
+    <%= f.label :estRegion %><br>
+    <%= f.text_field :estRegion %>
+  </div>
+  <div class="field">
+    <%= f.label :estCity %><br>
+    <%= f.text_field :estCity %>
+  </div>
+  <div class="field">
+    <%= f.label :estPrice %><br>
+    <%= f.number_field :estPrice %>
+  </div>
+  <div class="field">
+    <%= f.label :carMake %><br>
+    <%= f.text_field :carMake %>
+  </div>
+  <div class="field">
+    <%= f.label :carModel %><br>
+    <%= f.text_field :carModel %>
+  </div>
+  <div class="field">
+    <%= f.label :carYear %><br>
+    <%= f.number_field :carYear %>
+  </div>
+  <div class="field">
+    <%= f.label :carPledge %><br>
+    <%= f.check_box :carPledge %>
+  </div>
+  <div class="field">
+    <%= f.label :carPrice %><br>
+    <%= f.number_field :carPrice %>
+  </div>
+  <div class="field">
+    <%= f.label :conviction %><br>
+    <%= f.check_box :conviction %>
+  </div>
+  <div class="field">
+    <%= f.label :founder %><br>
+    <%= f.check_box :founder %>
+  </div>
+  <div class="field">
+    <%= f.label :taxArrears %><br>
+    <%= f.check_box :taxArrears %>
+  </div>
+  <div class="field">
+    <%= f.label :otherCreditRequests %><br>
+    <%= f.check_box :otherCreditRequests %>
+  </div>
+  <div class="field">
+    <%= f.label :bunkrupt %><br>
+    <%= f.check_box :bunkrupt %>
+  </div>
+  <div class="field">
+    <%= f.label :waitForChild %><br>
+    <%= f.check_box :waitForChild %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

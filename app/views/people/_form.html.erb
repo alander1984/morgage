@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+<%= form_for(@person, :html => {:class => 'form-horizontal', :style => 'margin-top:15px'}) do |f| %>
+  	<div style="margin-left:20px;margin-right:20px"> 
+  		<div class="form-group row">
+    		<label for="inputPersonName" class="col-sm-1 form-control-label">Фамилия</label>
+    		<div class="col-sm-2">
+      			<%= f.text_field :name, :class => "form-control", :placeholder => "Фамилия" %>  
+    		</div>
+    		<label for="inputPersonSName" class="col-sm-1 form-control-label">Имя</label>
+    		<div class="col-sm-2">
+      			<%= f.text_field :sname, :class => "form-control", :placeholder => "Имя" %>  
+    		</div>
+    		<label for="inputPersonTName" class="col-sm-1 form-control-label">Отчество</label>
+    		<div class="col-sm-2">
+      			<%= f.text_field :tname, :class => "form-control", :placeholder => "Отчество" %>  
+    		</div>
+  		</div>
+  		<div class="form-group row">
+    		<label for="inputDocSerie" class="col-sm-2 form-control-label">Серия документа</label>
+    		<div class="col-sm-2">
+      			<%= f.text_field :doc_serie, :class => "form-control", :placeholder => "XX-XX" %>  
+    		</div>
+    		<label for="inputDocNumber" class="col-sm-2 form-control-label">Номер документа</label>
+    		<div class="col-sm-2">
+      			<%= f.text_field :doc_number, :class => "form-control", :placeholder => "XXXXXX" %>  
+    		</div>
+  		</div>
+  		<div class="form-group row">
+  			<label for="inputBirthday" class="col-sm-2 form-control-label">Дата рождения</label>
+  			<div class="col-sm-2">
+  			<!-- Извращения с выбором даты, однако -->                
+             <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                              <%= f.text_field :birthday, :class => "form-control datepicker", :placeholder => "DD.MM.YYYY", :value =>(@person.birthday.blank? ? '' : @person.birthday.strftime('%d.%m.%Y')) %> 
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <!--это для нажатия по иконке -->
+             <script type="text/javascript">
+                 $(function () {
+                 	$.fn.datepicker.defaults.format = "dd.mm.yyyy";
+                     $('#datetimepicker1').datepicker();
+                 });
+              </script>
+              <!--это для нажатия по полю ввода -->
+              <script type="text/javascript">
+                 $(document).ready(function(){
+                 	$.fn.datepicker.defaults.format = "dd.mm.yyyy";
+                     $('.datepicker').datepicker();
+                 });
+              </script>
+<!-- Извращения с выбором даты, однако -->                
+
+  			</div>
+  		</div>
+  		<div class="form-group row">
+    		<%= f.submit "Сохранить", :class => "btn btn-primary"%>
+  		</div>  
+  	</div>	
+<% end %> 
+</div>

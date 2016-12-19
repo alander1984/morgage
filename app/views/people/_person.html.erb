@@ -1,0 +1,13 @@
+<tr id="personRowID<%= person.id %>">
+      <td><%= person.id %></td>
+      <td><%= person.name %></td>
+      <td><%= person.sname %></td>
+      <td><%= person.tname %></td>
+      <td><%= person.doc_serie %> <%= person.doc_number %></td>
+      <td><%= person.birthday.blank? ? '' : person.birthday.strftime('%d.%m.%Y') %></td>
+	<td><%= link_to 'Карточка', person %></td>
+      <td><%= link_to 'Редактировать', edit_person_path(person) %></td>
+      <td><%= link_to 'Удалить', person, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+</tr>
+
+<!-- rails generate scaffold Request isborrower:boolean iscoborrower:boolean coborroweerRelation:string ismortgagor:boolean bName:string bSName:string bLName:string amount:integer months:integer firstAmount:integer source_accumulation:boolean source_sell:boolean source_help:boolean source_otherCredit:boolean source_other:string target:integer estate_deposit_new:boolean estate_deposit_old:boolean estate_deposit_amount:integer region:string military:boolean mat_cap:boolean many_children:boolean russian_family:boolean aizhk_estate:boolean apartament:boolean salary_cred_form:boolean floatRate:boolean insurance:boolean seniorityyears:integer senioritymonths:integer emplFixedRecr:boolean emplFloatRecr:boolean emplIP:boolean emplCEO:boolean emplPensioner:boolean emplNone:boolean emplOther:boolean emplOtherText:string mainWorkYears:integer mainWorkMonths:integer mainWorkPosition:string mainWorkPosCategoryOwner:boolean mainWorkPosCategoryGeneral:boolean mainWorkPosCategoryDepManager:boolean mainWorkPosCategoryOther:boolean mainWorkAmount:integer sWorkYears:integer sWorkMonths:integer sWorkPosition:string sWorkPosCategoryOwner:boolean sWorkPosCategoryGeneral:boolean sWorkPosCategoryDepManager:boolean sWorkPosCategoryOther:boolean sWorkAmount:integer otherIncomePension:boolean otherIncomeLease:boolean otherIncomeOther:boolean otherIncomeOtherText:boolean otherIncomeAmount:integer expenseAlimony:boolean expenseAlimonyAmount:boolean expenseCredit:boolean estFlat:boolean estFlatPart:integer estRoom:boolean estRoomPart:integer estHouse:boolean estHousePart:integer estOther:booelan estOtherTest:string estOtherPart:integer estRegion:string estCity:string estPrice:integer carMake:string carModel carYear:integer carPledge:boolean carPrice:integer conviction:boolean founder:boolean taxArrears:boolean otherCreditRequests:boolean bunkrupt:boolean waitForChild:boolean -->

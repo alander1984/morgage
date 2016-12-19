@@ -1,0 +1,197 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Isborrower</th>
+      <th>Iscoborrower</th>
+      <th>Coborroweerrelation</th>
+      <th>Ismortgagor</th>
+      <th>Bname</th>
+      <th>Bsname</th>
+      <th>Blname</th>
+      <th>Amount</th>
+      <th>Months</th>
+      <th>Firstamount</th>
+      <th>Source accumulation</th>
+      <th>Source sell</th>
+      <th>Source help</th>
+      <th>Source othercredit</th>
+      <th>Source other</th>
+      <th>Target</th>
+      <th>Estate deposit new</th>
+      <th>Estate deposit old</th>
+      <th>Estate deposit amount</th>
+      <th>Region</th>
+      <th>Military</th>
+      <th>Mat cap</th>
+      <th>Many children</th>
+      <th>Russian family</th>
+      <th>Aizhk estate</th>
+      <th>Apartament</th>
+      <th>Salary cred form</th>
+      <th>Floatrate</th>
+      <th>Insurance</th>
+      <th>Seniorityyears</th>
+      <th>Senioritymonths</th>
+      <th>Emplfixedrecr</th>
+      <th>Emplfloatrecr</th>
+      <th>Emplip</th>
+      <th>Emplceo</th>
+      <th>Emplpensioner</th>
+      <th>Emplnone</th>
+      <th>Emplother</th>
+      <th>Emplothertext</th>
+      <th>Mainworkyears</th>
+      <th>Mainworkmonths</th>
+      <th>Mainworkposition</th>
+      <th>Mainworkposcategoryowner</th>
+      <th>Mainworkposcategorygeneral</th>
+      <th>Mainworkposcategorydepmanager</th>
+      <th>Mainworkposcategoryother</th>
+      <th>Mainworkamount</th>
+      <th>Sworkyears</th>
+      <th>Sworkmonths</th>
+      <th>Sworkposition</th>
+      <th>Sworkposcategoryowner</th>
+      <th>Sworkposcategorygeneral</th>
+      <th>Sworkposcategorydepmanager</th>
+      <th>Sworkposcategoryother</th>
+      <th>Sworkamount</th>
+      <th>Otherincomepension</th>
+      <th>Otherincomelease</th>
+      <th>Otherincomeother</th>
+      <th>Otherincomeothertext</th>
+      <th>Otherincomeamount</th>
+      <th>Expensealimony</th>
+      <th>Expensealimonyamount</th>
+      <th>Expensecredit</th>
+      <th>Estflat</th>
+      <th>Estflatpart</th>
+      <th>Estroom</th>
+      <th>Estroompart</th>
+      <th>Esthouse</th>
+      <th>Esthousepart</th>
+      <th>Estother</th>
+      <th>Estothertest</th>
+      <th>Estotherpart</th>
+      <th>Estregion</th>
+      <th>Estcity</th>
+      <th>Estprice</th>
+      <th>Carmake</th>
+      <th>Carmodel</th>
+      <th>Caryear</th>
+      <th>Carpledge</th>
+      <th>Carprice</th>
+      <th>Conviction</th>
+      <th>Founder</th>
+      <th>Taxarrears</th>
+      <th>Othercreditrequests</th>
+      <th>Bunkrupt</th>
+      <th>Waitforchild</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.isborrower %></td>
+        <td><%= request.iscoborrower %></td>
+        <td><%= request.coborroweerRelation %></td>
+        <td><%= request.ismortgagor %></td>
+        <td><%= request.bName %></td>
+        <td><%= request.bSName %></td>
+        <td><%= request.bLName %></td>
+        <td><%= request.amount %></td>
+        <td><%= request.months %></td>
+        <td><%= request.firstAmount %></td>
+        <td><%= request.source_accumulation %></td>
+        <td><%= request.source_sell %></td>
+        <td><%= request.source_help %></td>
+        <td><%= request.source_otherCredit %></td>
+        <td><%= request.source_other %></td>
+        <td><%= request.target %></td>
+        <td><%= request.estate_deposit_new %></td>
+        <td><%= request.estate_deposit_old %></td>
+        <td><%= request.estate_deposit_amount %></td>
+        <td><%= request.region %></td>
+        <td><%= request.military %></td>
+        <td><%= request.mat_cap %></td>
+        <td><%= request.many_children %></td>
+        <td><%= request.russian_family %></td>
+        <td><%= request.aizhk_estate %></td>
+        <td><%= request.apartament %></td>
+        <td><%= request.salary_cred_form %></td>
+        <td><%= request.floatRate %></td>
+        <td><%= request.insurance %></td>
+        <td><%= request.seniorityyears %></td>
+        <td><%= request.senioritymonths %></td>
+        <td><%= request.emplFixedRecr %></td>
+        <td><%= request.emplFloatRecr %></td>
+        <td><%= request.emplIP %></td>
+        <td><%= request.emplCEO %></td>
+        <td><%= request.emplPensioner %></td>
+        <td><%= request.emplNone %></td>
+        <td><%= request.emplOther %></td>
+        <td><%= request.emplOtherText %></td>
+        <td><%= request.mainWorkYears %></td>
+        <td><%= request.mainWorkMonths %></td>
+        <td><%= request.mainWorkPosition %></td>
+        <td><%= request.mainWorkPosCategoryOwner %></td>
+        <td><%= request.mainWorkPosCategoryGeneral %></td>
+        <td><%= request.mainWorkPosCategoryDepManager %></td>
+        <td><%= request.mainWorkPosCategoryOther %></td>
+        <td><%= request.mainWorkAmount %></td>
+        <td><%= request.sWorkYears %></td>
+        <td><%= request.sWorkMonths %></td>
+        <td><%= request.sWorkPosition %></td>
+        <td><%= request.sWorkPosCategoryOwner %></td>
+        <td><%= request.sWorkPosCategoryGeneral %></td>
+        <td><%= request.sWorkPosCategoryDepManager %></td>
+        <td><%= request.sWorkPosCategoryOther %></td>
+        <td><%= request.sWorkAmount %></td>
+        <td><%= request.otherIncomePension %></td>
+        <td><%= request.otherIncomeLease %></td>
+        <td><%= request.otherIncomeOther %></td>
+        <td><%= request.otherIncomeOtherText %></td>
+        <td><%= request.otherIncomeAmount %></td>
+        <td><%= request.expenseAlimony %></td>
+        <td><%= request.expenseAlimonyAmount %></td>
+        <td><%= request.expenseCredit %></td>
+        <td><%= request.estFlat %></td>
+        <td><%= request.estFlatPart %></td>
+        <td><%= request.estRoom %></td>
+        <td><%= request.estRoomPart %></td>
+        <td><%= request.estHouse %></td>
+        <td><%= request.estHousePart %></td>
+        <td><%= request.estOther %></td>
+        <td><%= request.estOtherTest %></td>
+        <td><%= request.estOtherPart %></td>
+        <td><%= request.estRegion %></td>
+        <td><%= request.estCity %></td>
+        <td><%= request.estPrice %></td>
+        <td><%= request.carMake %></td>
+        <td><%= request.carModel %></td>
+        <td><%= request.carYear %></td>
+        <td><%= request.carPledge %></td>
+        <td><%= request.carPrice %></td>
+        <td><%= request.conviction %></td>
+        <td><%= request.founder %></td>
+        <td><%= request.taxArrears %></td>
+        <td><%= request.otherCreditRequests %></td>
+        <td><%= request.bunkrupt %></td>
+        <td><%= request.waitForChild %></td>
+        <td><%= link_to 'Show', request %></td>
+        <td><%= link_to 'Edit', edit_request_path(request) %></td>
+        <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Request', new_request_path %>

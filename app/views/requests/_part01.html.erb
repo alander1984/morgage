@@ -1,0 +1,32 @@
+ <h3>1. Роль Заявителя в предполагаемой сделке</h3>
+  <table class="table">
+    <tr>
+      <td rowspan=4 style="width:300px;vertical-align:top">Роль в предполагаемой сделке<br>Отметка галочкой в поле (одна или несколько)</td>
+      <td>
+        <label class="checkbox-inline">
+          <%= f.check_box :isborrower, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }  %>Заемщик (основной Заемщик)
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label class="checkbox-inline"> <%= f.check_box :iscoborrower, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Созаемщик, родственная связь по отношению к основному заемщику (при наличии)
+        </label>
+      </td>
+    </tr>  
+    <tr><td style="padding-left:70px">
+          <div class="col-sm-12">
+            <%= f.text_field :coborroweerRelation,  :class=>"form-control" %>
+          </div>
+    </td></tr>
+    <tr><td>
+        <label class="checkbox-inline"> <%= f.check_box :ismortgagor, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Залогодатель (планируемый владелец приобретаемой недвижимости или владелец закладываемой недвижимости)
+        </label>
+    </td></tr>
+    <tr><td rowspan="3" style="vertical-align:top">Фамилия Имя Отчество
+основного Заемщика</td>
+        <td><div class="col-sm-12"><%= f.text_field :bName,  :class=>"form-control"%></div></td>
+    </tr>
+    <tr><td><div class="col-sm-12"><%= f.text_field :bSName,  :class=>"form-control"%></div></td></tr>
+    <tr><td><div class="col-sm-12"><%= f.text_field :bLName,  :class=>"form-control"%></div></td></tr>
+  </table>
