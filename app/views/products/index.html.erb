@@ -1,43 +1,14 @@
 <p id="notice"><%= notice %></p>
+<div class="the__content">
+  <h1>Ипотечные продукты и опции</h1>
 
-<h1>Listing Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Audience</th>
-      <th>Target</th>
-      <th>Months</th>
-      <th>Samount</th>
-      <th>Pledge</th>
-      <th>Insurance</th>
-      <th>Cpcoeff</th>
-      <th>Rule</th>
-      <th>Percent</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <h2>Действующие</h2>
     <% @products.each do |product| %>
-      <tr>
-        <td><%= product.audience %></td>
-        <td><%= product.target %></td>
-        <td><%= product.months %></td>
-        <td><%= product.sAmount %></td>
-        <td><%= product.pledge %></td>
-        <td><%= product.insurance %></td>
-        <td><%= product.cpCoeff %></td>
-        <td><%= product.rule %></td>
-        <td><%= product.percent %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <p><strong><%= link_to product.name, edit_product_path(product) %></strong></p>
+      <ul><li><%= product.note %>
+      </li></ul>
     <% end %>
-  </tbody>
-</table>
-
+</div>
 <br>
 
 <%= link_to 'New Product', new_product_path %>

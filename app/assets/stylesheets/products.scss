@@ -1,3 +1,436 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.passport tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.passport.passport_old thead > tr > th:first-child,
+.passport.passport_old tbody > tr > td:first-child {
+  background-color: #ACB5B9 !important;
+}
+.passport thead th {
+  border-top: none !important;
+  border-bottom: none !important;
+  font-size: 1.7rem;
+  letter-spacing: 0.012em;
+  font-weight: 300;
+  min-height: 2.55rem;
+}
+.passport thead th:first-child {
+  background-color: #8bc540;
+  color: #ffffff;
+}
+.passport thead th:first-child div {
+  padding-left: 1rem;
+}
+.passport thead th:last-child div {
+  padding-left: 1.75rem;
+}
+.passport thead th div {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+
+}
+
+.passport tbody tr {
+  vertical-align: middle;
+  min-height: 2.55rem;
+}
+.passport tbody tr td {
+  font-size: 1.4rem;
+  border-top: none        !important;
+  border-bottom: none     !important;
+  vertical-align: middle;
+}
+.passport tbody tr td p {
+  font-size: inherit !important;
+  letter-spacing: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
+  padding-bottom: 0.4rem;
+}
+.passport tbody tr td div {
+  position: relative;
+  max-width: 90%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.passport tbody tr td:first-child {
+  width: 30%;
+  background-color: #8bc540;
+  color: #ffffff;
+}
+.passport tbody tr td:first-child div {
+  padding-left: 1rem;
+}
+.passport tbody tr td:first-child * {
+  color: #ffffff;
+}
+.passport tbody tr td:last-child div {
+  padding-left: 1.75rem;
+}
+.passport tbody tr:nth-child(odd) td {
+  background: #F3F3F3;
+}
+.passport tbody tr:nth-child(odd) td:first-child {
+  background: #8bc540;
+}
+
+.the__content {
+  padding: 0 3rem 6rem;
+}
+.the__content .destroy_grid {
+  margin-right: -5rem;
+}
+.the__content p .lead {
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+}
+.the__content p a {
+  font-weight: 400;
+  text-decoration: none;
+  color: #8bc540;
+}
+
+::-webkit-selection {
+  background-color: #8bc540;
+  color: #ffffff;
+}
+::-moz-selection {
+  background-color: #8bc540;
+  color: #ffffff;
+}
+::selection {
+  background-color: #8bc540;
+  color: #ffffff;
+}
+
+.the__content p a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+  outline: none;
+  color: #A3D167;
+  background: none;
+}
+
+.tag {
+  font-weight: 500;
+  color: #8bc540;
+  text-transform: uppercase;
+  font-size: .7rem;
+  background: transparent;
+  display: inline-block;
+  margin-right: 0.4rem;
+  line-height: 1;
+  letter-spacing: 0.02rem;
+  padding: 0;
+}
+.tag a {
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.tag a:hover {
+  text-decoration: none;
+}
+.tag + span,
+.tag + time {
+  font-size: 0.7rem;
+  color: #838F95;
+  letter-spacing: 0.2px;
+  line-height: 1rem;
+  margin-bottom: 0.6rem;
+  display: inline-block;
+}
+.the__content p + ul {
+  margin-top: 0.9rem;
+}
+.the__content .personal .personal-block {
+  margin-bottom: 1rem;
+  display: table;
+  width: 100%;
+  vertical-align: middle;
+}
+.the__content .personal .round-img {
+  display: table-cell;
+  width: 3.7rem;
+}
+.the__content .personal .round-img img {
+  width: 3.7rem;
+  margin: 0;
+}
+.the__content .personal .personal-description {
+  display: table-cell;
+  padding-left: 0.9rem;
+  vertical-align: middle;
+}
+.the__content .personal .personal-description h4 {
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+}
+.the__content .personal .personal-description p {
+  font-size: 0.65rem;
+}
+.the__content img {
+  position: relative;
+  margin-bottom: 0.9rem;
+}
+.the__content .switcher .switcher_item {
+  width: 50%;
+  font-size: 0.7rem;
+  line-height: normal!important;
+  vertical-align: middle;
+}
+.the__content .big img {
+  max-width: 38.4rem !important;
+  width: 100%;
+  max-height: 21.2rem !important;
+  position: relative;
+}
+.the__content ul.contacts {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+.the__content ul.contacts li {
+  margin-bottom: 0.7rem;
+  margin-left: 0 !important;
+  padding-left: 4rem !important;
+  font-size: 1.4rem;
+}
+.the__content ul.contacts li:before {
+  display: none;
+}
+.the__content ul.contacts li.primary:before {
+  content: url(../img/telHome_icon.png);
+  display: block;
+  position: relative;
+  top: 0 !important;
+  background: transparent;
+  margin-top: -0.8rem;
+  margin-left: -4rem;
+}
+.the__content ul.contacts li.fax {
+  margin-top: 1.6rem;
+}
+.the__content ul.contacts li.fax:before {
+  content: url(../img/fax_icon.png);
+  background: transparent;
+  position: relative;
+  margin-top: -0.8rem;
+  margin-left: -4rem;
+  display: table-cell;
+  float: left;
+  vertical-align: middle;
+}
+.the__content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 1.6rem;
+}
+.the__content ul li {
+  padding-left: 1.3rem;
+  position: relative;
+  margin-bottom: 0.6rem;
+}
+.the__content ul li span {
+  display: block;
+  font-size: 0.7rem;
+}
+.the__content ul li:not(small) {
+  font-family: DINPro, Tahoma, serif;
+  font-size: 1.5rem;
+  color: #2F444E;
+  letter-spacing: -0.01px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+.the__content ul li.house {
+  padding-left: 1.8rem !important;
+}
+.the__content ul li.house:before {
+  content: url(../img/building_icon.png);
+}
+.the__content ul li.ruble {
+  padding-left: 1.8rem !important;
+}
+.the__content ul li.ruble:before {
+  content: url(../img/ruble_icon.png);
+  top: -0.5rem;
+}
+.the__content ul li.analytics {
+  padding-left: 1.8rem !important;
+}
+.the__content ul li.analytics:before {
+  content: url(../img/graph_icon.png);
+  top: -0.5rem;
+}
+.the__content ul li.growth {
+  padding-left: 1.8rem !important;
+}
+.the__content ul li.growth:before {
+  content: url(../img/growth.png);
+  top: -0.5rem;
+}
+.the__content ul li.document {
+  padding-left: 1.8rem !important;
+}
+.the__content ul li.document a {
+  color: #2F444E;
+}
+.the__content ul li.document a:hover {
+  color: #8bc540;
+}
+.the__content ul li.document:before {
+  content: url(../img/doc_icon.png);
+  top: -0.5rem;
+}
+.the__content ul li.family {
+  padding-left: 2.5rem !important;
+}
+.the__content ul li.family:before {
+  content: url(../img/family.png);
+  top: -0.5rem;
+}
+.the__content ul li.veteran {
+  padding-left: 2.5rem !important;
+}
+.the__content ul li.veteran:before {
+  content: url(../img/veteran.png);
+  top: -0.5rem;
+}
+.the__content ul li.special {
+  padding-left: 2.5rem !important;
+}
+.the__content ul li.special:before {
+  content: url(../img/special.png);
+  top: -0.5rem;
+}
+.the__content ul li.geo {
+  padding-left: 1rem !important;
+}
+.the__content ul li.geo a {
+  color: #8bc540;
+  font-weight: 500;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+.the__content ul li.geo:before {
+  content: url(../img/geo_icon.png);
+  margin-top: 0;
+  background: transparent;
+  height: auto;
+  width: auto;
+}
+strong {
+  
+  font-size: 1.7rem;
+  color: #2F444E;
+  letter-spacing: -0.01px;
+  font-weight: 500;
+}
+
+.the__content ul li strong {
+  font-weight: 500;
+}
+.the__content ul li.small {
+  font-family: DINPro, Tahoma, serif;
+  font-size: 0.9rem;
+  color: #2F444E;
+  letter-spacing: -0.01px;
+  font-weight: normal;
+}
+.the__content ul li:before {
+  content: '';
+  position: absolute;
+  left: 0rem;
+  margin-top: 0.4rem;
+  width: 5px;
+  height: 5px;
+  background-color: rgba(46, 68, 78, 0.7);
+}
+.the__content article,
+.the__content .article {
+  margin-bottom: 3rem;
+}
+.the__content article.no_title,
+.the__content .article.no_title {
+  padding-top: 3.65rem;
+}
+.the__content article.passport-lead h1,
+.the__content .article.passport-lead h1,
+.the__content article.passport-lead h2,
+.the__content .article.passport-lead h2,
+.the__content article.passport-lead h3,
+.the__content .article.passport-lead h3,
+.the__content article.passport-lead h4,
+.the__content .article.passport-lead h4 {
+  margin-bottom: 0.4rem;
+}
+.the__content article.passport-lead small,
+.the__content .article.passport-lead small {
+  margin-top: 0;
+  padding-top: 0;
+  color: #838F95;
+  font-size: .7rem;
+  -webkit-transition: all 350ms ease;
+  -o-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+.the__content article.passport-lead small:hover,
+.the__content .article.passport-lead small:hover {
+  color: #2F444E;
+}
+.the__content article.passport-lead small a,
+.the__content .article.passport-lead small a {
+  color: #BADD8D;
+  cursor: pointer;
+}
+.the__content article.passport-lead small a:hover,
+.the__content .article.passport-lead small a:hover {
+  color: #8bc540;
+}
+.the__content .mortgage-calc .form-group {
+  margin-bottom: 0.9rem;
+}
+.the__content .mortgage-calc label {
+  margin: 0;
+  font-size: 0.8rem;
+  font-family: 'DINPro Regular';
+  font-weight: normal;
+}
+.the__content .press-center-block {
+  margin: 0 -3rem;
+  padding: 3.6rem 3rem 0;
+  background-color: rgba(46, 68, 78, 0.05);
+  margin-bottom: -6rem;
+}
+.the__content .press-center-block p {
+  font-size: 0.7rem;
+  color: #596A72;
+  letter-spacing: -0.01px;
+  line-height: 20px;
+  margin-bottom: 0.5rem;
+}
+.the__content .press-center-block p.news-date {
+  color: #838F95;
+  letter-spacing: -0.01px;
+}
+.the__content .result-table {
+  width: 100%;
+}
+.the__content .result-table th,
+.the__content .result-table td {
+  padding: 0.6rem 1.2rem 0.6rem 0;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+.the__content .forms-help-btn {
+  -webkit-box-shadow: rgba(139, 197, 64, 0.4) 0px 5px 17px;
+     -moz-box-shadow: rgba(139, 197, 64, 0.4) 0px 5px 17px;
+          box-shadow: rgba(139, 197, 64, 0.4) 0px 5px 17px;
+}

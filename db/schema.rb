@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220071905) do
+ActiveRecord::Schema.define(version: 20161220140000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20161220071905) do
     t.string   "rule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "NPA"
+    t.datetime "startdate"
   end
 
   create_table "people", force: :cascade do |t|
@@ -42,7 +45,6 @@ ActiveRecord::Schema.define(version: 20161220071905) do
   create_table "products", force: :cascade do |t|
     t.string   "audience"
     t.string   "target"
-    t.integer  "months"
     t.string   "sAmount"
     t.string   "pledge"
     t.string   "insurance"
@@ -51,6 +53,12 @@ ActiveRecord::Schema.define(version: 20161220071905) do
     t.string   "percent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "NPA"
+    t.datetime "startdate"
+    t.string   "months"
+    t.string   "note"
+    t.boolean  "isArchive"
   end
 
   create_table "requests", force: :cascade do |t|

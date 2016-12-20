@@ -11,43 +11,109 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :audience %><br>
-    <%= f.text_field :audience %>
+  <div class="form-group row">
+    <label class="col-sm-2 form-control-label">Название продукта</label>
+    <div class="col-sm-5"><%= f.text_field :name,  :class=>"form-control" %></div>
+    <label class="checkbox-inline">
+          <%= f.check_box :isArchive, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }  %>Архивный
+        </label>
   </div>
-  <div class="field">
-    <%= f.label :target %><br>
-    <%= f.text_field :target %>
+  <div class="form-group row">
+    <label class="col-sm-2 form-control-label">Краткое описание</label>
+          <div class="col-sm-5"><%= f.text_area :note,  :class=>"form-control" %></div>
   </div>
-  <div class="field">
-    <%= f.label :months %><br>
-    <%= f.number_field :months %>
+  <div class="form-group row">
+    <label class="col-sm-1 form-control-label">Утвержден</label>
+          <div class="col-sm-3"><%= f.text_field :NPA,  :class=>"form-control" %></div>
+    <label class="col-sm-1 form-control-label">Действует с:</label>
+          <div class="col-sm-2">
+          <!-- Извращения с выбором даты, однако -->                
+             <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                              <%= f.text_field :startdate, :class => "form-control datepicker", :placeholder => "DD.MM.YYYY", :value =>(@product.startdate.blank? ? '' : @product.startdate.strftime('%d.%m.%Y')) %> 
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <!--это для нажатия по иконке -->
+             <script type="text/javascript">
+                 $(function () {
+                  $.fn.datepicker.defaults.format = "dd.mm.yyyy";
+                     $('#datetimepicker1').datepicker();
+                 });
+              </script>
+              <!--это для нажатия по полю ввода -->
+              <script type="text/javascript">
+                 $(document).ready(function(){
+                  $.fn.datepicker.defaults.format = "dd.mm.yyyy";
+                     $('.datepicker').datepicker();
+                 });
+              </script>
+<!-- Извращения с выбором даты, однако -->   
+          </div>
   </div>
-  <div class="field">
-    <%= f.label :sAmount %><br>
-    <%= f.text_field :sAmount %>
-  </div>
-  <div class="field">
-    <%= f.label :pledge %><br>
-    <%= f.text_field :pledge %>
-  </div>
-  <div class="field">
-    <%= f.label :insurance %><br>
-    <%= f.text_field :insurance %>
-  </div>
-  <div class="field">
-    <%= f.label :cpCoeff %><br>
-    <%= f.text_field :cpCoeff %>
-  </div>
-  <div class="field">
-    <%= f.label :rule %><br>
-    <%= f.text_field :rule %>
-  </div>
-  <div class="field">
-    <%= f.label :percent %><br>
-    <%= f.text_field :percent %>
-  </div>
+
+  <table class="table-responsive table passport">
+    <thead>
+      <tr>
+       <th>
+         <div><b>Параметр</b></div>
+       </th>
+       <th>
+         <div><b>Описание</b></div>
+       </th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td><div>Целевая аудитория</div></td>
+        <td><div><%= f.text_area :audience, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Совместимость с ипотечными опциями</div></td>
+        <td><div>ТУТ БУДЕТ ХИТРЫЙ КУСОК</div></td>
+      </tr>  
+      <tr>
+        <td><div>Цель кредита (займа)</div></td>
+        <td><div><%= f.text_area :target, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Срок кредита (займа)</div></td>
+        <td><div><%= f.text_area :months, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Сумма кредита (займа)</div></td>
+        <td><div><%= f.text_area :sAmount, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Залоговое обеспечение</div></td>
+        <td><div><%= f.text_area :pledge, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Страховое обеспечение</div></td>
+        <td><div><%= f.text_area :insurance, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Коэффициент К/З (кредит/залог)
+</div></td>
+        <td><div><%= f.text_area :cpCoeff, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Порядок предоставления кредита (займа)</div></td>
+        <td><div><%= f.text_area :rule, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Процентная ставка и порядок погашения кредита (займа)</div></td>
+        <td><div><%= f.text_area :percent, :class=>"form-control" %></div></td>
+      </tr>  
+
+    </tbody>  
+  </table>
+
+  
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Сохранить", :class => "btn btn-primary"%>
   </div>
 <% end %>
