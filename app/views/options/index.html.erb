@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Options</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Target</th>
+      <th>Borrower</th>
+      <th>Mortgagor</th>
+      <th>Samount</th>
+      <th>Cpcoeff</th>
+      <th>Percent</th>
+      <th>Rule</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @options.each do |option| %>
+      <tr>
+        <td><%= option.target %></td>
+        <td><%= option.borrower %></td>
+        <td><%= option.mortgagor %></td>
+        <td><%= option.sAmount %></td>
+        <td><%= option.cpCoeff %></td>
+        <td><%= option.percent %></td>
+        <td><%= option.rule %></td>
+        <td><%= link_to 'Show', option %></td>
+        <td><%= link_to 'Edit', edit_option_path(option) %></td>
+        <td><%= link_to 'Destroy', option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Option', new_option_path %>

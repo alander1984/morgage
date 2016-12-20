@@ -1,0 +1,45 @@
+<%= form_for(@option) do |f| %>
+  <% if @option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@option.errors.count, "error") %> prohibited this option from being saved:</h2>
+
+      <ul>
+      <% @option.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :target %><br>
+    <%= f.text_field :target %>
+  </div>
+  <div class="field">
+    <%= f.label :borrower %><br>
+    <%= f.text_field :borrower %>
+  </div>
+  <div class="field">
+    <%= f.label :mortgagor %><br>
+    <%= f.text_field :mortgagor %>
+  </div>
+  <div class="field">
+    <%= f.label :sAmount %><br>
+    <%= f.text_field :sAmount %>
+  </div>
+  <div class="field">
+    <%= f.label :cpCoeff %><br>
+    <%= f.text_field :cpCoeff %>
+  </div>
+  <div class="field">
+    <%= f.label :percent %><br>
+    <%= f.text_field :percent %>
+  </div>
+  <div class="field">
+    <%= f.label :rule %><br>
+    <%= f.text_field :rule %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

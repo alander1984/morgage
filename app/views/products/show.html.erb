@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Audience:</strong>
+  <%= @product.audience %>
+</p>
+
+<p>
+  <strong>Target:</strong>
+  <%= @product.target %>
+</p>
+
+<p>
+  <strong>Months:</strong>
+  <%= @product.months %>
+</p>
+
+<p>
+  <strong>Samount:</strong>
+  <%= @product.sAmount %>
+</p>
+
+<p>
+  <strong>Pledge:</strong>
+  <%= @product.pledge %>
+</p>
+
+<p>
+  <strong>Insurance:</strong>
+  <%= @product.insurance %>
+</p>
+
+<p>
+  <strong>Cpcoeff:</strong>
+  <%= @product.cpCoeff %>
+</p>
+
+<p>
+  <strong>Rule:</strong>
+  <%= @product.rule %>
+</p>
+
+<p>
+  <strong>Percent:</strong>
+  <%= @product.percent %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

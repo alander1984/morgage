@@ -1,0 +1,53 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :audience %><br>
+    <%= f.text_field :audience %>
+  </div>
+  <div class="field">
+    <%= f.label :target %><br>
+    <%= f.text_field :target %>
+  </div>
+  <div class="field">
+    <%= f.label :months %><br>
+    <%= f.number_field :months %>
+  </div>
+  <div class="field">
+    <%= f.label :sAmount %><br>
+    <%= f.text_field :sAmount %>
+  </div>
+  <div class="field">
+    <%= f.label :pledge %><br>
+    <%= f.text_field :pledge %>
+  </div>
+  <div class="field">
+    <%= f.label :insurance %><br>
+    <%= f.text_field :insurance %>
+  </div>
+  <div class="field">
+    <%= f.label :cpCoeff %><br>
+    <%= f.text_field :cpCoeff %>
+  </div>
+  <div class="field">
+    <%= f.label :rule %><br>
+    <%= f.text_field :rule %>
+  </div>
+  <div class="field">
+    <%= f.label :percent %><br>
+    <%= f.text_field :percent %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

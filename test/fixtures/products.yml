@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  audience: MyString
+  target: MyString
+  months: 1
+  sAmount: MyString
+  pledge: MyString
+  insurance: MyString
+  cpCoeff: MyString
+  rule: MyString
+  percent: MyString
+
+two:
+  audience: MyString
+  target: MyString
+  months: 1
+  sAmount: MyString
+  pledge: MyString
+  insurance: MyString
+  cpCoeff: MyString
+  rule: MyString
+  percent: MyString

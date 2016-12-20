@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :options
+  resources :options
+  resources :products
+  resources :options
   resources :requests
   resources :people
   root "navigate#start"

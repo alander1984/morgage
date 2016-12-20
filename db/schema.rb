@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161218150756) do
+ActiveRecord::Schema.define(version: 20161220071905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "options", force: :cascade do |t|
+    t.string   "target"
+    t.string   "borrower"
+    t.string   "mortgagor"
+    t.string   "sAmount"
+    t.string   "cpCoeff"
+    t.string   "percent"
+    t.string   "rule"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "people", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,6 +37,20 @@ ActiveRecord::Schema.define(version: 20161218150756) do
     t.string   "doc_serie"
     t.string   "doc_number"
     t.datetime "birthday"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "audience"
+    t.string   "target"
+    t.integer  "months"
+    t.string   "sAmount"
+    t.string   "pledge"
+    t.string   "insurance"
+    t.string   "cpCoeff"
+    t.string   "rule"
+    t.string   "percent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "requests", force: :cascade do |t|
@@ -43,7 +69,6 @@ ActiveRecord::Schema.define(version: 20161218150756) do
     t.boolean  "source_help"
     t.boolean  "source_otherCredit"
     t.string   "source_other"
-    t.integer  "target"
     t.boolean  "estate_deposit_new"
     t.boolean  "estate_deposit_old"
     t.integer  "estate_deposit_amount"
@@ -116,6 +141,9 @@ ActiveRecord::Schema.define(version: 20161218150756) do
     t.boolean  "waitForChild"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.boolean  "targetReadyEstate"
+    t.boolean  "targetBuildingEstate"
+    t.boolean  "targetPreviousCredit"
   end
 
 end

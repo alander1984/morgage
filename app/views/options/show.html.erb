@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Target:</strong>
+  <%= @option.target %>
+</p>
+
+<p>
+  <strong>Borrower:</strong>
+  <%= @option.borrower %>
+</p>
+
+<p>
+  <strong>Mortgagor:</strong>
+  <%= @option.mortgagor %>
+</p>
+
+<p>
+  <strong>Samount:</strong>
+  <%= @option.sAmount %>
+</p>
+
+<p>
+  <strong>Cpcoeff:</strong>
+  <%= @option.cpCoeff %>
+</p>
+
+<p>
+  <strong>Percent:</strong>
+  <%= @option.percent %>
+</p>
+
+<p>
+  <strong>Rule:</strong>
+  <%= @option.rule %>
+</p>
+
+<%= link_to 'Edit', edit_option_path(@option) %> |
+<%= link_to 'Back', options_path %>

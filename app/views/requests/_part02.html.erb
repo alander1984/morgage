@@ -1,19 +1,61 @@
 <h3>2. Параметры запрашиваемого кредита</h3>
-<table class="table">
+<table class="table" border = 0>
     <tr>
-      <td rowspan=4 style="width:300px;vertical-align:top">Сумма кредита</td>
+      <td style="width:300px;vertical-align:top">Сумма кредита</td>
       <td> <div class="form-group row">
-      	<div class="col-sm-6"><%= f.text_field :amount,  :class=>"form-control" %></div>
+      	<div class="col-sm-6"><%= f.number_field :amount,  :class=>"form-control" %></div>
    		<p>рублей</p>
    		</div>
    		</td>
    		<td> <div class="form-group row">
    		 	<label class="col-sm-3 form-control-label">Срок кредита</label>
-      		<div class="col-sm-3"><%= f.text_field :months,  :class=>"form-control" %></div>
+      		<div class="col-sm-3"><%= f.number_field :months,  :class=>"form-control" %></div>
       		<p>месяцев</p>
       	</div>
       	</td>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top">Размер первоначального взноса (сумма собственных средств, плачиваемых при приобретении недвижимости) </td>
+      <td>
+        <div class="form-group row">
+            <div class="col-sm-6"><%= f.number_field :firstAmount,  :class=>"form-control" %>
+        </div>
+        <p>рублей</p>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan=2 style="vertical-align:top">Источник первоначального взноса (Возможны несколько вариантов)</td>
+      <td colspan=2>
+          <label class="checkbox-inline"> <%= f.check_box :source_accumulation, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Накопления</label>
+          <label class="checkbox-inline"> <%= f.check_box :source_sell, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Продажа имущества (собственного, третьих лиц)</label>
+          <label class="checkbox-inline"> <%= f.check_box :source_otherCredit, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Иной кредит (заем)</label>
+      </td>
+    </tr>
+    <tr>
+      <td>   
+          <label class="checkbox-inline"> <%= f.check_box :source_help, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Субсидия/материнский (семейный) капитал</label>
+      </td>
+      <td>    
+        <div class="form-group row">
 
+          <label class="col-sm-1 form-control-label">Иное</label>
+          <div class="col-sm-8  ">
+            <%= f.text_field :source_other,  :class=>"form-control" %>
+          </div>
+        </div>  
+      </td>
+    </tr>
+    <tr>   
+      <td rowspan="2" style="vertical-align: top;">Цель кредита</td>
+      <td colspan="2">
+          <label class="checkbox-inline"> <%= f.check_box :targetReadyEstate, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Покупка готовой недвижимости</label>
+          <label class="checkbox-inline"> <%= f.check_box :targetBuildingEstate, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Покупка строящейся недвижимости (на этапе строительства)</label>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+          <label class="checkbox-inline"> <%= f.check_box :targetPreviousCredit, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Погашение имеющегося ипотечного кредита (отразите информацию о предыдущем кредите в разделе "Информация о кредите/займе")</label>
       </td>
     </tr>
 </table>      
