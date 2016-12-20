@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @active_products = Product.where('"isArchive"<>true');
+    @archive_products = Product.where('"isArchive"=true');
   end
 
   # GET /products/1
@@ -19,6 +20,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+
   end
 
   # POST /products
@@ -28,7 +30,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: 'Продукт успешно создан.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -40,9 +42,14 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    if @product.isArchive=true
+      @product.enddate=Date.today;
+    else
+      @product.enddate=nil;
+    end  
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @product, notice: 'Продукт успешно изменен.' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -56,7 +63,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: 'Продукт успешно удален.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +76,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:audience, :target, :months, :sAmount, :pledge, :insurance, :cpCoeff, :rule, :percent, :name, :NPA, :startdate, :note, :isArchive)
+      params.require(:product).permit(:audience, :target, :months, :sAmount, :pledge, :insurance, :cpCoeff, :rule, :percent, :name, :NPA, :startdate, :note, :isArchive, :enddate)
     end
 end

@@ -1,14 +1,29 @@
-<p id="notice"><%= notice %></p>
 <div class="the__content">
-  <h1>Ипотечные продукты и опции</h1>
+  <h1>Ипотечные продукты и опции <%= link_to new_product_path, class: "btn btn-default" do %><i class="glyphicon glyphicon-plus-sign"></i><% end %>
 
   <h2>Действующие</h2>
-    <% @products.each do |product| %>
+    <% @active_products.each do |product| %>
       <p><strong><%= link_to product.name, edit_product_path(product) %></strong></p>
-      <ul><li><%= product.note %>
-      </li></ul>
+      <% if product.note? %>
+      	<ul><li><%= product.note %>
+      	</li></ul>
+      <% end %>	
     <% end %>
+  <div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="transparentLink" data-toggle="collapse" href="#collapse1">Архив</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <% @archive_products.each do |product| %>
+    	  <p><strong><%= link_to product.name, edit_product_path(product) %></strong></p>
+      		до <%= product.enddate.strftime('%d.%m.%Y') %>
+    	<% end %>
+      </div>
+    </div>
+  </div>
+</div>  
 </div>
-<br>
-
-<%= link_to 'New Product', new_product_path %>
