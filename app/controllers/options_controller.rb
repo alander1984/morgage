@@ -15,6 +15,10 @@ class OptionsController < ApplicationController
   # GET /options/new
   def new
     @option = Option.new
+    @active_products = Product.where('"isArchive"<>true or "isArchive" is null');
+    @archive_products = Product.where('"isArchive"=true');
+    @active_options = Option.where('"isArchive"<>true or "isArchive" is null');
+    @archive_options = Option.where('"isArchive"=true');
   end
 
   # GET /options/1/edit

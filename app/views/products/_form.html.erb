@@ -12,12 +12,11 @@
   <% end %>
 
 <script type="text/javascript" language="javascript">
-function call() {
-
+function callAddButton() {
   var vals= $('#frmAddOption').serialize();
   $.ajax({
         type: "GET",
-        url: '/products/1/addOption', //sumbits it to the given url of the form
+        url: '/products/'+<%= @product.id %>+'/addOption/'+$('#option_id').val(), //sumbits it to the given url of the form
         data: vals,
         dataType: "script" // you want a difference between normal and ajax-calls, and json is standard
     }).success(function(script){
@@ -94,18 +93,12 @@ function call() {
           <div id="optDiv">
             <%= render(:partial => 'optionList',:locals => {:p => @product}) %>
           </div>
-          <!--<form action="/products/<%= @product.id %>/addOption" data-remote="true" method="get" id="optionsForm">-->
-           <%= form_for( '#', :method => :get, remote: true ) do |f1|%>
-              <a href="#" onclick="$.ajax({type: 'GET',url: '/products/action/sendAddOptionForm', dataType: 'script'});">Послать</a>
-           <% end %>
-          <%= form_tag(  '/products/'+@product.id.to_s+'/addOption', method: 'get', remote: true, 
-                            id: 'frmAddOption', onsubmit: "alert('1')") do %>
-
+          <%= form_tag('#', method: 'get', remote: true, id: 'frmAddOption') do %>
             <div class="col-md-8" id='listAvalOptions'>
               <%= collection_select(:option, :id,  @active_options, :id,:name, {},{:class => 'form-control optionSelect'}) %>
             </div>  
             <div class="col-md-2">
-              <button id="btnAddOption2" class="btn btn-primary" onclick="call();" type="button">Добавить</button>
+              <button id="btnAddOption" class="btn btn-primary" onclick="callAddButton();" type="button">Добавить</button>
             </div>
           <% end %>
         </td>

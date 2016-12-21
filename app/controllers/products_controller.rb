@@ -73,12 +73,12 @@ class ProductsController < ApplicationController
   end
 
   def addOption
-      #@opId = params['option']['id'];
-      #@product.options << Option.find(@opId);
-      #@product.save;
-      #respond_to do |format|
-      #  format.js
-      #end  
+      @opId = params['opId'];
+      @product.options << Option.find(@opId);
+      @product.save;
+      respond_to do |format|
+        format.js
+      end  
   end
 
   def removeOption

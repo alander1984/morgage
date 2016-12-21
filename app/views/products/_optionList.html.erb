@@ -1,8 +1,22 @@
+<script type="text/javascript" language="javascript">
+function callRemoveButton(url) {
+  $.ajax({
+        type: "GET",
+        url: url, 
+        dataType: "script" 
+    }).success(function(script){
+        console.log("success", script);
+    });
+      return false;
+    };
+
+</script>
 <ol>
 <% p.options.each do |option| %>
- 	<li><%= option.name %> <%= link_to 'removeOption/'+option.id.to_s,  method: :get, confirm: 'Удалить опцию?', class: 'link-delete', 'data-message' => 'Вы уверены?', 'data-severity' => 'danger', :remote => true do %>
-  		<i class="glyphicon glyphicon-trash"></i>
-	<% end %></li>
+ 	<li><%= option.name %> |
+        <button id="btnRemoveOption" class="btn btn-default" onclick="callRemoveButton('removeOption/<%= option.id %> ');" type="button"><i class="glyphicon glyphicon-trash"></i></button>
+
+	</li>
  <% end %>
  </ol>
  

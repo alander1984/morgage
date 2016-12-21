@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   resources :people
   root "navigate#start"
 
-  get '/products/:id/addOption' => 'products#addOption'
+  get '/products/:id/addOption/:opId' => 'products#addOption'
   get '/products/:id/removeOption/:opId' => 'products#removeOption'
-  get '/options/:id/addProduct' => 'options#addProduct'
+  get '/options/:id/addProduct/:prId' => 'options#addProduct'
   get '/options/:id/removeProduct/:prId' => 'options#removeProduct'
   get 'products/action/sendAddOptionForm' => 'products#sendAddOptionForm'
 
