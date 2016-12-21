@@ -1,0 +1,8 @@
+<ol>
+<% p.options.each do |option| %>
+ 	<li><%= option.name %> <%= link_to 'removeOption/'+option.id.to_s,  method: :get, confirm: 'Удалить опцию?', class: 'link-delete', 'data-message' => 'Вы уверены?', 'data-severity' => 'danger', :remote => true do %>
+  		<i class="glyphicon glyphicon-trash"></i>
+	<% end %></li>
+ <% end %>
+ </ol>
+ 

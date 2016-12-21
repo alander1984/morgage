@@ -1,11 +1,13 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :addOption, :removeOption]
 
   # GET /products
   # GET /products.json
   def index
-    @active_products = Product.where('"isArchive"<>true');
+    @active_products = Product.where('"isArchive"<>true or "isArchive" is null');
     @archive_products = Product.where('"isArchive"=true');
+    @active_options = Option.where('"isArchive"<>true or "isArchive" is null');
+    @archive_options = Option.where('"isArchive"=true');
   end
 
   # GET /products/1
@@ -20,6 +22,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @active_options = Option.where('"isArchive"<>true or "isArchive" is null')-@product.options;
 
   end
 
@@ -67,6 +70,25 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def addOption
+      @opId = params['option']['id'];
+      @product.options << Option.find(@opId);
+      @product.save;
+      respond_to do |format|
+        format.js
+      end  
+  end
+
+  def removeOption
+    @opId=params['opId'];
+    @removedOption = Option.find(params[:opId]);
+    @product.options.delete(@removedOption);
+    @product.save;
+      respond_to do |format|
+        format.js
+      end 
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.

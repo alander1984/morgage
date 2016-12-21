@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :requests
   resources :people
   root "navigate#start"
+
+  get '/products/:id/addOption' => 'products#addOption'
+  get '/products/:id/removeOption/:opId' => 'products#removeOption'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,4 @@
+$('#optDiv').html('<%= j render(:partial => "optionList", :locals => {:p => @product}) %>');
+$("#option_id option[value='"+<%= @opId %>+"']").each(function() {
+    $(this).remove();
+});

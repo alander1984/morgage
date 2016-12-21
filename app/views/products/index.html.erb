@@ -10,6 +10,13 @@
       	</li></ul>
       <% end %>	
     <% end %>
+    <% @active_options.each do |option| %>
+      <p><strong><%= link_to option.name, edit_option_path(option) %></strong></p>
+      <% if option.note? %>
+        <ul><li><%= option.note %>
+        </li></ul>
+      <% end %> 
+    <% end %>
   <div class="panel-group">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -23,6 +30,10 @@
     	  <p><strong><%= link_to product.name, edit_product_path(product) %></strong></p>
       		до <%= product.enddate.strftime('%d.%m.%Y') %>
     	<% end %>
+      <% @archive_options.each do |option| %>
+        <p><strong><%= link_to option.name, edit_option_path(option) %></strong></p>
+          до <%= option.enddate.strftime('%d.%m.%Y') %>
+      <% end %>
       </div>
     </div>
   </div>

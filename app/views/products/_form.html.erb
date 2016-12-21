@@ -14,9 +14,11 @@
   <div class="form-group row">
     <label class="col-md-2 form-control-label">Название продукта</label>
     <div class="col-md-5"><%= f.text_field :name,  :class=>"form-control" %></div>
+    <% if !@product.new_record? %>
     <label class="checkbox-inline">
           <%= f.check_box :isArchive, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }  %>Архивный
         </label>
+    <% end %>    
   </div>
   <div class="form-group row">
     <label class="col-md-2 form-control-label">Краткое описание</label>
@@ -53,7 +55,7 @@
 <!-- Извращения с выбором даты, однако -->   
           </div>
   </div>
-
+  <form></form>
   <table class="table-responsive table passport">
     <thead>
       <tr>
@@ -72,7 +74,19 @@
       </tr>  
       <tr>
         <td><div>Совместимость с ипотечными опциями</div></td>
-        <td><div>ТУТ БУДЕТ ХИТРЫЙ КУСОК</div></td>
+        <td>
+          <div id="optDiv">
+            <%= render(:partial => 'optionList',:locals => {:p => @product}) %>
+          </div>
+          <form action="/products/<%= @product.id %>/addOption" data-remote="true" method="get">
+            <div class="col-md-8" id='listAvalOptions'>
+              <%= collection_select(:option, :id,  @active_options, :id,:name, {},{:class => 'form-control optionSelect'}) %>
+            </div>  
+            <div class="col-md-2">
+              <%= f.submit "Добавить", :class => "btn btn-primary"%>
+            </div>
+          </form>
+        </td>
       </tr>  
       <tr>
         <td><div>Цель кредита (займа)</div></td>

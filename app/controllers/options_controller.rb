@@ -28,7 +28,7 @@ class OptionsController < ApplicationController
 
     respond_to do |format|
       if @option.save
-        format.html { redirect_to @option, notice: 'Option was successfully created.' }
+        format.html { redirect_to products_url, notice: 'Option was successfully created.' }
         format.json { render :show, status: :created, location: @option }
       else
         format.html { render :new }
@@ -40,9 +40,14 @@ class OptionsController < ApplicationController
   # PATCH/PUT /options/1
   # PATCH/PUT /options/1.json
   def update
+    if @option.isArchive=true
+      @option.enddate=Date.today;
+    else
+      @option.enddate=nil;
+    end  
     respond_to do |format|
       if @option.update(option_params)
-        format.html { redirect_to @option, notice: 'Option was successfully updated.' }
+        format.html { redirect_to products_url, notice: 'Option was successfully updated.' }
         format.json { render :show, status: :ok, location: @option }
       else
         format.html { render :edit }
@@ -56,7 +61,7 @@ class OptionsController < ApplicationController
   def destroy
     @option.destroy
     respond_to do |format|
-      format.html { redirect_to options_url, notice: 'Option was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: 'Option was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +74,6 @@ class OptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def option_params
-      params.require(:option).permit(:target, :borrower, :mortgagor, :sAmount, :cpCoeff, :percent, :rule, :name, :NPA, :startdate)
+      params.require(:option).permit(:target, :borrower, :mortgagor, :sAmount, :cpCoeff, :percent, :rule, :name, :NPA, :startdate, :note, :enddate, :isArchive)
     end
 end
