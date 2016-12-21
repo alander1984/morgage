@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   get '/products/:id/addOption' => 'products#addOption'
   get '/products/:id/removeOption/:opId' => 'products#removeOption'
+  get '/options/:id/addProduct' => 'options#addProduct'
+  get '/options/:id/removeProduct/:prId' => 'options#removeProduct'
+  get 'products/action/sendAddOptionForm' => 'products#sendAddOptionForm'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

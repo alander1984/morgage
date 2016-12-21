@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @active_options = Option.where('"isArchive"<>true or "isArchive" is null');
   end
 
   # GET /products/1/edit
@@ -72,12 +73,12 @@ class ProductsController < ApplicationController
   end
 
   def addOption
-      @opId = params['option']['id'];
-      @product.options << Option.find(@opId);
-      @product.save;
-      respond_to do |format|
-        format.js
-      end  
+      #@opId = params['option']['id'];
+      #@product.options << Option.find(@opId);
+      #@product.save;
+      #respond_to do |format|
+      #  format.js
+      #end  
   end
 
   def removeOption
@@ -86,6 +87,12 @@ class ProductsController < ApplicationController
     @product.options.delete(@removedOption);
     @product.save;
       respond_to do |format|
+        format.js
+      end 
+  end  
+
+  def sendAddOptionForm
+    respond_to do |format|
         format.js
       end 
   end  

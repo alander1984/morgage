@@ -17,5 +17,3 @@
 //= require bootstrap-datepicker
 //= require bootstrap-toggle
 //= require_tree .
-
-

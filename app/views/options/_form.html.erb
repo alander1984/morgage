@@ -53,7 +53,7 @@
 <!-- Извращения с выбором даты, однако -->   
           </div>
   </div>
-
+  <form></form>
   <table class="table-responsive table passport">
     <thead>
       <tr>
@@ -69,6 +69,22 @@
       <tr>
         <td><div>Назначение</div></td>
         <td><div><%= f.text_area :target, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Совместимость с ипотечными продуктами и опциями</div></td>
+        <td>
+          <div id="prodDiv">
+            <%= render(:partial => 'productList',:locals => {:o => @option}) %>
+          </div>
+          <form action="/options/<%= @option.id %>/addProduct" data-remote="true" method="get">
+            <div class="col-md-8">
+              <%= collection_select(:product, :id,  @active_products, :id,:name, {},{:class => 'form-control productSelect'}) %>
+            </div>  
+            <div class="col-md-2">
+              <%= f.submit "Добавить", :class => "btn btn-primary"%>
+            </div>
+          </form>
+        </td>
       </tr>  
       <tr>
         <td><div>Состав заемщиков</div></td>

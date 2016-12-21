@@ -1,5 +1,5 @@
 class OptionsController < ApplicationController
-  before_action :set_option, only: [:show, :edit, :update, :destroy]
+  before_action :set_option, only: [:show, :edit, :update, :destroy, :addProduct, :removeProduct]
 
   # GET /options
   # GET /options.json
@@ -19,6 +19,7 @@ class OptionsController < ApplicationController
 
   # GET /options/1/edit
   def edit
+    @active_products = Product.where('"isArchive"<>true or "isArchive" is null')-@option.products;
   end
 
   # POST /options
@@ -28,7 +29,7 @@ class OptionsController < ApplicationController
 
     respond_to do |format|
       if @option.save
-        format.html { redirect_to products_url, notice: 'Option was successfully created.' }
+        format.html { redirect_to products_url, notice: 'Опция успешно создана.' }
         format.json { render :show, status: :created, location: @option }
       else
         format.html { render :new }
@@ -47,7 +48,7 @@ class OptionsController < ApplicationController
     end  
     respond_to do |format|
       if @option.update(option_params)
-        format.html { redirect_to products_url, notice: 'Option was successfully updated.' }
+        format.html { redirect_to products_url, notice: 'Опция успешно изменена.' }
         format.json { render :show, status: :ok, location: @option }
       else
         format.html { render :edit }
@@ -61,10 +62,29 @@ class OptionsController < ApplicationController
   def destroy
     @option.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Option was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: 'Опция успешно удалена.' }
       format.json { head :no_content }
     end
   end
+
+  def addProduct
+    @prId = params['product']['id'];
+    @option.products << Product.find(@prId);
+    @option.save;
+    respond_to do |format|
+      format.js
+    end  
+  end
+
+  def removeProduct
+    @prId=params['prId'];
+    @removedProduct = Product.find(params[:prId]);
+    @option.products.delete(@removedProduct);
+    @option.save;
+      respond_to do |format|
+        format.js
+      end 
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.

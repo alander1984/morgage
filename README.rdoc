@@ -27,3 +27,15 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
+
+
+<%= form_tag(  '/products/'+@product.id.to_s+'/addOption', method: 'get', remote: true,:html => {
+                            :id => 'frmAddOption'}) do %>
+
+            <div class="col-md-8" id='listAvalOptions'>
+              <%= collection_select(:option, :id,  @active_options, :id,:name, {},{:class => 'form-control optionSelect'}) %>
+            </div>  
+            <div class="col-md-2">
+              <button id="btnAddOption2" class="btn btn-primary">Добавить</button>
+            </div>
+          <% end %>

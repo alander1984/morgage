@@ -1,0 +1,2 @@
+$('#prodDiv').html('<%= j render(:partial => "productList", :locals => {:o => @option}) %>');
+$("#product_id").append('<option value=<%= @removedProduct.id %>><%= @removedProduct.name %></option');
