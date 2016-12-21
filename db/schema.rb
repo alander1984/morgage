@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221063541) do
+ActiveRecord::Schema.define(version: 20161221195846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20161221063541) do
 
   add_index "link_ops", ["option_id"], name: "index_link_ops_on_option_id", using: :btree
   add_index "link_ops", ["product_id"], name: "index_link_ops_on_product_id", using: :btree
+
+  create_table "link_option_options", force: :cascade do |t|
+    t.integer  "option_id"
+    t.integer  "linkedoption_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "link_option_options", ["linkedoption_id"], name: "index_link_option_options_on_linkedoption_id", using: :btree
+  add_index "link_option_options", ["option_id"], name: "index_link_option_options_on_option_id", using: :btree
 
   create_table "options", force: :cascade do |t|
     t.string   "target"

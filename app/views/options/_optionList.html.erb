@@ -12,7 +12,7 @@ function callRemoveButton(url) {
 
 </script>
 <ol>
-<% p.options.each do |option| %>
+<% o.linkedoptions.each do |option| %>
  	<li><%= option.name %> |
         <button id="btnRemoveOption" class="btn btn-default" onclick="callRemoveButton('removeOption/<%= option.id %> ');" type="button"><i class="glyphicon glyphicon-trash"></i></button>
 

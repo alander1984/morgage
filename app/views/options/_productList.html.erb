@@ -1,8 +1,10 @@
 <ol>
 <% o.products.each do |product| %>
- 	<li><%= product.name %> <%= link_to 'removeProduct/'+product.id.to_s,  method: :get, confirm: 'Удалить продукт?', class: 'link-delete', 'data-message' => 'Вы уверены?', 'data-severity' => 'danger', :remote => true do %>
-  		<i class="glyphicon glyphicon-trash"></i>
+ 	<li><%= product.name %> |
+
+
+ 	<%= link_to 'removeProduct/'+product.id.to_s,  method: :get, confirm: 'Удалить продукт?', class: 'link-delete', 'data-message' => 'Вы уверены?', 'data-severity' => 'danger', :remote => true do %>
+  		<i class="btn btn-default glyphicon glyphicon-trash"></i>
 	<% end %></li>
  <% end %>
  </ol>
- 

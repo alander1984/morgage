@@ -24,6 +24,18 @@ function callAddButton() {
     });
       return false;
     };
+function callAddButtonOption() {
+  var vals= $('#frmAddOption').serialize();
+  $.ajax({
+        type: "GET",
+        url: '/options/'+<%= @option.id %>+'/addOption/'+$('#option_id').val(), //sumbits it to the given url of the form
+        data: vals,
+        dataType: "script" // you want a difference between normal and ajax-calls, and json is standard
+    }).success(function(script){
+        console.log("success", script);
+    });
+      return false;
+    };
 
 </script>
   <h2>Паспорт опции</h2>
@@ -91,12 +103,29 @@ function callAddButton() {
           <div id="prodDiv">
             <%= render(:partial => 'productList',:locals => {:o => @option}) %>
           </div>
+          <div id="optDiv">
+            <%= render(:partial => 'optionList',:locals => {:o => @option}) %>
+          </div>
           <%= form_tag('#', method: 'get', remote: true, id: 'frmAddProduct') do %>
-            <div class="col-md-8">
+            <div class="col-md-1">
+              <label>Продукт</label>
+            </div>
+            <div class="col-md-9">
               <%= collection_select(:product, :id,  @active_products, :id,:name, {},{:class => 'form-control productSelect'}) %>
             </div>  
             <div class="col-md-2">
-              <button id="btnAddOption" class="btn btn-primary" onclick="callAddButton();" type="button">Добавить</button>
+              <button id="btnAddProduct" class="btn btn-primary" onclick="callAddButton();" type="button">Добавить</button>
+            </div>
+          <% end %>
+          <%= form_tag('#', method: 'get', remote: true, id: 'frmAddOption') do %>
+            <div class="col-md-1">
+              <label>Опция</label>
+            </div>
+            <div class="col-md-9">
+              <%= collection_select(:option, :id,  @active_options, :id,:name, {},{:class => 'form-control optionSelect'}) %>
+            </div>  
+            <div class="col-md-2">
+              <button id="btnAddOption" class="btn btn-primary" onclick="callAddButtonOption();" type="button">Добавить</button>
             </div>
           <% end %>
         </td>

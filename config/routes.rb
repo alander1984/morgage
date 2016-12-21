@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/products/:id/removeOption/:opId' => 'products#removeOption'
   get '/options/:id/addProduct/:prId' => 'options#addProduct'
   get '/options/:id/removeProduct/:prId' => 'options#removeProduct'
+  get '/options/:id/addOption/:opId' => 'options#addOption'
+  get '/options/:id/removeOption/:opId' => 'options#removeOption'
   get 'products/action/sendAddOptionForm' => 'products#sendAddOptionForm'
 
   # The priority is based upon order of creation: first created -> highest priority.

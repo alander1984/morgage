@@ -1,5 +1,5 @@
 class OptionsController < ApplicationController
-  before_action :set_option, only: [:show, :edit, :update, :destroy, :addProduct, :removeProduct]
+  before_action :set_option, only: [:show, :edit, :update, :destroy, :addProduct, :removeProduct, :addOption, :removeOption]
 
   # GET /options
   # GET /options.json
@@ -24,6 +24,8 @@ class OptionsController < ApplicationController
   # GET /options/1/edit
   def edit
     @active_products = Product.where('"isArchive"<>true or "isArchive" is null')-@option.products;
+    @active_options = Option.where('"isArchive"<>true or "isArchive" is null')-@option.linkedoptions;
+
   end
 
   # POST /options
@@ -84,6 +86,25 @@ class OptionsController < ApplicationController
     @prId=params['prId'];
     @removedProduct = Product.find(params[:prId]);
     @option.products.delete(@removedProduct);
+    @option.save;
+      respond_to do |format|
+        format.js
+      end 
+  end  
+
+  def addOption
+    @opId = params['opId'];
+    @option.linkedoptions << Option.find(@opId);
+    @option.save;
+    respond_to do |format|
+      format.js
+    end  
+  end
+  
+  def removeOption
+    @opId=params['opId'];
+    @removedOption = Option.find(params['opId']);
+    @option.linkedoptions.delete(@removedOption);
     @option.save;
       respond_to do |format|
         format.js
