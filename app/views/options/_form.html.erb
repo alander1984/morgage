@@ -10,6 +10,22 @@
       </ul>
     </div>
   <% end %>
+
+  <script type="text/javascript" language="javascript">
+function callAddButton() {
+  var vals= $('#frmAddProduct').serialize();
+  $.ajax({
+        type: "GET",
+        url: '/options/'+<%= @option.id %>+'/addProduct/'+$('#product_id').val(), //sumbits it to the given url of the form
+        data: vals,
+        dataType: "script" // you want a difference between normal and ajax-calls, and json is standard
+    }).success(function(script){
+        console.log("success", script);
+    });
+      return false;
+    };
+
+</script>
   <h2>Паспорт опции</h2>
   <div class="form-group row">
     <label class="col-md-2 form-control-label">Название опции</label>
@@ -75,14 +91,14 @@
           <div id="prodDiv">
             <%= render(:partial => 'productList',:locals => {:o => @option}) %>
           </div>
-          <form action="/options/<%= @option.id %>/addProduct" data-remote="true" method="get">
+          <%= form_tag('#', method: 'get', remote: true, id: 'frmAddProduct') do %>
             <div class="col-md-8">
               <%= collection_select(:product, :id,  @active_products, :id,:name, {},{:class => 'form-control productSelect'}) %>
             </div>  
             <div class="col-md-2">
-              <%= f.submit "Добавить", :class => "btn btn-primary"%>
+              <button id="btnAddOption" class="btn btn-primary" onclick="callAddButton();" type="button">Добавить</button>
             </div>
-          </form>
+          <% end %>
         </td>
       </tr>  
       <tr>

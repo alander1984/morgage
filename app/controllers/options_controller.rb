@@ -72,7 +72,7 @@ class OptionsController < ApplicationController
   end
 
   def addProduct
-    @prId = params['product']['id'];
+    @prId = params['prId'];
     @option.products << Product.find(@prId);
     @option.save;
     respond_to do |format|
