@@ -1,6 +1,6 @@
 <div class="the__content">
-  <h1>Ипотечные продукты и опции <%= link_to new_product_path, class: "btn btn-default" do %><i class="glyphicon glyphicon-plus-sign"></i> Продукт<% end %>
-  <%= link_to new_option_path, class: "btn btn-default" do %><i class="glyphicon glyphicon-plus-sign"></i> Опция<% end %></h1>
+  <h1>Ипотечные продукты и опции <%= link_to new_product_path, class: "btn btn-default", method: :get do %><i class="glyphicon glyphicon-plus-sign"></i> Продукт<% end %>
+  <%= link_to new_option_path, class: "btn btn-default", method: :get do %><i class="glyphicon glyphicon-plus-sign"></i> Опция<% end %></h1>
 
   <h2>Действующие</h2>
     <% @active_products.each do |product| %>
