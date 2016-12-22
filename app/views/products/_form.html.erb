@@ -31,7 +31,7 @@ function callAddButton() {
     <div class="col-md-5"><%= f.text_field :name,  :class=>"form-control" %></div>
     <% if !@product.new_record? %>
     <label class="checkbox-inline">
-          <%= f.check_box :isArchive, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }  %>Архивный
+          <%= f.check_box :isArchive, :class=>"checkboxToggle", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }   %>Архивный
         </label>
     <% end %>    
   </div>

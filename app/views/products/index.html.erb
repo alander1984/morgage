@@ -4,14 +4,14 @@
 
   <h2>Действующие</h2>
     <% @active_products.each do |product| %>
-      <p><strong><%= link_to product.name, edit_product_path(product) %></strong></p>
+      <p><strong><%= link_to product.name, edit_product_path(product), method: :get %></strong></p>
       <% if product.note? %>
       	<ul><li><%= product.note %>
       	</li></ul>
       <% end %>	
     <% end %>
     <% @active_options.each do |option| %>
-      <p><strong><%= link_to option.name, edit_option_path(option) %></strong></p>
+      <p><strong><%= link_to option.name, edit_option_path(option), method: :get %></strong></p>
       <% if option.note? %>
         <ul><li><%= option.note %>
         </li></ul>
