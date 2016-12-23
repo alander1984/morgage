@@ -1,0 +1,119 @@
+<h3>3. Личные данные Заявителя</h3>
+<table class="table" border=1>
+    <tr>
+      <td style="width:300px;vertical-align:top">Фамилия</td>
+      <td><%= text_field('new_person','fname', class: "form-control") %></td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top">Имя</td>
+      <td><%= text_field('new_person','sname', class: "form-control") %></td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top">Отчество</td>
+      <td><%= text_field('new_person','tname', class: "form-control") %></td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top">Дата рождения <small>дд.мм.гггг</small></td>
+      <td> 
+      	<div class="col-md-2">
+          <!-- Извращения с выбором даты, однако -->                
+             <div class="form-group">
+                <div class='input-group date datepicker' id='datetimepicker3'>
+                              <%= text_field('new_person', 'tname', :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            <!--это для нажатия по иконке -->
+             <script type="text/javascript">
+                 $(function () {
+                  $.fn.datepicker.defaults.format = "dd.mm.yyyy";
+                  $('#datetimepicker3').datepicker();
+                 });
+              </script>
+              <!--это для нажатия по полю ввода -->
+              <script type="text/javascript">
+                 $(document).ready(function(){
+                  $.fn.datepicker.defaults.format = "dd.mm.yyyy";
+                  $('.datepicker').datepicker({
+                  });
+                 });
+              </script>
+		<!-- Извращения с выбором даты, однако -->   
+          </div></td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top">Пол</td>
+      <td><%= check_box('new_person','sex', class: "form-control", :data => { :toggle => 'toggle',:on=>"Мужской",:off=>"Женский" }) %></td>
+    </tr>
+    <tr>
+    	<td rowspan="3">Предыдущие Ф.И.О. <small>(если менялись)</small></td>
+    	<td><%= text_field('new_person','fprevname', class: "form-control") %></td>
+    <tr>
+    	<td><%= text_field('new_person','sprevname', class: "form-control") %></td>
+	</tr>
+	<tr>
+	  	<td><%= text_field('new_person','tprevname', class: "form-control") %></td>
+    </tr>			
+	<tr>
+      <td style="vertical-align:top" rowspan=3>Паспортные данные</td>
+      <td>
+      	<div class="form-group row">
+          <label class="col-md-1 form-control-label">Серия</label>
+          <div class="col-md-1  ">
+            <%= text_field('new_person','passserie', class: "form-control")  %>
+          </div>
+          <label class="col-md-1 form-control-label">Номер</label>
+          <div class="col-md-1  ">
+            <%= text_field('new_person','passnumber', class: "form-control")  %>
+          </div>
+          <label class="col-md-1 form-control-label">Дата выдачи <small>дд.мм.ггг.</small></label>
+          <div class="col-md-2">
+          <!-- Извращения с выбором даты, однако -->                
+             <div class="form-group">
+                <div class='input-group date datepicker' id='datetimepicker4'>
+                              <%= text_field('new_person', 'tname', :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            <!--это для нажатия по иконке -->
+             <script type="text/javascript">
+                 $(function () {
+                  $.fn.datepicker.defaults.format = "dd.mm.yyyy";
+                  $('#datetimepicker4').datepicker();
+                 });
+              </script>
+              <!--это для нажатия по полю ввода -->
+              <script type="text/javascript">
+                 $(document).ready(function(){
+                  $.fn.datepicker.defaults.format = "dd.mm.yyyy";
+                  $('.datepicker').datepicker({
+                  });
+                 });
+              </script>
+		<!-- Извращения с выбором даты, однако -->   
+          </div>
+
+        </div>  
+      </td>
+    </tr> 
+    <tr>
+    	<td>
+    	  <label class="col-md-1 form-control-label">Кем выдан</label>
+          <div class="col-md-11  ">
+            <%= text_area('new_person','passsource', class: "form-control")  %>
+          </div>
+    	</td>
+    </tr> 
+    <tr>
+    	<td>
+    	  <label class="form-control-label col-md-2">Код подразделения</label>
+          <div class="col-md-1  ">
+            <%= text_field('new_person','passdivision', class: "form-control")  %>
+          </div>
+    	</td>
+    </tr> 
+</table>        
