@@ -1,5 +1,5 @@
 <h3>2. Параметры запрашиваемого кредита</h3>
-<table class="table" border = 0>
+<table class="table" >
     <tr>
       <td style="width:300px;vertical-align:top">Сумма кредита</td>
       <td> <div class="form-group row">
@@ -56,6 +56,79 @@
     <tr>
       <td colspan="2">
           <label class="checkbox-inline"> <%= f.check_box :targetPreviousCredit, :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Погашение имеющегося ипотечного кредита (отразите информацию о предыдущем кредите в разделе "Информация о кредите/займе")</label>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Недвижимость, которая будет оформлена в залог</td>
+      <td>
+        <div class="col-md-4" >
+          <label class="checkbox-inline"> <%= f.check_box :estate_deposit_new , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Приобретаемая недвижимость</label>
+        </div>
+        <div class="col-md-4" >
+          <label class="checkbox-inline"> <%= f.check_box :estate_deposit_old , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Имеющееся жилье стоимостью <small>рублей</small></label>
+        </div>  
+         <div class="col-md-2  ">
+            <%= f.number_field :estate_deposit_amount,  :class=>"form-control" %>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Регион приобретаемой недвижимости</td>
+      <td colspan=2><%= f.number_field :region,  :class=>"form-control" %></td>
+    </tr>
+    <tr>
+      <td colspan=2>Являетесь ли Вы участником накопительно-ипотечной системы жилищного обеспечения военнослужащих?
+      </td>
+      <td>
+        <%= f.check_box :military , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>Планируете ли Вы использовать опцию «Материнский капитал»?</td>
+      <td>
+        <%= f.check_box :mat_cap , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>
+      </td>
+    </tr>
+        <tr>
+      <td colspan=2>Имеете ли Вы 3 и более несовершеннолетних детей?</td>
+      <td>
+        <%= f.check_box :many_children , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>
+      </td>
+    </tr>
+        <tr>
+      <td colspan=2>Планируете ли Вы приобретать жилье по программе «Жилье для российской семьи»?</td>
+      <td>
+        <%= f.check_box :russian_family , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>
+      </td>
+    </tr>
+        <tr>
+      <td colspan=2>Планируете ли Вы приобретать жилье, находящееся на балансе АО «АИЖК»?</td>
+      <td>
+        <%= f.check_box :aizhk_estate , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>
+      </td>
+    </tr>
+        <tr>
+      <td colspan=2>Планируете ли Вы приобретать апартаменты? </td>
+      <td>
+        <%= f.check_box :apartament , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>
+      </td>
+    </tr>
+        <tr>
+      <td colspan=2>Ваши доходы подтверждаются справкой по форме кредитора?</td>
+      <td>
+        <%= f.check_box :salary_cred_form , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>
+      </td>
+    </tr>
+        <tr>
+      <td colspan=2>Планируете ли Вы использовать опцию «Переменная ставка»?</td>
+      <td>
+        <%= f.check_box :floatRate , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>
+      </td>
+    </tr>
+        <tr>
+      <td colspan=2>Планируете ли Вы страховать жизнь и здоровье? <small>(Имущественное страхование предмета ипотеки является обязательным)</small></td>
+      <td>
+        <%= f.check_box :insurance , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>
       </td>
     </tr>
 </table>      
