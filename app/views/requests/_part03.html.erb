@@ -2,24 +2,24 @@
 <table class="table" border=1>
     <tr>
       <td style="width:300px;vertical-align:top">Фамилия</td>
-      <td><%= text_field('new_person','fname', class: "form-control") %></td>
+      <td colspan=2><%= text_field('new_person','fname', class: "form-control") %></td>
     </tr>
     <tr>
       <td style="vertical-align:top">Имя</td>
-      <td><%= text_field('new_person','sname', class: "form-control") %></td>
+      <td colspan=2><%= text_field('new_person','sname', class: "form-control") %></td>
     </tr>
     <tr>
       <td style="vertical-align:top">Отчество</td>
-      <td><%= text_field('new_person','tname', class: "form-control") %></td>
+      <td colspan=2><%= text_field('new_person','tname', class: "form-control") %></td>
     </tr>
     <tr>
       <td style="vertical-align:top">Дата рождения <small>дд.мм.гггг</small></td>
-      <td> 
+      <td colspan="2"> 
       	<div class="col-md-3">
           <!-- Извращения с выбором даты, однако -->                
              <div class="form-group">
                 <div class='input-group date datepicker' id='datetimepicker3'>
-                              <%= text_field('new_person', 'tname', :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
+                              <%= text_field('new_person', 'birthday', :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-calendar"></i>
                     </span>
@@ -49,16 +49,16 @@
     </tr>
     <tr>
     	<td rowspan="3">Предыдущие Ф.И.О. <small>(если менялись)</small></td>
-    	<td><%= text_field('new_person','fprevname', class: "form-control") %></td>
+    	<td colspan="2"><%= text_field('new_person','fprevname', class: "form-control") %></td>
     <tr>
-    	<td><%= text_field('new_person','sprevname', class: "form-control") %></td>
+    	<td colspan="2"><%= text_field('new_person','sprevname', class: "form-control") %></td>
 	</tr>
 	<tr>
-	  	<td><%= text_field('new_person','tprevname', class: "form-control") %></td>
+	  	<td colspan="2"><%= text_field('new_person','tprevname', class: "form-control") %></td>
     </tr>			
 	<tr>
       <td style="vertical-align:top" rowspan=3>Паспортные данные</td>
-      <td>
+      <td colspan="2">
       	<div class="form-group row">
           <label class="col-md-1 form-control-label">Серия</label>
           <div class="col-md-2  ">
@@ -101,7 +101,7 @@
       </td>
     </tr> 
     <tr>
-    	<td style="vertical-align:top">
+    	<td style="vertical-align:top" colspan="2">
     	  <label class="col-md-2 form-control-label">Кем выдан</label>
           <div class="col-md-10  ">
             <%= text_area('new_person','passsource', class: "form-control")  %>
@@ -109,7 +109,7 @@
     	</td>
     </tr> 
     <tr>
-    	<td style="vertical-align:top">
+    	<td style="vertical-align:top" colspan="2">
     	  <label class="form-control-label col-md-3">Код подразделения</label>
           <div class="col-md-2  ">
             <%= text_field('new_person','passdivision', class: "form-control")  %>
@@ -118,12 +118,12 @@
     </tr> 
     <tr>
       <td rowspan="2" style="vertical-align:top">
-        <label class="form-control-label">Страховой номер индивидуального лицевого счета (СНИЛС)</label>
+        Страховой номер индивидуального лицевого счета (СНИЛС)
       </td>
       <td>
         <%= text_field('new_person','snils', class: "form-control col-md-12")  %>
       </td>
-      <td rowspan="2">
+      <td rowspan="3" style="width:250px">
         <p><small><small>Заполнение данного поля не требуется в случае, если Заявитель относится к одной из категорий граждан, пенсионное обеспечение которых в соответствии с законодательством РФ осуществляется не Пенсионным фондом РФ, а иным министерством или ведомством.</small></small></p>
       </td>
     </tr>
@@ -135,18 +135,142 @@
     <tr>
       <td rowspan="6" style="vertical-align:top">Адрес регистрации</td>
       <td>
-          <table><tr><td style="width:80px">
+          <table><tr><td style="width:60px">
           <label class="form-control-label" >Индекс</label></td><td style="padding-right:15px"><%= text_field('new_person','regaddrindex', class: "form-control", style: "width:100px")  %></td><td  style="width:200px">
-          <label class="form-control-label" >Область/республика/край</label></td><td><%= text_field('new_person','regaddrregion', class: "form-control row", style:"width:250px")  %></td><tr>
+          <label class="form-control-label" >Область/республика/край</label></td><td><%= text_field('new_person','regaddrregion', class: "form-control row", style:"width:250px")  %></td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top" colspan="2">
+        <table style="width:100%"><tr><td style="width:60px">
+          <label class="form-control-label">Район</label></td><td>
+          <%= text_field('new_person','regaddrarea', class: "form-control")  %>
+        </td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top" colspan="2">
+        <table style="width:100%"><tr><td style="width:130px">
+          <label class="form-control-label">Город/поселок</label></td><td>
+          <%= text_field('new_person','regaddrcity', class: "form-control")  %>
+        </td></tr></table>
       </td>
     </tr>
     <tr>
       <td style="vertical-align:top">
-        <label class="col-md-2 form-control-label">Район</label>
-        <div class="col-md-10  ">
-          <%= text_field('new_person','regaddarea', class: "form-control")  %>
-        </div>
+        <table style="width:100%"><tr><td style="width:60px">
+          <label class="form-control-label">Улица</label></td><td>
+          <%= text_field('new_person','regaddrstreet', class: "form-control")  %>
+        </td></tr></table>
+      </td>
+      <td style="vertical-align:top">
+        <table style="width:100%"><tr><td style="width:50px">
+          <label class="form-control-label">Дом</label></td><td>
+          <%= number_field('new_person','regaddrhouse', class: "form-control")  %>
+        </td></tr></table>
       </td>
     </tr>
+    <tr>
+      <td style="vertical-align:top">
+        <table style="width:70%"><tr><td style="width:60px"><label class="form-control-label">Корпус</label></td><td style="padding-right:15px">
+          <%= text_field('new_person','regaddrhousekorp', class: "form-control")  %>
+        </td>
+        <td style="width:75px"><label class="form-control-label">Строение</label></td><td  style="padding-right:15px">
+          <%= text_field('new_person','regaddrhousestr', class: "form-control")  %>
+        </td>
+        <td style="width:70px"><label class="form-control-label">Квартира</label></td><td style="padding-right:15px">
+          <%= number_field('new_person','regaddrhouseflat', class: "form-control")  %>
+        </td></tr></table>
+    </tr>
+    <tr><td>
+      <table>
+        <tr>
+          <td style="width:120px"><label class="form-control-label">Вид регистрации</label></td>
+          <td style="padding-right:15px"><%= check_box('new_person','registration_type', class: "form-control", :data => { :toggle => 'toggle',:on=>"Постоянная",:off=>"Временная" }, :checked => true) %></td>
+          <td id="srok1">
+             <label class="form-control-label col-md-4">срок до <small>(дд.ммм.гггг)</small>: </label> <!-- Извращения с выбором даты, однако -->                
+             <div class="form-group col-md-8">
+                <div class='input-group date datepicker' id='datetimepicker5'>
+                              <%= text_field('new_person', 'addrtempregdate', :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            <!--это для нажатия по иконке -->
+             <script type="text/javascript">
+                 $(function () {
+                  $.fn.datepicker.defaults.format = "dd.mm.yyyy";
+                  $('#datetimepicker5').datepicker();
+                 });
+              </script>
+              <!--это для нажатия по полю ввода -->
+              <script type="text/javascript">
+                 $(document).ready(function(){
+                  $.fn.datepicker.defaults.format = "dd.mm.yyyy";
+                  $('.datepicker').datepicker({
+                  });
+                 });
+              </script>
+    <!-- Извращения с выбором даты, однако -->   
+          </div>      
+          </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+
+    
+    <tr>
+      <td rowspan="6" style="vertical-align:top">Адрес проживания</td>
+      <td>
+          <table><tr><td style="width:60px">
+          <label class="form-control-label" >Индекс</label></td><td style="padding-right:15px"><%= text_field('new_person','liveaddrindex', class: "form-control", style: "width:100px")  %></td><td  style="width:200px">
+          <label class="form-control-label" >Область/республика/край</label></td><td><%= text_field('new_person','liveaddrregion', class: "form-control row", style:"width:250px")  %></td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top" colspan="2">
+        <table style="width:100%"><tr><td style="width:60px">
+          <label class="form-control-label">Район</label></td><td>
+          <%= text_field('new_person','liveaddrarea', class: "form-control")  %>
+        </td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top" colspan="2">
+        <table style="width:100%"><tr><td style="width:130px">
+          <label class="form-control-label">Город/поселок</label></td><td>
+          <%= text_field('new_person','liveaddrcity', class: "form-control")  %>
+        </td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top">
+        <table style="width:100%"><tr><td style="width:60px">
+          <label class="form-control-label">Улица</label></td><td>
+          <%= text_field('new_person','liveaddrstreet', class: "form-control")  %>
+        </td></tr></table>
+      </td>
+      <td style="vertical-align:top">
+        <table style="width:100%"><tr><td style="width:50px">
+          <label class="form-control-label">Дом</label></td><td>
+          <%= number_field('new_person','liveaddrhouse', class: "form-control")  %>
+        </td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top">
+        <table style="width:70%"><tr><td style="width:60px"><label class="form-control-label">Корпус</label></td><td style="padding-right:15px">
+          <%= text_field('new_person','liveaddrhousekorp', class: "form-control")  %>
+        </td>
+        <td style="width:75px"><label class="form-control-label">Строение</label></td><td  style="padding-right:15px">
+          <%= text_field('new_person','liveaddrhousestr', class: "form-control")  %>
+        </td>
+        <td style="width:70px"><label class="form-control-label">Квартира</label></td><td style="padding-right:15px">
+          <%= number_field('new_person','liveaddrhouseflat', class: "form-control")  %>
+        </td></tr></table>
+    </tr>
+    
 
 </table>        
