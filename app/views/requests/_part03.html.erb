@@ -15,7 +15,7 @@
     <tr>
       <td style="vertical-align:top">Дата рождения <small>дд.мм.гггг</small></td>
       <td> 
-      	<div class="col-md-2">
+      	<div class="col-md-3">
           <!-- Извращения с выбором даты, однако -->                
              <div class="form-group">
                 <div class='input-group date datepicker' id='datetimepicker3'>
@@ -61,15 +61,15 @@
       <td>
       	<div class="form-group row">
           <label class="col-md-1 form-control-label">Серия</label>
-          <div class="col-md-1  ">
+          <div class="col-md-2  ">
             <%= text_field('new_person','passserie', class: "form-control")  %>
           </div>
           <label class="col-md-1 form-control-label">Номер</label>
-          <div class="col-md-1  ">
+          <div class="col-md-2  ">
             <%= text_field('new_person','passnumber', class: "form-control")  %>
           </div>
-          <label class="col-md-1 form-control-label">Дата выдачи <small>дд.мм.ггг.</small></label>
-          <div class="col-md-2">
+          <label class="col-md-2 form-control-label">Дата выдачи <small>дд.мм.ггг.</small></label>
+          <div class="col-md-3">
           <!-- Извращения с выбором даты, однако -->                
              <div class="form-group">
                 <div class='input-group date datepicker' id='datetimepicker4'>
@@ -101,19 +101,52 @@
       </td>
     </tr> 
     <tr>
-    	<td>
-    	  <label class="col-md-1 form-control-label">Кем выдан</label>
-          <div class="col-md-11  ">
+    	<td style="vertical-align:top">
+    	  <label class="col-md-2 form-control-label">Кем выдан</label>
+          <div class="col-md-10  ">
             <%= text_area('new_person','passsource', class: "form-control")  %>
           </div>
     	</td>
     </tr> 
     <tr>
-    	<td>
-    	  <label class="form-control-label col-md-2">Код подразделения</label>
-          <div class="col-md-1  ">
+    	<td style="vertical-align:top">
+    	  <label class="form-control-label col-md-3">Код подразделения</label>
+          <div class="col-md-2  ">
             <%= text_field('new_person','passdivision', class: "form-control")  %>
           </div>
     	</td>
     </tr> 
+    <tr>
+      <td rowspan="2" style="vertical-align:top">
+        <label class="form-control-label">Страховой номер индивидуального лицевого счета (СНИЛС)</label>
+      </td>
+      <td>
+        <%= text_field('new_person','snils', class: "form-control col-md-12")  %>
+      </td>
+      <td rowspan="2">
+        <p><small><small>Заполнение данного поля не требуется в случае, если Заявитель относится к одной из категорий граждан, пенсионное обеспечение которых в соответствии с законодательством РФ осуществляется не Пенсионным фондом РФ, а иным министерством или ведомством.</small></small></p>
+      </td>
+    </tr>
+    <tr>  
+      <td>  
+        <label class="checkbox-inline"><%= check_box('new_person','extpassexists', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Есть действующий загранпаспорт</label>
+      </td>            
+    </tr>  
+    <tr>
+      <td rowspan="6" style="vertical-align:top">Адрес регистрации</td>
+      <td>
+          <table><tr><td style="width:80px">
+          <label class="form-control-label" >Индекс</label></td><td style="padding-right:15px"><%= text_field('new_person','regaddrindex', class: "form-control", style: "width:100px")  %></td><td  style="width:200px">
+          <label class="form-control-label" >Область/республика/край</label></td><td><%= text_field('new_person','regaddrregion', class: "form-control row", style:"width:250px")  %></td><tr>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top">
+        <label class="col-md-2 form-control-label">Район</label>
+        <div class="col-md-10  ">
+          <%= text_field('new_person','regaddarea', class: "form-control")  %>
+        </div>
+      </td>
+    </tr>
+
 </table>        

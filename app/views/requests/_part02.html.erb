@@ -1,5 +1,5 @@
 <h3>2. Параметры запрашиваемого кредита</h3>
-<table class="table" >
+<table class="table">
     <tr>
       <td style="width:300px;vertical-align:top">Сумма кредита</td>
       <td> <div class="form-group row">
@@ -60,16 +60,16 @@
     </tr>
     <tr>
       <td style="vertical-align: top;">Недвижимость, которая будет оформлена в залог</td>
-      <td>
-        <div class="col-md-4" >
-          <label class="checkbox-inline"> <%= f.check_box :estate_deposit_new , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Приобретаемая недвижимость</label>
-        </div>
-        <div class="col-md-4" >
-          <label class="checkbox-inline"> <%= f.check_box :estate_deposit_old , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Имеющееся жилье стоимостью <small>рублей</small></label>
-        </div>  
-         <div class="col-md-2  ">
-            <%= f.number_field :estate_deposit_amount,  :class=>"form-control" %>
-          </div>
+      <td colspan="2">
+        <!--<div class="col-md-5" >-->
+          <label class="checkbox-inline col-md-4"> <%= f.check_box :estate_deposit_new , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Приобретаемая недвижимость</label>
+        <!--</div>-->
+        <!--<div class="col-md-5" >-->
+          <label class="checkbox-inline col-md-5"> <%= f.check_box :estate_deposit_old , :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }%>Имеющееся жилье стоимостью <small>рублей</small></label>
+        <!--</div>  
+         <div class="col-md-2  ">-->
+            <%= f.number_field :estate_deposit_amount,  :class=>"form-control", :style=>"width:100px" %>
+<!--          </div>-->
       </td>
     </tr>
     <tr>
