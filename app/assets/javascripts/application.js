@@ -17,15 +17,3 @@
 //= require bootstrap-datepicker
 //= require bootstrap-toggle
 //= require_tree .
-$(document).ready(function() {
-	$('#srok1').hide();
-       		 
-	$('#new_person_registration_type').change(function() {
-    	    if($(this).is(":checked")) {
-        	    $('#srok1').hide()
-       		 }
-        	else {
-            	$('#srok1').show()
-        	}
-    	});
-});
