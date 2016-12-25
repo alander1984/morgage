@@ -1,6 +1,3 @@
-<%= fields_for(work) do |f| %>
-  
-
 <table class="table">
     <tr>
       <td style="width:300px;vertical-align:top">Наименование работодателя</td>
@@ -129,9 +126,4 @@
           <label class="checkbox-inline"><%= f.check_box(:cnt6, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>более 1 000 чел.</label>
       </div></td>
     </tr>
-</table>      
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</table>    
