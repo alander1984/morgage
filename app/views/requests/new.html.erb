@@ -1,3 +1,18 @@
+<script type="text/javascript" language="javascript">
+function commitForm() {
+  var vals= $('#new_request').serialize();
+  $.ajax({
+        type: "GET",
+        url: '/requests/new', //sumbits it to the given url of the form
+        data: vals,
+        dataType: "script" // you want a difference between normal and ajax-calls, and json is standard
+    }).success(function(script){
+        console.log("success", script);
+    });
+      return false;
+    };
+</script
+
 <table width=100%>
 	<tr>
 		<td>
