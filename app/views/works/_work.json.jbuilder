@@ -1,0 +1,2 @@
+json.extract! work, :id, :name, :index, :region, :area, :city, :street, :house, :corp, :str, :office, :phone, :site, :act1, :act2, :act3, :act4, :act5, :act6, :act7, :act8, :act9, :act10, :act11, :act12, :act13, :act14, :act15, :act16, :act17, :act18, :act19, :act20, :actOtherText, :cnt1, :cnt2, :cnt3, :cnt4, :cnt5, :cnt6, :created_at, :updated_at
+json.url work_url(work, format: :json)

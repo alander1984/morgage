@@ -1,0 +1,103 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Works</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Index</th>
+      <th>Region</th>
+      <th>Area</th>
+      <th>City</th>
+      <th>Street</th>
+      <th>House</th>
+      <th>Corp</th>
+      <th>Str</th>
+      <th>Office</th>
+      <th>Phone</th>
+      <th>Site</th>
+      <th>Act1</th>
+      <th>Act2</th>
+      <th>Act3</th>
+      <th>Act4</th>
+      <th>Act5</th>
+      <th>Act6</th>
+      <th>Act7</th>
+      <th>Act8</th>
+      <th>Act9</th>
+      <th>Act10</th>
+      <th>Act11</th>
+      <th>Act12</th>
+      <th>Act13</th>
+      <th>Act14</th>
+      <th>Act15</th>
+      <th>Act16</th>
+      <th>Act17</th>
+      <th>Act18</th>
+      <th>Act19</th>
+      <th>Act20</th>
+      <th>Actothertext</th>
+      <th>Cnt1</th>
+      <th>Cnt2</th>
+      <th>Cnt3</th>
+      <th>Cnt4</th>
+      <th>Cnt5</th>
+      <th>Cnt6</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @works.each do |work| %>
+      <tr>
+        <td><%= work.name %></td>
+        <td><%= work.index %></td>
+        <td><%= work.region %></td>
+        <td><%= work.area %></td>
+        <td><%= work.city %></td>
+        <td><%= work.street %></td>
+        <td><%= work.house %></td>
+        <td><%= work.corp %></td>
+        <td><%= work.str %></td>
+        <td><%= work.office %></td>
+        <td><%= work.phone %></td>
+        <td><%= work.site %></td>
+        <td><%= work.act1 %></td>
+        <td><%= work.act2 %></td>
+        <td><%= work.act3 %></td>
+        <td><%= work.act4 %></td>
+        <td><%= work.act5 %></td>
+        <td><%= work.act6 %></td>
+        <td><%= work.act7 %></td>
+        <td><%= work.act8 %></td>
+        <td><%= work.act9 %></td>
+        <td><%= work.act10 %></td>
+        <td><%= work.act11 %></td>
+        <td><%= work.act12 %></td>
+        <td><%= work.act13 %></td>
+        <td><%= work.act14 %></td>
+        <td><%= work.act15 %></td>
+        <td><%= work.act16 %></td>
+        <td><%= work.act17 %></td>
+        <td><%= work.act18 %></td>
+        <td><%= work.act19 %></td>
+        <td><%= work.act20 %></td>
+        <td><%= work.actOtherText %></td>
+        <td><%= work.cnt1 %></td>
+        <td><%= work.cnt2 %></td>
+        <td><%= work.cnt3 %></td>
+        <td><%= work.cnt4 %></td>
+        <td><%= work.cnt5 %></td>
+        <td><%= work.cnt6 %></td>
+        <td><%= link_to 'Show', work %></td>
+        <td><%= link_to 'Edit', edit_work_path(work) %></td>
+        <td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work', new_work_path %>

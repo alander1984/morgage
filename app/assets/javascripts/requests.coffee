@@ -4,12 +4,31 @@
 
 $(document).ready ->
   $('#srok1').hide()
+  $('#recrSrokDiv').hide()
+  $('#request_emplOtherText').hide()
+
   $('#new_person_registration_type').change ->
     if $(this).is(':checked')
       $('#srok1').hide()
     else
       $('#srok1').show()
     return
+
+   $('#request_emplFixedRecr').change ->
+    if $(this).is(':checked')
+      $('#recrSrokDiv').show()
+    else
+      $('#recrSrokDiv').hide()
+    return 
+
+   $('#request_emplOther').change ->
+    if $(this).is(':checked')
+      $('#request_emplOtherText').show()
+    else
+      $('#request_emplOtherText').hide()
+    return 
+
+
   $('#new_person_sameliveaddress').change ->
     if $(this).is(':checked')
       $('#liveAddress1').hide();
@@ -26,4 +45,7 @@ $(document).ready ->
       $('#liveAddress5').show();
       $('#liveAddressMainCell').attr('rowspan', '6');
     return
+
+
+
   return

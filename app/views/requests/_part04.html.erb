@@ -1,0 +1,39 @@
+<h3>4. Сведения о занятости и доходах Заявителя</h3>
+<table class="table" style="width:100%">
+    <tr>
+      <td style="width:300px;vertical-align:top">Трудовой стаж за последние 5 лет</td>
+      <td><table><tr><td style="padding-right:15px;width:70px"><%= f.number_field(:seniorityyears, class: "form-control") %></td><td style="padding-right:15px">лет </td><td style="padding-right:15px;width:70px"><%= f.number_field(:senioritymonths, class: "form-control") %></td><td style="padding-right:15px"> месяцев</td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td style="width:300px;vertical-align:top">Тип занятости</td>
+      <td><table style="width:100%">
+      		<tr><td style="padding-right:15px">
+      			<label class="checkbox-inline"><%= f.check_box(:emplFixedRecr, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>По найму, трудовой договор:</label>
+      			</td><td>
+       			<label class="checkbox-inline"><%= f.check_box(:emplIP, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Индивидуальный предприниматель <small>(в т.ч. частная практика)</small></label>
+       			<label class="checkbox-inline"><%= f.check_box(:emplCEO, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Владелец/Совладелец организации</label>
+        		<label class="checkbox-inline"><%= f.check_box(:emplPensioner, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Пенсионер</label>
+        		<label class="checkbox-inline"><%= f.check_box(:emplNone, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Не работаю</label>
+      		</td></tr>
+      		<tr><td align="right" style="padding-right:45px"><div id="recrSrokDiv"> 
+      				<%= f.check_box(:emplFloatRecr, class: "form-control", :data => { :toggle => 'toggle',:on=>"Срочный",:off=>"Бессрочный" }) %></div>
+      			</td><td>
+      					<table style="width:100%">
+      						<tr style="padding-top:15px">
+      							<td style="width:120px;padding-top:15px">
+			      					<label class="checkbox-inline">
+         							<%= f.check_box(:emplOther, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет"})  %>Иное</label>
+      							</td>
+      							<td style="padding-top:15px"> <%= f.text_field(:emplOtherText, class: "form-control")  %>
+      							</td>	
+      						</tr>
+      					</table>
+      				 </td>
+      		</tr>
+      	  </table>
+      </td>
+    </tr>  		
+</table>      
+
+ <%= render(:partial => 'part041',:locals => {:f => f}) %>

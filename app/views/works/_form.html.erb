@@ -1,0 +1,147 @@
+<%= form_for(@work) do |f| %>
+  <% if @work.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>
+
+      <ul>
+      <% @work.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table class="table">
+    <tr>
+      <td style="width:300px;vertical-align:top">Наименование работодателя</td>
+      <td colspan=2>
+        <%= f.text_field :name,  :class=>"form-control"%>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="6" style="vertical-align:top">Фактический адрес работодателя</td>
+      <td></td>
+    </tr>
+    <tr id="liveAddress1">  
+      <td>
+          <table><tr><td style="width:60px">
+          <label class="form-control-label" >Индекс</label></td><td style="padding-right:15px"><%= f.text_field(:index, class: "form-control", style: "width:100px")  %></td><td  style="width:200px">
+          <label class="form-control-label" >Область/республика/край</label></td><td><%= f.text_field(:region, class: "form-control row", style:"width:250px")  %></td></tr></table>
+      </td>
+    </tr>  
+    <tr id="liveAddress2">
+      <td style="vertical-align:top" colspan="2">
+        <table style="width:100%"><tr><td style="width:60px">
+          <label class="form-control-label">Район</label></td><td>
+          <%= f.text_field(:area, class: "form-control")  %>
+        </td></tr></table>
+      </td>
+    </tr>
+    <tr  id="liveAddress3">
+      <td style="vertical-align:top" colspan="2">
+        <table style="width:100%"><tr><td style="width:130px">
+          <label class="form-control-label">Город/поселок</label></td><td>
+          <%= f.text_field(:city, class: "form-control")  %>
+        </td></tr></table>
+      </td>
+    </tr>
+    <tr  id="liveAddress4">
+      <td style="vertical-align:top">
+        <table style="width:100%"><tr><td style="width:60px">
+          <label class="form-control-label">Улица</label></td><td>
+          <%= f.text_field(:street, class: "form-control")  %>
+        </td></tr></table>
+      </td>
+      <td style="vertical-align:top">
+        <table style="width:100%"><tr><td style="width:50px">
+          <label class="form-control-label">Дом</label></td><td>
+          <%= f.number_field(:house, class: "form-control")  %>
+        </td></tr></table>
+      </td>
+    </tr>
+    <tr  id="liveAddress5">
+      <td style="vertical-align:top">
+        <table style="width:70%"><tr><td style="width:60px"><label class="form-control-label">Корпус</label></td><td style="padding-right:15px">
+          <%= f.text_field(:corp, class: "form-control")  %>
+        </td>
+        <td style="width:75px"><label class="form-control-label">Строение</label></td><td  style="padding-right:15px">
+          <%= f.text_field(:str, class: "form-control")  %>
+        </td>
+        <td style="width:70px"><label class="form-control-label">Офис</label></td><td style="padding-right:15px">
+          <%= f.number_field(:office, class: "form-control")  %>
+        </td></tr></table>
+    </tr>
+    <tr>
+      <td style="vertical-align:top">Контакты работодателя</td>
+      <td>
+        <div class="form-group row">
+          <div class="col-md-2"><label class="form-control-label">телефон работодателя <small>+7XXXXXXXXXX</small></label></div>
+          <div class="col-md-2"><%= f.text_field(:phone, class: "form-control")  %></div>
+          </div>
+        <div class="form-group row">
+          <div class="col-md-2"><label class="form-control-label">адрес сайта:</label></div>
+          <div class="col-md-3"><%= f.text_field(:site, class: "form-control")  %></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top" rowspan="2">Вид деятельности организации-работодателя</td>
+      <td colspan=2>
+        <div class="col-md-4">
+          <label class="checkbox-inline"  style="padding-left: 30px"><%= f.check_box(:act1, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Армия, МЧС, правоохранительные или силовые структуры</label>
+          <label class="checkbox-inline"><%= f.check_box(:act2, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Информационные технологии/телекоммуникации, связь</label>
+          <label class="checkbox-inline"><%= f.check_box(:act3, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Металлургия, тяжелое машиностроение</label>
+          <label class="checkbox-inline"><%= f.check_box(:act4, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Перевозки, логистика, складская деятельность</label>
+          <label class="checkbox-inline"><%= f.check_box(:act5, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Сельское хозяйство</label>
+          <label class="checkbox-inline"><%= f.check_box(:act6, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Сфера услуг (туризм, общепит, консалтинг)</label>
+        </div>
+        <div class="col-md-4">
+          <label class="checkbox-inline"  style="padding-left: 30px"><%= f.check_box(:act7, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Государственные организации</label>
+          <label class="checkbox-inline"><%= f.check_box(:act8, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Искусство, культура, шоу-бизнес, политика</label>
+          <label class="checkbox-inline"><%= f.check_box(:act9, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Наука, образование</label>
+          <label class="checkbox-inline"><%= f.check_box(:act10, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Промышленность (легкая, пищевая, химическая и др.)</label>
+          <label class="checkbox-inline"><%= f.check_box(:act11, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>СМИ, маркетинг, реклама</label>
+          <label class="checkbox-inline"><%= f.check_box(:act12, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Финансы, банки, страхование</label>
+        </div>
+        <div class="col-md-4">
+          <label class="checkbox-inline col-md-12"  style="padding-left: 30px"><%= f.check_box(:act13, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Добывающая отрасль (кроме нефтегазовой)</label>
+          <label class="checkbox-inline col-md-12"><%= f.check_box(:act14, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Медицина, фармацевтика, социальная помощь</label>
+          <label class="checkbox-inline col-md-12"><%= f.check_box(:act15, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Нефтегазовая промышленность</label>
+          <label class="checkbox-inline col-md-12"><%= f.check_box(:act16, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Торговля оптовая/розничная</label>
+          <label class="checkbox-inline col-md-12"><%= f.check_box(:act17, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Строительство, недвижимость, ЖКХ</label>
+          <label class="checkbox-inline col-md-12"><%= f.check_box(:act18, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Энергетика</label>
+          <label class="checkbox-inline col-md-12"><%= f.check_box(:act19, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Электроника, приборостроение, производство компьютеров</label>
+
+        </div>
+      </td>
+    </tr>  
+    <tr>
+      <td colspan=2>
+        <div class="col-md-12">
+          <div class="col-md-2">
+            <label class="checkbox-inline col-md-12"><%= f.check_box(:act20, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Иное</label>
+          </div>
+          <div class="col-md-10">
+            <%= f.text_field(:actOtherText, class: "form-control")  %>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top" >Количество сотрудников в организации</td>
+      <td colspan="2"><div class="col-md-12" >
+          <label class="checkbox-inline"  style="padding-left: 30px"><%= f.check_box(:cnt1, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>до 10 чел.</label>
+          <label class="checkbox-inline"><%= f.check_box(:cnt2, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>11-50 чел.</label>
+          <label class="checkbox-inline"><%= f.check_box(:cnt3, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>51-100 чел.</label>
+          <label class="checkbox-inline"><%= f.check_box(:cnt4, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>101-500 чел.</label>
+          <label class="checkbox-inline"><%= f.check_box(:cnt5, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>501-1 000 чел.</label>
+          <label class="checkbox-inline"><%= f.check_box(:cnt6, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>более 1 000 чел.</label>
+      </div></td>
+    </tr>
+</table>      
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
