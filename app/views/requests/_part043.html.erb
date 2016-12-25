@@ -1,0 +1,28 @@
+<h4>4.3. Иные доходы Заявителя </h3>
+<table class="table" style="width:100%">
+    <tr>
+      <td style="width:300px;vertical-align:top">Вид дохода (возможно несколько видов)</td>
+      <td>
+      	<div class='col-md-2'>
+      		<label class="checkbox-inline"><%= f.check_box(:otherIncomePension, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Пенсия</label>
+      	</div>
+      	<div class='col-md-5'><label class="checkbox-inline"><%= f.check_box(:otherIncomeLease, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Доход от сдачи недвижимости внаем/аренду</label>
+      	</div>
+      	<div class='col-md-5'>
+      		<div class='col-md-5'>
+      			<label class="checkbox-inline"><%= f.check_box(:otherIncomeOther, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Иное</label>
+      		</div>
+      		<div class='col-md-7'><%= f.text_field(:otherIncomeOtherText, class: "form-control")  %>
+      		</div>
+      	</div>
+      </td>
+    </tr>
+    <tr>
+    	<td style="vertical-align:top">Среднемесячный доход за вычетом налогов </td>
+    	<td>
+    		<div class='col-md-2'><%= f.number_field(:otherIncomeAmount, class: "form-control")  %>
+    		</div>
+    		<div><small>рублей</small></div>
+    	</td>
+    </tr>
+</table>      

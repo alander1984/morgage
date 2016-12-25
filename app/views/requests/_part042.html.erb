@@ -3,19 +3,19 @@
 <table class="table" style="width:100%">
     <tr>
       <td style="width:300px;vertical-align:top">Должность Заявителя</td>
-      <td><%= f.number_field(:mainWorkPosition, class: "form-control") %></td>
+      <td><%= f.text_field(:sWorkPosition, class: "form-control") %></td>
     </tr>
     <tr>	
     	<td style="vertical-align:top">Категория занимаемой должности</td>
     	<td>
-    		<label class="checkbox-inline" style="padding-left: 30px"><%= f.check_box(:mainWorkPosCategoryOwner, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Владелец/Совладелец предприятия</label>
-          	<label class="checkbox-inline"><%= f.check_box(:mainWorkPosCategoryGeneral, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Руководитель предприятия</label>
-          	<label class="checkbox-inline"><%= f.check_box(:mainWorkPosCategoryDepManager, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Руководитель подразделения</label>
-          	<label class="checkbox-inline"><%= f.check_box(:mainWorkPosCategoryOther, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Не руководящий работник</label>
+    		<label class="checkbox-inline" style="padding-left: 30px"><%= f.check_box(:sWorkPosCategoryOwner, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Владелец/Совладелец предприятия</label>
+          	<label class="checkbox-inline"><%= f.check_box(:sWorkPosCategoryGeneral, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Руководитель предприятия</label>
+          	<label class="checkbox-inline"><%= f.check_box(:sWorkPosCategoryDepManager, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Руководитель подразделения</label>
+          	<label class="checkbox-inline"><%= f.check_box(:sWorkPosCategoryOther, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Не руководящий работник</label>
     	</td>
     </tr>
     <tr>
     	<td style="vertical-align:top">Среднемесячный доход за вычетом налогов </td>
-    	<td><div class="col-md-2"><%= f.number_field(:mainWorkAmount, class: "form-control") %></div><small>рублей</small></td>
+    	<td><div class="col-md-2"><%= f.number_field(:sWorkAmount, class: "form-control") %></div><small>рублей</small></td>
     </tr>		
 </table>      

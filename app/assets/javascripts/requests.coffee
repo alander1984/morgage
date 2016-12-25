@@ -6,6 +6,8 @@ $(document).ready ->
   $('#srok1').hide()
   $('#recrSrokDiv').hide()
   $('#request_emplOtherText').hide()
+  $('#request_otherIncomeOtherText').hide()
+
 
   $('#new_person_registration_type').change ->
     if $(this).is(':checked')
@@ -28,6 +30,12 @@ $(document).ready ->
       $('#request_emplOtherText').hide()
     return 
 
+  $('#request_otherIncomeOther').change ->
+    if $(this).is(':checked')
+      $('#request_otherIncomeOtherText').show()
+    else
+      $('#request_otherIncomeOtherText').hide()
+    return
 
   $('#new_person_sameliveaddress').change ->
     if $(this).is(':checked')
