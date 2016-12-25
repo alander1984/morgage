@@ -15,20 +15,9 @@
   <%= render(:partial => 'part02',:locals => {:f => f}) %>
   <%= render(:partial => 'part03',:locals => {:f => f}) %>
   <%= render(:partial => 'part04',:locals => {:f => f}) %>
+  <%= render(:partial => 'part05',:locals => {:f => f}) %>
   
 
-  <div class="field">
-    <%= f.label :expenseAlimony %><br>
-    <%= f.check_box :expenseAlimony %>
-  </div>
-  <div class="field">
-    <%= f.label :expenseAlimonyAmount %><br>
-    <%= f.check_box :expenseAlimonyAmount %>
-  </div>
-  <div class="field">
-    <%= f.label :expenseCredit %><br>
-    <%= f.check_box :expenseCredit %>
-  </div>
   <div class="field">
     <%= f.label :estFlat %><br>
     <%= f.check_box :estFlat %>

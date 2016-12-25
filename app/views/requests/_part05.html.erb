@@ -1,0 +1,14 @@
+<h3>5. Сведения о расходах Заявителя</h3>
+<table class="table" style="width:100%">
+    <tr>
+      <td style="width:300px;vertical-align:top">Вид расхода (возможно несколько видов)</td>
+      <td>
+      	<div class='col-md-3'><label class="checkbox-inline" id="Alominylabel"><%= f.check_box(:expenseAlimony, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Алименты, в размере</label>
+      	</div><div class='col-md-3' id="divAlimonyAmoint">
+      		<div class='col-md-8'><%= f.number_field(:expenseAlimonyAmount, class: "form-control")  %>
+      		</div><div class='col-md-4'><small>рублей</small></div>
+      	</div>	
+      	<div class='col-md-3'><label class="checkbox-inline"><%= f.check_box(:expenseCredit, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Кредит/заем</label></div>	
+      </td>
+    </tr>
+</table>      

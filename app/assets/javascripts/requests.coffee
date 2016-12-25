@@ -7,7 +7,14 @@ $(document).ready ->
   $('#recrSrokDiv').hide()
   $('#request_emplOtherText').hide()
   $('#request_otherIncomeOtherText').hide()
-
+  $('#divAlimonyAmoint').hide()
+  
+  $('#request_expenseAlimony').change ->
+    if $(this).is(':checked')
+      $('#divAlimonyAmoint').show()
+    else
+      $('#divAlimonyAmoint').hide()
+    return
 
   $('#new_person_registration_type').change ->
     if $(this).is(':checked')
