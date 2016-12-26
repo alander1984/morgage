@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161225085645) do
+ActiveRecord::Schema.define(version: 20161226052951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "credits", force: :cascade do |t|
+    t.integer  "type"
+    t.string   "otherText"
+    t.string   "creditorName"
+    t.datetime "sdate"
+    t.datetime "edate"
+    t.string   "currency"
+    t.integer  "totalAmount"
+    t.integer  "monthAmount"
+    t.integer  "restAmount"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "link_ops", force: :cascade do |t|
     t.integer  "product_id"
@@ -178,6 +192,8 @@ ActiveRecord::Schema.define(version: 20161225085645) do
     t.boolean  "targetPreviousCredit"
     t.integer  "mainwork_id"
     t.integer  "secondwork_id"
+    t.integer  "credit1_id"
+    t.integer  "credit2_id"
   end
 
   create_table "works", force: :cascade do |t|
@@ -224,6 +240,8 @@ ActiveRecord::Schema.define(version: 20161225085645) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "requests", "credits", column: "credit1_id"
+  add_foreign_key "requests", "credits", column: "credit2_id"
   add_foreign_key "requests", "works", column: "mainwork_id"
   add_foreign_key "requests", "works", column: "secondwork_id"
 end

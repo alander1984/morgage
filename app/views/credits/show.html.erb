@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @credit.type %>
+</p>
+
+<p>
+  <strong>Othertext:</strong>
+  <%= @credit.otherText %>
+</p>
+
+<p>
+  <strong>Creditorname:</strong>
+  <%= @credit.creditorName %>
+</p>
+
+<p>
+  <strong>Sdate:</strong>
+  <%= @credit.sdate %>
+</p>
+
+<p>
+  <strong>Edate:</strong>
+  <%= @credit.edate %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @credit.currency %>
+</p>
+
+<p>
+  <strong>Totalamount:</strong>
+  <%= @credit.totalAmount %>
+</p>
+
+<p>
+  <strong>Monthamount:</strong>
+  <%= @credit.monthAmount %>
+</p>
+
+<p>
+  <strong>Restamount:</strong>
+  <%= @credit.restAmount %>
+</p>
+
+<%= link_to 'Edit', edit_credit_path(@credit) %> |
+<%= link_to 'Back', credits_path %>
