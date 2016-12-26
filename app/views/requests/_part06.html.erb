@@ -1,0 +1,65 @@
+<h3>6. Сведения об имуществе Заявителя </h3>
+<h4>6.1. Недвижимость заявителя</h4>
+<i>Раздел не заполняется, если недвижимость планируется к продаже или находится в залоге</i>
+<hr style="border-color:#8bc540">
+<table class="table">
+    <tr>
+      <td style="width:300px;vertical-align:top" rowspan="3">Вид недвижимости</td>	
+      <td><div class='col-md-3'><label class="checkbox-inline"><%= f.check_box(:estFlat, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Квартира, доля в собственности</label></div><div class='col-md-1'><%= f.number_field :estFlatPart,  :class=>"form-control"%></div><div class='col-md-1'>%</div><div class='col-md-3'><label class="checkbox-inline"><%= f.check_box(:estRoom, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Комната, доля в собственности </label></div>
+     	 <div class='col-md-1'><%= f.number_field :estRoomPart,  :class=>"form-control"%></div><div class='col-md-1'>%</div>
+      </td>
+    </tr>
+    <tr>
+    	<td>
+    		<div class='col-md-4'>
+    			<label class="checkbox-inline"><%= f.check_box(:estHouse, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Дом с земельным участком, доля в собственности</label>
+    		</div>
+    		<div class='col-md-1'><%= f.number_field :estHousePart,  :class=>"form-control"%></div>%
+    	</td>
+    </tr>
+    <tr>
+    	<td>
+    		<div class='col-md-1'>
+    			<label class="checkbox-inline"><%= f.check_box(:estOther, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Иное</label>
+    		</div>
+    		<div id='divOtherEstate' class='col-md-11'>
+    			<div class='col-md-5'><%= f.text_field(:otherIncomeOtherText, class: "form-control")  %></div>
+    			<div class='col-md-2' align="right">доля в собственности</div>
+    			<div class='col-md-1'><%= f.number_field :estOtherPart,  :class=>"form-control"%></div>%
+    		</div>
+    	</td>
+    </tr>
+    <tr>
+    	<td style="vertical-align:top">Регион местонахождения</td>	
+    	<td><%= f.text_field :estRegion,  :class=>"form-control"%></td>
+    <tr>
+    	<td style="vertical-align:top">Населенный пункт местонахождения</td>	
+    	<td><%= f.text_field :estCity,  :class=>"form-control"%></td>
+    </tr>	
+   <tr>
+    	<td style="vertical-align:top">Текущая рыночная стоимость</td>	
+    	<td><div class='col-md-2'><%= f.number_field :estPrice,  :class=>"form-control"%></div> рублей</td>
+    </tr>	
+</table>      
+<h4>6.2. Автомобиль Заявителя</h4>
+<i>Раздел не заполняется, если транспортное средство планируется к продаже</i>
+<hr style="border-color:#8bc540">
+<table class="table">
+    <tr>
+      <td style="width:300px;vertical-align:top">Марка</td>	
+      <td><%= f.text_field :carMake,  :class=>"form-control"%></td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top">Модель</td>	
+      <td><%= f.text_field :carModel,  :class=>"form-control"%></td>
+    </tr>
+    <tr>
+    	<td style="vertical-align:top">Год выпуска</td>
+    	<td>
+    		<div class='col-md-1'><%= f.number_field :carYear,  :class=>"form-control"%></div>	
+    		<div class='col-md-2'><label class="checkbox-inline"><%= f.check_box(:carPledge, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>В залоге</label></div>
+    		<div class='col-md-2' align="right">Текущая рыночная стоимость<br><small>рублей</small></div>
+    		<div class='col-md-2'><%= f.number_field :carPrice,  :class=>"form-control"%></div>
+    	</td>
+    </tr>
+</table>      

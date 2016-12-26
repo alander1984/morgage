@@ -1,0 +1,6 @@
+<%= fields_for :firstcr, @credit1 do |f| %>
+  <h4>Кредит 1</h4>		
+  
+  <%= render(:partial => 'credits/formcontent', :locals => {:f => f}) %>
+
+<% end %>

@@ -8,6 +8,23 @@ $(document).ready ->
   $('#request_emplOtherText').hide()
   $('#request_otherIncomeOtherText').hide()
   $('#divAlimonyAmoint').hide()
+  $('#divOtherEstate').hide() 
+
+  $('#request_estOther').change ->
+    if $(this).is(':checked')
+      $('#divOtherEstate').show()
+    else
+      $('#divOtherEstate').hide()
+    return
+    
+  
+
+  $('#credit_type_6').change ->
+    if $(this).is(':checked')
+      $('#credit_otherText').show()
+    else
+      $('#credit_otherText').hide()
+    return
   
   $('#request_expenseAlimony').change ->
     if $(this).is(':checked')

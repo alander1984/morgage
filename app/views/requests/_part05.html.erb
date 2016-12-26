@@ -12,5 +12,5 @@
       </td>
     </tr>
 </table>      
-
-rails g scaffold Credit type:integer otherText:string creditorName:string sdate:datetime edate:datetime currency:string totalAmount:integer monthAmount:integer restAmount:integer
+<%= render(:partial => 'credits/firstcr') %>
+<%= render(:partial => 'credits/secondcr') %>

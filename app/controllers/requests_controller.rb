@@ -16,10 +16,15 @@ class RequestsController < ApplicationController
   def new
     @request = Request.new
     @mainwork=Work.new()
-    swork=Work.new()
+    @secondwork=Work.new()
     @request.mainwork=@mainwork
-    @request.secondwork=swork
+    @request.secondwork=@secondwork
     @request.build_mainwork;
+    @request.build_secondwork;
+    @credit1=Credit.new();
+    @credit2 = Credit.new();
+    @request.credit1=@credit1;
+    @request.credit2=@credit2;
   end
 
   # GET /requests/1/edit

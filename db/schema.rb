@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226052951) do
+ActiveRecord::Schema.define(version: 20161226095350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,8 +168,6 @@ ActiveRecord::Schema.define(version: 20161226052951) do
     t.integer  "estRoomPart"
     t.boolean  "estHouse"
     t.integer  "estHousePart"
-    t.boolean  "estOther"
-    t.string   "estOtherTest"
     t.integer  "estOtherPart"
     t.string   "estRegion"
     t.string   "estCity"
@@ -194,6 +192,8 @@ ActiveRecord::Schema.define(version: 20161226052951) do
     t.integer  "secondwork_id"
     t.integer  "credit1_id"
     t.integer  "credit2_id"
+    t.boolean  "estOther"
+    t.string   "estOtherText"
   end
 
   create_table "works", force: :cascade do |t|

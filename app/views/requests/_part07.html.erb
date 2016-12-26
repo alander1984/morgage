@@ -1,0 +1,24 @@
+<h3>7. Дополнительная информация о Заявителе</h3>
+<table class="table" style="width:100%">
+	<tr>
+		<td style="width:90%">Существуют ли в отношении Вас сведения о непогашенной судимости?</td>
+		<td><%= f.check_box(:conviction, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %></td>
+	</tr>
+	<tr>
+		<td>Являетесь ли Вы учредителем (участником) юридического лица?</td>
+		<td><%= f.check_box(:founder, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %></td>
+	</tr>
+	<tr>
+		<td>Имеется ли у Вас задолженность по налоговым платежам?</td>
+		<td><%= f.check_box(:taxArrears, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %></td>
+	</tr>	<tr>
+		<td>Предпринимаете ли Вы в настоящее время шаги для получения иных кредитов (займов) у других учреждений или намерены получить такие займы в будущем?</td>
+		<td><%= f.check_box(:otherCreditRequests, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %></td>
+	</tr>	<tr>
+		<td>Ведется ли судом в отношении Вас производство по делу о несостоятельности (банкротстве), или в течение предшествующих пяти лет Вы признавались несостоятельным (банкротом) в порядке, установленном законодательством Российской Федерации?</td>
+		<td><%= f.check_box(:bunkrupt, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %></td>
+	</tr>	<tr>
+		<td>Ожидаете ли Вы в ближайшие 6 мес. рождения ребенка?</td>
+		<td><%= f.check_box(:waitForChild, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %></td>
+	</tr>
+</table>
