@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/options/:id/removeOption/:opId' => 'options#removeOption'
   get 'products/action/sendAddOptionForm' => 'products#sendAddOptionForm'
 
+  get 'process/issuanceStart', as: :startIssuance
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

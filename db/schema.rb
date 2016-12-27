@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227053716) do
+ActiveRecord::Schema.define(version: 20161227173745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,25 @@ ActiveRecord::Schema.define(version: 20161227053716) do
     t.integer  "childyear2"
     t.integer  "childyear3"
   end
+
+  create_table "processOptions", force: :cascade do |t|
+    t.integer "process_id"
+    t.integer "option_id"
+  end
+
+  add_index "processOptions", ["option_id"], name: "index_processOptions_on_option_id", using: :btree
+  add_index "processOptions", ["process_id"], name: "index_processOptions_on_process_id", using: :btree
+
+  create_table "processes", force: :cascade do |t|
+    t.integer  "type"
+    t.integer  "request_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "processes", ["product_id"], name: "index_processes_on_product_id", using: :btree
+  add_index "processes", ["request_id"], name: "index_processes_on_request_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "audience"
