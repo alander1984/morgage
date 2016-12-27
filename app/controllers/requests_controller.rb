@@ -34,10 +34,14 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
+    logger.info(params['new_person'])
     @request = Request.new(request_params)
+    params['new_person'].permit!
+    pers = Person.new(params['new_person']);
+    @request.person=pers;
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
+        format.html { redirect_to requests_url, notice: 'Заявка успешно создана' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
@@ -49,6 +53,8 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1
   # PATCH/PUT /requests/1.json
   def update
+    params['new_person'].permit!
+    @request.person.update(params['new_person']); 
     respond_to do |format|
       if @request.update(request_params)
         format.html { redirect_to @request, notice: 'Request was successfully updated.' }

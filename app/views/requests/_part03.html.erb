@@ -1,16 +1,17 @@
+<%= fields_for :new_person, @request.person do |fp| %>
 <h3>3. Личные данные Заявителя</h3>
 <table class="table">
     <tr>
       <td style="width:300px;vertical-align:top">Фамилия</td>
-      <td colspan=2><%= text_field('new_person','fname', class: "form-control") %></td>
+      <td colspan=2><%= fp.text_field(:fname, class: "form-control") %></td>
     </tr>
     <tr>
       <td style="vertical-align:top">Имя</td>
-      <td colspan=2><%= text_field('new_person','sname', class: "form-control") %></td>
+      <td colspan=2><%= fp.text_field(:sname, class: "form-control") %></td>
     </tr>
     <tr>
       <td style="vertical-align:top">Отчество</td>
-      <td colspan=2><%= text_field('new_person','tname', class: "form-control") %></td>
+      <td colspan=2><%= fp.text_field(:tname, class: "form-control") %></td>
     </tr>
     <tr>
       <td style="vertical-align:top">Дата рождения <small>дд.мм.гггг</small></td>
@@ -19,7 +20,7 @@
           <!-- Извращения с выбором даты, однако -->                
              <div class="form-group">
                 <div class='input-group date datepicker' id='datetimepicker3'>
-                              <%= text_field('new_person', 'birthday', :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
+                              <%= fp.text_field(:birthday, :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-calendar"></i>
                     </span>
@@ -45,16 +46,16 @@
     </tr>
     <tr>
       <td style="vertical-align:top">Пол</td>
-      <td><%= check_box('new_person','sex', class: "form-control", :data => { :toggle => 'toggle',:on=>"Мужской",:off=>"Женский" }) %></td>
+      <td><%= fp.check_box(:sex, class: "form-control", :data => { :toggle => 'toggle',:on=>"Мужской",:off=>"Женский" }) %></td>
     </tr>
     <tr>
     	<td rowspan="3">Предыдущие Ф.И.О. <small>(если менялись)</small></td>
-    	<td colspan="2"><%= text_field('new_person','fprevname', class: "form-control") %></td>
+    	<td colspan="2"><%= fp.text_field(:fprevname, class: "form-control") %></td>
     <tr>
-    	<td colspan="2"><%= text_field('new_person','sprevname', class: "form-control") %></td>
+    	<td colspan="2"><%= fp.text_field(:sprevname, class: "form-control") %></td>
 	</tr>
 	<tr>
-	  	<td colspan="2"><%= text_field('new_person','tprevname', class: "form-control") %></td>
+	  	<td colspan="2"><%= fp.text_field(:tprevname, class: "form-control") %></td>
     </tr>			
 	<tr>
       <td style="vertical-align:top" rowspan=3>Паспортные данные</td>
@@ -62,18 +63,18 @@
       	<div class="form-group row">
           <label class="col-md-1 form-control-label">Серия</label>
           <div class="col-md-2  ">
-            <%= text_field('new_person','passserie', class: "form-control")  %>
+            <%= fp.text_field(:passserie, class: "form-control")  %>
           </div>
           <label class="col-md-1 form-control-label">Номер</label>
           <div class="col-md-2  ">
-            <%= text_field('new_person','passnumber', class: "form-control")  %>
+            <%= fp.text_field(:passnumber, class: "form-control")  %>
           </div>
           <label class="col-md-2 form-control-label">Дата выдачи <small>дд.мм.ггг.</small></label>
           <div class="col-md-3">
           <!-- Извращения с выбором даты, однако -->                
              <div class="form-group">
                 <div class='input-group date datepicker' id='datetimepicker4'>
-                              <%= text_field('new_person', 'tname', :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
+                              <%= fp.text_field(:tname, :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-calendar"></i>
                     </span>
@@ -104,7 +105,7 @@
     	<td style="vertical-align:top" colspan="2">
     	  <label class="col-md-2 form-control-label">Кем выдан</label>
           <div class="col-md-10  ">
-            <%= text_area('new_person','passsource', class: "form-control")  %>
+            <%= fp.text_area(:passsource, class: "form-control")  %>
           </div>
     	</td>
     </tr> 
@@ -112,7 +113,7 @@
     	<td style="vertical-align:top" colspan="2">
     	  <label class="form-control-label col-md-3">Код подразделения</label>
           <div class="col-md-2  ">
-            <%= text_field('new_person','passdivision', class: "form-control")  %>
+            <%= fp.text_field(:passdivision, class: "form-control")  %>
           </div>
     	</td>
     </tr> 
@@ -121,7 +122,7 @@
         Страховой номер индивидуального лицевого счета (СНИЛС)
       </td>
       <td>
-        <%= text_field('new_person','snils', class: "form-control col-md-12")  %>
+        <%= fp.text_field(:snils, class: "form-control col-md-12")  %>
       </td>
       <td rowspan="3" style="width:250px">
         <p><small><small>Заполнение данного поля не требуется в случае, если Заявитель относится к одной из категорий граждан, пенсионное обеспечение которых в соответствии с законодательством РФ осуществляется не Пенсионным фондом РФ, а иным министерством или ведомством.</small></small></p>
@@ -129,22 +130,22 @@
     </tr>
     <tr>  
       <td>  
-        <label class="checkbox-inline"><%= check_box('new_person','extpassexists', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Есть действующий загранпаспорт</label>
+        <label class="checkbox-inline"><%= fp.check_box(:extpassexists, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Есть действующий загранпаспорт</label>
       </td>            
     </tr>  
     <tr>
       <td rowspan="6" style="vertical-align:top">Адрес регистрации</td>
       <td>
           <table><tr><td style="width:60px">
-          <label class="form-control-label" >Индекс</label></td><td style="padding-right:15px"><%= text_field('new_person','regaddrindex', class: "form-control", style: "width:100px")  %></td><td  style="width:200px">
-          <label class="form-control-label" >Область/республика/край</label></td><td><%= text_field('new_person','regaddrregion', class: "form-control row", style:"width:250px")  %></td></tr></table>
+          <label class="form-control-label" >Индекс</label></td><td style="padding-right:15px"><%= fp.text_field(:regaddrindex, class: "form-control", style: "width:100px")  %></td><td  style="width:200px">
+          <label class="form-control-label" >Область/республика/край</label></td><td><%= fp.text_field(:regaddrregion, class: "form-control row", style:"width:250px")  %></td></tr></table>
       </td>
     </tr>
     <tr>
       <td style="vertical-align:top" colspan="2">
         <table style="width:100%"><tr><td style="width:60px">
           <label class="form-control-label">Район</label></td><td>
-          <%= text_field('new_person','regaddrarea', class: "form-control")  %>
+          <%= fp.text_field(:regaddrarea, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
@@ -152,7 +153,7 @@
       <td style="vertical-align:top" colspan="2">
         <table style="width:100%"><tr><td style="width:130px">
           <label class="form-control-label">Город/поселок</label></td><td>
-          <%= text_field('new_person','regaddrcity', class: "form-control")  %>
+          <%= fp.text_field(:regaddrcity, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
@@ -160,38 +161,38 @@
       <td style="vertical-align:top">
         <table style="width:100%"><tr><td style="width:60px">
           <label class="form-control-label">Улица</label></td><td>
-          <%= text_field('new_person','regaddrstreet', class: "form-control")  %>
+          <%= fp.text_field(:regaddrstreet, class: "form-control")  %>
         </td></tr></table>
       </td>
       <td style="vertical-align:top">
         <table style="width:100%"><tr><td style="width:50px">
           <label class="form-control-label">Дом</label></td><td>
-          <%= number_field('new_person','regaddrhouse', class: "form-control")  %>
+          <%= fp.number_field(:regaddrhouse, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
     <tr>
       <td style="vertical-align:top">
         <table style="width:70%"><tr><td style="width:60px"><label class="form-control-label">Корпус</label></td><td style="padding-right:15px">
-          <%= text_field('new_person','regaddrhousekorp', class: "form-control")  %>
+          <%= fp.text_field(:regaddrhousekorp, class: "form-control")  %>
         </td>
         <td style="width:75px"><label class="form-control-label">Строение</label></td><td  style="padding-right:15px">
-          <%= text_field('new_person','regaddrhousestr', class: "form-control")  %>
+          <%= fp.text_field(:regaddrhousestr, class: "form-control")  %>
         </td>
         <td style="width:70px"><label class="form-control-label">Квартира</label></td><td style="padding-right:15px">
-          <%= number_field('new_person','regaddrhouseflat', class: "form-control")  %>
+          <%= fp.number_field(:regaddrhouseflat, class: "form-control")  %>
         </td></tr></table>
     </tr>
     <tr><td>
       <table>
         <tr>
           <td style="width:120px"><label class="form-control-label">Вид регистрации</label></td>
-          <td style="padding-right:15px"><%= check_box('new_person','registration_type', class: "form-control", :data => { :toggle => 'toggle',:on=>"Постоянная",:off=>"Временная" }, :checked => true) %></td>
+          <td style="padding-right:15px"><%= fp.check_box(:registration_type, class: "form-control", :data => { :toggle => 'toggle',:on=>"Постоянная",:off=>"Временная" }, :checked => true) %></td>
           <td id="srok1">
              <label class="form-control-label col-md-4">срок до <small>(дд.ммм.гггг)</small>: </label> <!-- Извращения с выбором даты, однако -->                
              <div class="form-group col-md-8">
                 <div class='input-group date datepicker' id='datetimepicker5'>
-                              <%= text_field('new_person', 'addrtempregdate', :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
+                              <%= fp.text_field(:addrtempregdate, :class => "form-control", :placeholder => "DD.MM.YYYY", ) %> 
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-calendar"></i>
                     </span>
@@ -224,21 +225,21 @@
     <tr>
       <td rowspan="6" style="vertical-align:top" id="liveAddressMainCell">Адрес проживания</td>
       <td>  
-        <label class="checkbox-inline"><%= check_box('new_person','sameliveaddress', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Совпадает с адресом регистрации, если нет, укажите адрес:</label>
+        <label class="checkbox-inline"><%= fp.check_box(:sameliveaddress, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Совпадает с адресом регистрации, если нет, укажите адрес:</label>
       </td>   
     </tr>
     <tr id="liveAddress1">  
       <td>
           <table><tr><td style="width:60px">
-          <label class="form-control-label" >Индекс</label></td><td style="padding-right:15px"><%= text_field('new_person','liveaddrindex', class: "form-control", style: "width:100px")  %></td><td  style="width:200px">
-          <label class="form-control-label" >Область/республика/край</label></td><td><%= text_field('new_person','liveaddrregion', class: "form-control row", style:"width:250px")  %></td></tr></table>
+          <label class="form-control-label" >Индекс</label></td><td style="padding-right:15px"><%= fp.text_field(:liveaddrindex, class: "form-control", style: "width:100px")  %></td><td  style="width:200px">
+          <label class="form-control-label" >Область/республика/край</label></td><td><%= fp.text_field(:liveaddrregion, class: "form-control row", style:"width:250px")  %></td></tr></table>
       </td>
     </tr>  
     <tr id="liveAddress2">
       <td style="vertical-align:top" colspan="2">
         <table style="width:100%"><tr><td style="width:60px">
           <label class="form-control-label">Район</label></td><td>
-          <%= text_field('new_person','liveaddrarea', class: "form-control")  %>
+          <%= fp.text_field(:liveaddrarea, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
@@ -246,7 +247,7 @@
       <td style="vertical-align:top" colspan="2">
         <table style="width:100%"><tr><td style="width:130px">
           <label class="form-control-label">Город/поселок</label></td><td>
-          <%= text_field('new_person','liveaddrcity', class: "form-control")  %>
+          <%= fp.text_field(:liveaddrcity, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
@@ -254,42 +255,42 @@
       <td style="vertical-align:top">
         <table style="width:100%"><tr><td style="width:60px">
           <label class="form-control-label">Улица</label></td><td>
-          <%= text_field('new_person','liveaddrstreet', class: "form-control")  %>
+          <%= fp.text_field(:liveaddrstreet, class: "form-control")  %>
         </td></tr></table>
       </td>
       <td style="vertical-align:top">
         <table style="width:100%"><tr><td style="width:50px">
           <label class="form-control-label">Дом</label></td><td>
-          <%= number_field('new_person','liveaddrhouse', class: "form-control")  %>
+          <%= fp.number_field(:liveaddrhouse, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
     <tr  id="liveAddress5">
       <td style="vertical-align:top">
         <table style="width:70%"><tr><td style="width:60px"><label class="form-control-label">Корпус</label></td><td style="padding-right:15px">
-          <%= text_field('new_person','liveaddrhousekorp', class: "form-control")  %>
+          <%= fp.text_field(:liveaddrhousekorp, class: "form-control")  %>
         </td>
         <td style="width:75px"><label class="form-control-label">Строение</label></td><td  style="padding-right:15px">
-          <%= text_field('new_person','liveaddrhousestr', class: "form-control")  %>
+          <%= fp.text_field(:liveaddrhousestr, class: "form-control")  %>
         </td>
         <td style="width:70px"><label class="form-control-label">Квартира</label></td><td style="padding-right:15px">
-          <%= number_field('new_person','liveaddrhouseflat', class: "form-control")  %>
+          <%= fp.number_field(:liveaddrhouseflat, class: "form-control")  %>
         </td></tr></table>
     </tr>
     <tr>
       <td rowspan="2" style="vertical-align:top">Основание проживания</td>
       <td colspan="2">
-        <label class="checkbox-inline"><%= check_box('new_person','livebaseowner', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Собственность</label>
-        <label class="checkbox-inline"><%= check_box('new_person','livebaserelative', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Жилье родственников</label>
-        <label class="checkbox-inline"><%= check_box('new_person','livebasesocial', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Социальный наем</label>
-        <label class="checkbox-inline"><%= check_box('new_person','livebaserent', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Аренда</label>
+        <label class="checkbox-inline"><%= fp.check_box(:livebaseowner, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Собственность</label>
+        <label class="checkbox-inline"><%= fp.check_box(:livebaserelative, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Жилье родственников</label>
+        <label class="checkbox-inline"><%= fp.check_box(:livebasesocial, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Социальный наем</label>
+        <label class="checkbox-inline"><%= fp.check_box(:livebaserent, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Аренда</label>
       </td>
     </tr>   
     <tr>
       <td colspan=2>
         <table style="width:100%"><tr><td style="width:60px">
           <label class="form-control-label">Иное</label></td><td>
-          <%= text_field('new_person','livebaseother', class: "form-control")  %>
+          <%= fp.text_field(:livebaseother, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
@@ -298,7 +299,7 @@
       <td>
         <table style="width:300px"><tr><td style="width:150px">
           <label class="form-control-label">Мобильный телефон <small>+7XXXXXXXXXX</small></label></td><td>
-          <%= text_field('new_person','phonemobile', class: "form-control")  %>
+          <%= fp.text_field(:phonemobile, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
@@ -306,7 +307,7 @@
       <td>
         <table style="width:300px"><tr><td style="width:150px">
           <label class="form-control-label">Домашний телефон <small>+7XXXXXXXXXX</small></label></td><td>
-          <%= text_field('new_person','phonemobile', class: "form-control")  %>
+          <%= fp.text_field(:phonemobile, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
@@ -314,7 +315,7 @@
       <td>
         <table style="width:300px"><tr><td style="width:150px">
           <label class="form-control-label">Контактный телефон <small>+7XXXXXXXXXX</small></label></td><td>
-          <%= text_field('new_person','phonemobile', class: "form-control")  %>
+          <%= fp.text_field(:phonemobile, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
@@ -322,7 +323,7 @@
       <td>
         <table style="width:300px"><tr><td style="width:50px">
           <label class="form-control-label">E-mail</label></td><td>
-          <%= text_field('new_person','email', class: "form-control")  %>
+          <%= fp.text_field(:email, class: "form-control")  %>
         </td></tr></table>
       </td>
     </tr>
@@ -334,22 +335,22 @@
   <tr>
     <td style="vertical-align:top">Семейное положение</td>
     <td colspan="2">
-        <label class="checkbox-inline"><%= check_box('new_person','married', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Женат/замужем</label>
-        <label class="checkbox-inline"><%= check_box('new_person','simplemarried', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Гражданский брак</label>
-        <label class="checkbox-inline"><%= check_box('new_person','single', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Холост/не замужем</label>
-        <label class="checkbox-inline"><%= check_box('new_person','divorced', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>В разводе</label>
-        <label class="checkbox-inline"><%= check_box('new_person','widower', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Вдовец/вдова</label>
+        <label class="checkbox-inline"><%= fp.check_box(:married, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Женат/замужем</label>
+        <label class="checkbox-inline"><%= fp.check_box(:simplemarried, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Гражданский брак</label>
+        <label class="checkbox-inline"><%= fp.check_box(:single, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Холост/не замужем</label>
+        <label class="checkbox-inline"><%= fp.check_box(:divorced, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>В разводе</label>
+        <label class="checkbox-inline"><%= fp.check_box(:widower, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Вдовец/вдова</label>
       </td>
   </tr> 
   <tr>
     <td style="vertical-align:top">Наличие брачного договора</td>
     <td colspan="2">  
       <table style="width:100%"><tr><td>
-        <%= check_box('new_person','marriagecontract', class: "form-control", :data => { :toggle => 'toggle',:on=>"Есть",:off=>"Нет" }) %>
+        <%= fp.check_box(:marriagecontract, class: "form-control", :data => { :toggle => 'toggle',:on=>"Есть",:off=>"Нет" }) %>
         </td>
         <td align="right">
           <label class="form-control-label">Количество лиц на иждивении (включая несовершеннолетних детей)</label></td><td align="right">
-          <%= number_field('new_person','childcount', class: "form-control", style: "width:60px")  %>
+          <%= fp.number_field(:childcount, class: "form-control", style: "width:60px")  %>
         </td></tr></table>
     </td>  
   </tr>  
@@ -360,22 +361,22 @@
       <tr>
         <td style="width:300px">
           <table>
-            <tr><td><label class="checkbox-inline"><%= check_box('new_person','ed1', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Неоконченное среднее</label></td></tr>
-            <tr><td><label class="checkbox-inline"><%= check_box('new_person','ed2', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Среднее</label></td></tr>
-            <tr><td><label class="checkbox-inline"><%= check_box('new_person','ed3', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Среднее специальное</label></td></tr>
-            <tr><td><label class="checkbox-inline"><%= check_box('new_person','ed4', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Неоконченное высшее</label></td></tr>
-            <tr><td><label class="checkbox-inline"><%= check_box('new_person','ed5', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Высшее</label></td></tr>
-            <tr><td><label class="checkbox-inline"><%= check_box('new_person','ed6', class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Несколько высших/ученая степень</label></td></tr>
+            <tr><td><label class="checkbox-inline"><%= fp.check_box(:ed1, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Неоконченное среднее</label></td></tr>
+            <tr><td><label class="checkbox-inline"><%= fp.check_box(:ed2, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Среднее</label></td></tr>
+            <tr><td><label class="checkbox-inline"><%= fp.check_box(:ed3, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Среднее специальное</label></td></tr>
+            <tr><td><label class="checkbox-inline"><%= fp.check_box(:ed4, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Неоконченное высшее</label></td></tr>
+            <tr><td><label class="checkbox-inline"><%= fp.check_box(:ed5, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Высшее</label></td></tr>
+            <tr><td><label class="checkbox-inline"><%= fp.check_box(:ed6, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Несколько высших/ученая степень</label></td></tr>
           </table>
         </td>
         <td valign="top"><table style="width:100%">
               <tr><td rowspan="3" style="vertical-align:top" align="right"><label class="form-control-label">Годы рождения несовершеннолетних детей</label></td>
                 <td align="right">
-                  <%= number_field('new_person','childyear1', class: "form-control", style: "width:110px")  %>
+                  <%= fp.number_field(:childyear1, class: "form-control", style: "width:110px")  %>
                 </td>
               </tr>  
-              <tr><td align="right"><%= number_field('new_person','childyear2', class: "form-control", style: "width:110px")  %></td></tr>
-              <tr><td align="right"><%= number_field('new_person','childyear3', class: "form-control", style: "width:110px")  %></td></tr>
+              <tr><td align="right"><%= fp.number_field(:childyear2, class: "form-control", style: "width:110px")  %></td></tr>
+              <tr><td align="right"><%= fp.number_field(:childyear3, class: "form-control", style: "width:110px")  %></td></tr>
             </table>
         </td>
       </tr>
@@ -384,3 +385,4 @@
   </tr>
 
 </table>        
+<% end %>

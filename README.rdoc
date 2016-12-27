@@ -27,15 +27,61 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-
-
-<%= form_tag(  '/products/'+@product.id.to_s+'/addOption', method: 'get', remote: true,:html => {
-                            :id => 'frmAddOption'}) do %>
-
-            <div class="col-md-8" id='listAvalOptions'>
-              <%= collection_select(:option, :id,  @active_options, :id,:name, {},{:class => 'form-control optionSelect'}) %>
-            </div>  
-            <div class="col-md-2">
-              <button id="btnAddOption2" class="btn btn-primary">Добавить</button>
-            </div>
-          <% end %>
+"new_person"=>{"fname"=>"5656",
+ "sname"=>"",
+ "tname"=>"",
+ "birthday"=>"",
+ "sex"=>"0",
+ "fprevname"=>"",
+ "sprevname"=>"",
+ "tprevname"=>"",
+ "passserie"=>"",
+ "passnumber"=>"",
+ "passsource"=>"",
+ "passdivision"=>"",
+ "snils"=>"",
+ "extpassexists"=>"0",
+ "regaddrindex"=>"",
+ "regaddrregion"=>"",
+ "regaddrarea"=>"",
+ "regaddrcity"=>"",
+ "regaddrstreet"=>"",
+ "regaddrhouse"=>"",
+ "regaddrhousekorp"=>"",
+ "regaddrhousestr"=>"",
+ "regaddrhouseflat"=>"",
+ "registration_type"=>"1",
+ "addrtempregdate"=>"",
+ "sameliveaddress"=>"0",
+ "liveaddrindex"=>"",
+ "liveaddrregion"=>"",
+ "liveaddrarea"=>"",
+ "liveaddrcity"=>"",
+ "liveaddrstreet"=>"",
+ "liveaddrhouse"=>"",
+ "liveaddrhousekorp"=>"",
+ "liveaddrhousestr"=>"",
+ "liveaddrhouseflat"=>"",
+ "livebaseowner"=>"0",
+ "livebaserelative"=>"0",
+ "livebasesocial"=>"0",
+ "livebaserent"=>"0",
+ "livebaseother"=>"",
+ "phonemobile"=>"",
+ "email"=>"",
+ "married"=>"0",
+ "simplemarried"=>"0",
+ "single"=>"0",
+ "divorced"=>"0",
+ "widower"=>"0",
+ "marriagecontract"=>"0",
+ "childcount"=>"",
+ "ed1"=>"0",
+ "ed2"=>"0",
+ "ed3"=>"0",
+ "ed4"=>"0",
+ "ed5"=>"0",
+ "ed6"=>"0",
+ "childyear1"=>"",
+ "childyear2"=>"",
+ "childyear3"=>""},

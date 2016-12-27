@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226095350) do
+ActiveRecord::Schema.define(version: 20161227053716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,14 +69,66 @@ ActiveRecord::Schema.define(version: 20161226095350) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "fname"
     t.string   "sname"
     t.string   "tname"
-    t.string   "doc_serie"
-    t.string   "doc_number"
     t.datetime "birthday"
+    t.boolean  "sex"
+    t.string   "fprevname"
+    t.string   "sprevname"
+    t.string   "tprevname"
+    t.string   "passserie"
+    t.string   "passnumber"
+    t.string   "passsource"
+    t.string   "passdivision"
+    t.string   "snils"
+    t.boolean  "extpassexists"
+    t.string   "regaddrindex"
+    t.string   "regaddrregion"
+    t.string   "regaddrarea"
+    t.string   "regaddrcity"
+    t.string   "regaddrstreet"
+    t.integer  "regaddrhouse"
+    t.string   "regaddrhousekorp"
+    t.string   "regaddrhousestr"
+    t.integer  "regaddrhouseflat"
+    t.boolean  "registration_type"
+    t.datetime "addrtempregdate"
+    t.boolean  "sameliveaddress"
+    t.string   "liveaddrindex"
+    t.string   "liveaddrregion"
+    t.string   "liveaddrarea"
+    t.string   "liveaddrcity"
+    t.string   "liveaddrstreet"
+    t.integer  "liveaddrhouse"
+    t.string   "liveaddrhousekorp"
+    t.string   "liveaddrhousestr"
+    t.integer  "liveaddrhouseflat"
+    t.boolean  "livebaseowner"
+    t.boolean  "livebaserelative"
+    t.boolean  "livebasesocial"
+    t.boolean  "livebaserent"
+    t.string   "livebaseother"
+    t.string   "phonemobile"
+    t.string   "email"
+    t.boolean  "married"
+    t.boolean  "simplemarried"
+    t.boolean  "single"
+    t.boolean  "divorced"
+    t.boolean  "widower"
+    t.boolean  "marriagecontract"
+    t.integer  "childcount"
+    t.boolean  "ed1"
+    t.boolean  "ed2"
+    t.boolean  "ed3"
+    t.boolean  "ed4"
+    t.boolean  "ed5"
+    t.boolean  "ed6"
+    t.integer  "childyear1"
+    t.integer  "childyear2"
+    t.integer  "childyear3"
   end
 
   create_table "products", force: :cascade do |t|
@@ -194,6 +246,7 @@ ActiveRecord::Schema.define(version: 20161226095350) do
     t.integer  "credit2_id"
     t.boolean  "estOther"
     t.string   "estOtherText"
+    t.integer  "person_id"
   end
 
   create_table "works", force: :cascade do |t|
@@ -242,6 +295,7 @@ ActiveRecord::Schema.define(version: 20161226095350) do
 
   add_foreign_key "requests", "credits", column: "credit1_id"
   add_foreign_key "requests", "credits", column: "credit2_id"
+  add_foreign_key "requests", "people"
   add_foreign_key "requests", "works", column: "mainwork_id"
   add_foreign_key "requests", "works", column: "secondwork_id"
 end

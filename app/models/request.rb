@@ -7,4 +7,5 @@ class Request < ActiveRecord::Base
   	belongs_to :credit2, :class_name => 'Credit', :foreign_key => 'credit2_id';
   	accepts_nested_attributes_for :credit1
   	accepts_nested_attributes_for :credit2
+  	belongs_to :person
 end

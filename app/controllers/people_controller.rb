@@ -69,6 +69,7 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params[:person].permit(:name,:sname,:tname,:doc_serie,:doc_number,:birthday)
+      params[:person].permit(:fname, :sname, :tname, :birthday, :sex, :fprevname, :sprevname, :tprevname, :passserie, :passnumber, :passsource, :passdivision, :snils. :extpassexists. :regaddrindex, :regaddrregion, :regaddrarea, :regaddrcity, :regaddrstreet, :regaddrhouse, :regaddrhousekorp, :regaddrhousestr, :regaddrhouseflat, :registration_type, :addrtempregdate, :sameliveaddress, :liveaddrindex, :liveaddrregion, :liveaddrarea, :liveaddrcity, :liveaddrstreet, :liveaddrhouse, :liveaddrhousekorp, :liveaddrhousestr, :liveaddrhouseflat, :livebaseowner, :livebaserelative, :livebasesocial, :livebaserent, :livebaseother, :phonemobile, :email, :married, :simplemarried, :single, :divorced, :widower, :marriagecontract, :childcount, :ed1, :ed2, :ed3, :ed4, :ed5, :ed6, :childyear1, :childyear2, :childyear3)
     end
 end
+
