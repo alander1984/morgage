@@ -19,7 +19,7 @@
   <%= render(:partial => 'part06',:locals => {:f => f}) %>
   <%= render(:partial => 'part07',:locals => {:f => f}) %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" align = "right">
+    <%= f.submit "Принять", :class=>"btn btn-success"%> | <%= link_to 'Отмена', requests_path, :class=>'btn btn-default' %>
   </div>
 <% end %>

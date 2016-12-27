@@ -8,4 +8,13 @@ class Request < ActiveRecord::Base
   	accepts_nested_attributes_for :credit1
   	accepts_nested_attributes_for :credit2
   	belongs_to :person
+  	def to_s
+		s = id.to_s;
+		if person!=nil
+			s = s+ ' '+(person.fname? ? person.fname : '') + ' '+ 
+					   (person.sname? ? person.sname : '')+' '+ 
+					   (person.tname? ? person.tname : '')
+		end	
+		return s;
+	end	
 end

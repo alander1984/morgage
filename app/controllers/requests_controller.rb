@@ -29,16 +29,28 @@ class RequestsController < ApplicationController
 
   # GET /requests/1/edit
   def edit
+
   end
 
   # POST /requests
   # POST /requests.json
   def create
-    logger.info(params['new_person'])
     @request = Request.new(request_params)
     params['new_person'].permit!
     pers = Person.new(params['new_person']);
     @request.person=pers;
+    params['mainwork'].permit!
+    mainwork_ = Work.new(params['mainwork']);
+    @request.mainwork=mainwork_;
+    params['secondwork'].permit!
+    secondwork_ = Work.new(params['secondwork']);
+    @request.secondwork=secondwork_;
+    params['firstcr'].permit!
+    credit1_ = Credit.new(params['firstcr'])
+    @request.credit1 = credit1_;
+    params['secondcr'].permit!
+    credit2_ = Credit.new(params['secondcr'])
+    @request.credit2 = credit2_;    
     respond_to do |format|
       if @request.save
         format.html { redirect_to requests_url, notice: 'Заявка успешно создана' }
@@ -55,9 +67,19 @@ class RequestsController < ApplicationController
   def update
     params['new_person'].permit!
     @request.person.update(params['new_person']); 
+    params['mainwork'].permit!
+    @request.mainwork.update(params['mainwork']); 
+    params['secondwork'].permit!
+    @request.secondwork.update(params['secondwork']); 
+    params['firstcr'].permit!
+    @request.credit1.update(params['firstcr']); 
+    params['secondcr'].permit!
+    @request.credit2.update(params['secondcr']); 
+
+
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to @request, notice: 'Request was successfully updated.' }
+        format.html { redirect_to requests_url, notice: 'Заявка успешно изменена' }
         format.json { render :show, status: :ok, location: @request }
       else
         format.html { render :edit }

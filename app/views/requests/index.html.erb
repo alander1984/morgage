@@ -10,7 +10,7 @@
   <tbody>
     <% @requests.each do |request| %>
       <tr>
-        <td><td><%= link_to request.id.to_s, request %></td></td>
+        <td><td><%= link_to request.to_s, request, method: :get %></td></td>
       </tr>
     <% end %>
   </tbody>

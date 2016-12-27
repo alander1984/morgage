@@ -1,4 +1,4 @@
-<%= fields_for :secondwork, @secondwork do |f| %>
+<%= fields_for :mainwork, @request.mainwork do |f| %>
   
   <%= render(:partial => 'works/formcontent', :locals => {:f => f}) %>
 

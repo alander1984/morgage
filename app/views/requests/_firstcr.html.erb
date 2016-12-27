@@ -1,5 +1,6 @@
-<%= fields_for :secondcr, @credit2 do |f| %>
-    <h4>Кредит 2</h4>	
+<%= fields_for :firstcr, @request.credit1 do |f| %>
+  <h4>Кредит 1</h4>		
+  
   <%= render(:partial => 'credits/formcontent', :locals => {:f => f}) %>
 
 <% end %>
