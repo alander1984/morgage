@@ -78,6 +78,18 @@ $(document).ready ->
       $('#liveAddressMainCell').attr('rowspan', '6');
     return
 
+  $('#formTypeBox').change ->
+    if $(this).is(':checked')
+      $('.extended').each ->
+        $(this).fadeIn()
+        $('#shortFormCaption').text('3. Личные данные Заявителя');
+      return
+    else
+      $('.extended').each ->
+        $(this).fadeOut()
+        $('#shortFormCaption').text('Личные данные Заявителя');
+      return
+    return
 
+return
 
-  return

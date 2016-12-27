@@ -1,5 +1,5 @@
 <%= fields_for :new_person, @request.person do |fp| %>
-<h3>3. Личные данные Заявителя</h3>
+<h3 id="shortFormCaption">3. Личные данные Заявителя</h3>
 <table class="table">
     <tr>
       <td style="width:300px;vertical-align:top">Фамилия</td>
@@ -222,20 +222,20 @@
     </tr>
 
 
-    <tr>
+    <tr class="extended">
       <td rowspan="6" style="vertical-align:top" id="liveAddressMainCell">Адрес проживания</td>
       <td>  
         <label class="checkbox-inline"><%= fp.check_box(:sameliveaddress, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Совпадает с адресом регистрации, если нет, укажите адрес:</label>
       </td>   
     </tr>
-    <tr id="liveAddress1">  
+    <tr id="liveAddress1"  class="extended">  
       <td>
           <table><tr><td style="width:60px">
           <label class="form-control-label" >Индекс</label></td><td style="padding-right:15px"><%= fp.text_field(:liveaddrindex, class: "form-control", style: "width:100px")  %></td><td  style="width:200px">
           <label class="form-control-label" >Область/республика/край</label></td><td><%= fp.text_field(:liveaddrregion, class: "form-control row", style:"width:250px")  %></td></tr></table>
       </td>
     </tr>  
-    <tr id="liveAddress2">
+    <tr id="liveAddress2"  class="extended">
       <td style="vertical-align:top" colspan="2">
         <table style="width:100%"><tr><td style="width:60px">
           <label class="form-control-label">Район</label></td><td>
@@ -243,7 +243,7 @@
         </td></tr></table>
       </td>
     </tr>
-    <tr  id="liveAddress3">
+    <tr  id="liveAddress3"  class="extended">
       <td style="vertical-align:top" colspan="2">
         <table style="width:100%"><tr><td style="width:130px">
           <label class="form-control-label">Город/поселок</label></td><td>
@@ -251,7 +251,7 @@
         </td></tr></table>
       </td>
     </tr>
-    <tr  id="liveAddress4">
+    <tr  id="liveAddress4"  class="extended">
       <td style="vertical-align:top">
         <table style="width:100%"><tr><td style="width:60px">
           <label class="form-control-label">Улица</label></td><td>
@@ -265,7 +265,7 @@
         </td></tr></table>
       </td>
     </tr>
-    <tr  id="liveAddress5">
+    <tr  id="liveAddress5"  class="extended">
       <td style="vertical-align:top">
         <table style="width:70%"><tr><td style="width:60px"><label class="form-control-label">Корпус</label></td><td style="padding-right:15px">
           <%= fp.text_field(:liveaddrhousekorp, class: "form-control")  %>
@@ -277,7 +277,7 @@
           <%= fp.number_field(:liveaddrhouseflat, class: "form-control")  %>
         </td></tr></table>
     </tr>
-    <tr>
+    <tr  class="extended">
       <td rowspan="2" style="vertical-align:top">Основание проживания</td>
       <td colspan="2">
         <label class="checkbox-inline"><%= fp.check_box(:livebaseowner, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Собственность</label>
@@ -286,7 +286,7 @@
         <label class="checkbox-inline"><%= fp.check_box(:livebaserent, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Аренда</label>
       </td>
     </tr>   
-    <tr>
+    <tr  class="extended">
       <td colspan=2>
         <table style="width:100%"><tr><td style="width:60px">
           <label class="form-control-label">Иное</label></td><td>
@@ -294,7 +294,7 @@
         </td></tr></table>
       </td>
     </tr>
-    <tr>
+    <tr  class="extended"> 
       <td rowspan="5" style="vertical-align:top">Контакты</td>    
       <td>
         <table style="width:300px"><tr><td style="width:150px">
@@ -303,7 +303,7 @@
         </td></tr></table>
       </td>
     </tr>
-    <tr>
+    <tr  class="extended">
       <td>
         <table style="width:300px"><tr><td style="width:150px">
           <label class="form-control-label">Домашний телефон <small>+7XXXXXXXXXX</small></label></td><td>
@@ -311,7 +311,7 @@
         </td></tr></table>
       </td>
     </tr>
-    <tr>
+    <tr  class="extended">
       <td>
         <table style="width:300px"><tr><td style="width:150px">
           <label class="form-control-label">Контактный телефон <small>+7XXXXXXXXXX</small></label></td><td>
@@ -319,7 +319,7 @@
         </td></tr></table>
       </td>
     </tr>
-    <tr>
+    <tr class="extended">
       <td>
         <table style="width:300px"><tr><td style="width:50px">
           <label class="form-control-label">E-mail</label></td><td>
@@ -327,12 +327,12 @@
         </td></tr></table>
       </td>
     </tr>
-   <tr>
+   <tr class="extended">
    </tr>
-   <tr>
+   <tr class="extended">
     <td colspan="3"><i>Раздел не заполняется, если Заемщик – участник накопительно-ипотечной системы жилищного обеспечения военнослужащих</i><hr style="border-color:#8bc540"></td>
    </tr>
-  <tr>
+  <tr class="extended">
     <td style="vertical-align:top">Семейное положение</td>
     <td colspan="2">
         <label class="checkbox-inline"><%= fp.check_box(:married, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Женат/замужем</label>
@@ -342,7 +342,7 @@
         <label class="checkbox-inline"><%= fp.check_box(:widower, class: "form-control", :data => { :toggle => 'toggle',:on=>"Да",:off=>"Нет" }) %>Вдовец/вдова</label>
       </td>
   </tr> 
-  <tr>
+  <tr class="extended">
     <td style="vertical-align:top">Наличие брачного договора</td>
     <td colspan="2">  
       <table style="width:100%"><tr><td>
@@ -354,7 +354,7 @@
         </td></tr></table>
     </td>  
   </tr>  
-  <tr>
+  <tr class="extended">
     <td style="vertical-align:top">Образование</td>
     <td colspan=2>
     <table style="width:100%">
