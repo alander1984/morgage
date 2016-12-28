@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'process/issuanceStart', as: :startIssuance
 
   get 'searchPersonPr1/:searchString' => "process#searchPersonPr1"
+  get '/process/refreshReqByPers/:person_id' => "process#refreshReqByPers"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

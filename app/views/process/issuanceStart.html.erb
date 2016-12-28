@@ -1,10 +1,28 @@
 <h1>Выдача кредита</h1>
-<h2>1. Выбор заявителя</h2>
-<div class="col-md-12">
-<div class="col-md-1"><label>Поиск заявителя</label></div><div class="col-md-3"><input class="form-control" id="searchPersonBox"/></div>
-</div>
-<div id="foundPersons" class="col-md-6">
-</div>
-<div id="foundRequests" class="col-md-6">
-	
-</div>
+
+<table style="width:100%">
+	<tr>
+		<td style="width:40%">
+		<h2>1. Выбор заявителя</h2><div class="col-md-4"><label>Поиск заявителя</label></div><div class="col-md-8"><input class="form-control" id="searchPersonBox"/>
+		</td>
+		<td rowspan="2" valign="top">
+			<table>
+				<tr><td>
+					<div id="foundRequests" >
+					</div>
+				</td></tr>
+				<tr><td>
+					<div id="requestInfo" >
+					</div>
+				</td></tr>	
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="foundPersons" >
+			</div>	
+		</td>
+	</tr>
+</td>			
+

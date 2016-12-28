@@ -12,5 +12,8 @@ $(document).ready ->
 			dataType: 'script'
 			success: (data,textStatus, jqXHR) ->
 				console.log "succeed search"
-	return	
+		$("#foundRequests").html ""
+
+
+
 return	
