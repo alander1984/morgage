@@ -1,0 +1,3 @@
+<% @foundPeople.each_with_index do |person, index| %>
+	<br><input type="radio" name="person" value="<%= person.id.to_s %>" data-radio="radio-person"><%= (index+1).to_s %> <%= person.fname+' '+person.sname+' '+person.tname+' '+person.passserie %>
+<% end %>

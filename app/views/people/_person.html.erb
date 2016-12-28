@@ -1,12 +1,7 @@
 <tr id="personRowID<%= person.id %>">
-      <td><%= person.id %></td>
-      <td><%= person.name %></td>
+      <td><%= person.fname %></td>
       <td><%= person.sname %></td>
       <td><%= person.tname %></td>
-      <td><%= person.doc_serie %> <%= person.doc_number %></td>
+      <td><%= person.passserie %> <%= person.passnumber %></td>
       <td><%= person.birthday.blank? ? '' : person.birthday.strftime('%d.%m.%Y') %></td>
-	<td><%= link_to 'Карточка', person %></td>
-      <td><%= link_to 'Редактировать', edit_person_path(person) %></td>
-      
 </tr>
-

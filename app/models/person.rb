@@ -1,3 +1,3 @@
 class Person < ActiveRecord::Base
-	has_many :requests
+	has_many :request
 end
