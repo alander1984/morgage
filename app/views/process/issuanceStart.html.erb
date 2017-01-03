@@ -8,8 +8,8 @@
 		<td rowspan="2" valign="top">
 			<table>
 				<tr><td>
-					<div id="foundRequests" >
-					</div>
+					<div id="foundPersons" >
+					</div>	
 				</td></tr>
 				<tr><td>
 					<div id="requestInfo" >
@@ -20,9 +20,18 @@
 	</tr>
 	<tr>
 		<td>
-			<div id="foundPersons" >
-			</div>	
+			<div id="foundRequests" >
+			</div>
 		</td>
 	</tr>
-</td>			
+	<tr>
+		<td colspan="2">
+			<div id="selectedRequest">
+				<% if !@selReq.nil? %>
+					<%= render(:partial => 'shortRequestForm', :locals => { :request => @selReq}) %>
+				<% end %>	
+			</div>
+		</td>
+	</tr>
+</table>			
 

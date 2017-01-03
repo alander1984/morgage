@@ -1,0 +1,16 @@
+<hr style="border-color:#8bc540">
+<div class="col-md-6">
+	<h1>№ <%= request.id %> от <%= request.created_at.strftime('%d.%m.%Y %H:%M') %></h1>
+	<h3>Заемщик: <% if !request.bName? %><%= request.bName+' '+request.bSName+' '+request.bLName %><% else %>не указан<% end %></h3>
+	<p>Регион: <%= request.region %></p>
+	<p>Кредит:  <%= request.amount.to_s %> руб. сроком на <%= request.months.to_s %> месяц(а/ев)</p>
+	<p>Первоначальный взнос: <%= request.firstAmount.to_s %> руб.</p>
+	<p>Цель кредита - <% if request.targetReadyEstate %> Покупка готовой недвижимости <% end %>
+					  <% if request.targetBuildingEstate %> Покупка строящейся недвижимости (на этапе строительства) <% end %>
+					  <% if request.targetPreviousCredit %> Погашение имеющегося ипотечного кредита (отразите информацию о предыдущем кредите в разделе "Информация о кредите/займе") <% end %>	
+	<p>Трудовой стаж <%= request.seniorityyears %> лет(года) <%= request.senioritymonths %> месяца(ев)</p>				  
+</div>
+<div class="col-md-6">
+	<p>Среднемесячный доход: <%= request.mainWorkAmount %></p>
+
+</div>

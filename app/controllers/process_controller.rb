@@ -8,8 +8,14 @@ class ProcessController < ApplicationController
 	end	
 
 	def refreshReqByPers
-		@foundRequests = Request.where(person_id: params[:person_id])	
+		@foundRequests = Request.where(person_id: params[:person_id])
 	end	
+
+	def refreshShortReqInfo
+		@selReq = Request.find(params['request_id'])
+	end	
+
+
 
 	def sqlSearchString
 		words = params[:searchString].split(' ')

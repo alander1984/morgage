@@ -2,3 +2,15 @@
 <% @foundRequests.each_with_index do |request, index| %>
 	<br><input type="radio" name="request" value="<%= request.id.to_s %>" data-radio="radio-person"><%= (index+1).to_s %> Заявка №<%= request.id.to_s %> от <%=request.created_at.strftime('%d.%m.%Y %H:%M') %> 
 <% end %>
+<script type="text/javascript" language="javascript">
+	 $('input:radio[name=request]').change(function() {
+        $.ajax({
+        type: "GET",
+        url: '/process/refreshShortReqInfo/'+this.value, 
+        dataType: "script" 
+   		}).success(function(script){
+        	console.log("success", "request for RequestInfo");
+  		});
+      
+    });
+</script    
