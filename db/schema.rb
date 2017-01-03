@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227173745) do
+ActiveRecord::Schema.define(version: 20170103150531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,8 @@ ActiveRecord::Schema.define(version: 20161227173745) do
     t.integer  "childyear1"
     t.integer  "childyear2"
     t.integer  "childyear3"
+    t.string   "homephone"
+    t.string   "contactphone"
   end
 
   create_table "processOptions", force: :cascade do |t|

@@ -17,4 +17,11 @@ class Request < ActiveRecord::Base
 		end	
 		return s;
 	end	
+
+	def allAmount
+		res=(mainWorkAmount.nil? ? 0 : mainWorkAmount)+
+			(sWorkAmount.nil? ? 0 : sWorkAmount)+
+			(otherIncomeAmount.nil? ? 0 : otherIncomeAmount)
+		return res
+	end	
 end
