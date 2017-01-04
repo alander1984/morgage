@@ -1,3 +1,11 @@
 <%= form_for @process do |f| %>
 	<h1>Выбор условий выдачи кредита</h1>
+	<div class="form-group row">
+		<div class="col-md-2">
+			<label>Выберите продукт</label>
+		</div>
+		<div class="col-md-5">
+			<%= f.collection_select(:product, Product.where.not(:isArchive=>true), :id, :name, {}, {:class => "form-control"}) %>
+		</div>	
+	</div>	
 <% end %>

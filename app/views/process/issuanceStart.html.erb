@@ -28,7 +28,7 @@
 		<td colspan="2">
 			<div id="selectedRequest">
 				<% if !@selReq.nil? %>
-					<%= render(:partial => 'shortRequestForm', :locals => { :request => @selReq}) %>
+					<%= render(:partial => 'shortRequestForm', :locals => { :request => @selReq, :show_submit_button => :true}) %>
 				<% end %>	
 			</div>
 		</td>

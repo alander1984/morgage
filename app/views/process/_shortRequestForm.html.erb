@@ -11,7 +11,9 @@
 					  <% if !request.targetReadyEstate&&!request.targetBuildingEstate&&!request.targetPreviousCredit %>не указана<% end %>
 </div>
 <div class="col-md-6">
-	<%= submit_tag "Перейти к выбору кредитного продукта", :id => "submit", :name => "submit", :class => "btn btn-success", :disabled => false, :disable_with => "Пожалуйста подождите..." %>
+	<% if :show_submit_button %>
+		<%= submit_tag "Перейти к выбору кредитного продукта", :id => "submit", :name => "submit", :class => "btn btn-success", :disabled => false, :disable_with => "Пожалуйста подождите..." %>
+	<% end %>	
 	<p style="padding-top:40px;">Трудовой стаж <% if !request.seniorityyears.blank? %><%= request.seniorityyears %> лет(года) <%= request.senioritymonths %> месяца(ев)<% else %>не указан<% end %></p>			
 	<p>Среднемесячный доход: <%= request.allAmount.to_s %></p>
 	<p><% if request.mat_cap %>Использование материнского капитала<% end %></p>
