@@ -91,5 +91,18 @@ $(document).ready ->
       return
     return
 
+  $('#request_expenseCredit').change ->
+    if $(this).is(':checked')
+      $('#creditDiv').show()
+    else
+      $('#creditDiv').hide()
+    return
+
+  if $('#request_expenseCredit').is(':checked')
+    $('#creditDiv').show()
+  else
+    $('#creditDiv').hide()  
+  return 
+    
 return
 

@@ -46,10 +46,15 @@ class RequestsController < ApplicationController
     secondwork_ = Work.new(params['secondwork']);
     @request.secondwork=secondwork_;
     params['firstcr'].permit!
-    credit1_ = Credit.new(params['firstcr'])
-    @request.credit1 = credit1_;
     params['secondcr'].permit!
-    credit2_ = Credit.new(params['secondcr'])
+    if params['request']['expenseCredit']=="1"
+      credit1_ = Credit.new(params['firstcr'])
+      credit2_ = Credit.new(params['secondcr'])
+    else
+      credit1_ = Credit.new
+      credit2_ = Credit.new
+    end  
+    @request.credit1 = credit1_;
     @request.credit2 = credit2_;    
     respond_to do |format|
       if @request.save
@@ -72,10 +77,7 @@ class RequestsController < ApplicationController
     params['secondwork'].permit!
     @request.secondwork.update(params['secondwork']); 
     params['firstcr'].permit!
-    @request.credit1.update(params['firstcr']); 
     params['secondcr'].permit!
-    @request.credit2.update(params['secondcr']); 
-
 
     respond_to do |format|
       if @request.update(request_params)

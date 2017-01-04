@@ -15,7 +15,8 @@ class ProcessController < ApplicationController
 		@selReq = Request.find(params['request_id'])
 	end	
 
-
+	def selectProduct
+	end	
 
 	def sqlSearchString
 		words = params[:searchString].split(' ')

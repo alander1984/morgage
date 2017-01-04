@@ -9,14 +9,17 @@
 					  <% if request.targetBuildingEstate %> Покупка строящейся недвижимости (на этапе строительства) <% end %>
 					  <% if request.targetPreviousCredit %> Погашение имеющегося ипотечного кредита (отразите информацию о предыдущем кредите в разделе "Информация о кредите/займе") <% end %>	
 					  <% if !request.targetReadyEstate&&!request.targetBuildingEstate&&!request.targetPreviousCredit %>не указана<% end %>
-	<p>Трудовой стаж <% if !request.seniorityyears.blank? %><%= request.seniorityyears %> лет(года) <%= request.senioritymonths %> месяца(ев)<% else %>не указан<% end %></p>			
-
 </div>
 <div class="col-md-6">
+	<%= submit_tag "Перейти к выбору кредитного продукта", :id => "submit", :name => "submit", :class => "btn btn-success", :disabled => false, :disable_with => "Пожалуйста подождите..." %>
+	<p style="padding-top:40px;">Трудовой стаж <% if !request.seniorityyears.blank? %><%= request.seniorityyears %> лет(года) <%= request.senioritymonths %> месяца(ев)<% else %>не указан<% end %></p>			
 	<p>Среднемесячный доход: <%= request.allAmount.to_s %></p>
 	<p><% if request.mat_cap %>Использование материнского капитала<% end %></p>
 	<p><% if request.military %>Участник накопительно-ипотечной системы жилищного обеспечения военнослужащих<% end %></p>
 	<p>Контакт: <% if !request.person.nil? %>
-					<%= request.person.phonemobile %>
+					<% if !request.person.phonemobile.blank? %><%= request.person.phonemobile %><% end %>
+					<% if !request.person.homephone.blank? %><%= request.person.homephone %><% end %>
+					<% if !request.person.contactphone.blank? %><%= request.person.contactphone %><% end %>
 				<% end %></p>
+	<p><% if request.expenseCredit %>Присутствуют действующие кредитные обязательства<% end %></p>			
 </div>
