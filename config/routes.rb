@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :options
   resources :requests
   resources :people
+  resources :activity
   root "navigate#start"
 
   get '/products/:id/addOption/:opId' => 'products#addOption'
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   get 'searchPersonPr1/:searchString' => "process#searchPersonPr1"
   get '/process/refreshReqByPers/:person_id' => "process#refreshReqByPers"
   get '/process/refreshShortReqInfo/:request_id' => "process#refreshShortReqInfo"
-  get '/process/selectProduct'
+  get '/selectProduct' => "process#selectProduct"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

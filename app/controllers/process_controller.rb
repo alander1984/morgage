@@ -1,4 +1,5 @@
 class ProcessController < ApplicationController
+
 	def issuanceStart
 		@peopleWithRequests = Person.joins(:request).distinct;
 	end	
@@ -16,6 +17,13 @@ class ProcessController < ApplicationController
 	end	
 
 	def selectProduct
+		@process = Activity.new
+		@process.request = Request.find(params['request'])
+		@process.save
+	end	
+
+	def new
+		logger.info "aa"
 	end	
 
 	def sqlSearchString
