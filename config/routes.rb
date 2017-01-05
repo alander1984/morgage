@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :insurances
   resources :credits
   resources :works
   resources :options
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   get '/process/:process_id/refreshOptionList/:product_id' => "process#refreshOptionList"
   get '/process/:process_id/addOption/:option_id' => "process#addOption"
   get '/process/:process_id/removeOption/:option_id' => "process#removeOption"
+  get '/setProcessInsurance/:process_id' => "activity#setInsuranse", as: :activity_ins
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
