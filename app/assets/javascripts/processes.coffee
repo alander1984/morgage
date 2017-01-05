@@ -24,7 +24,7 @@ $(document).ready ->
 			success: (data,textStatus, jqXHR) ->
 				console.log "succeed search"
 
-				
+	
 
 
 return	

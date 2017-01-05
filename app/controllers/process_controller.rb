@@ -20,6 +20,7 @@ class ProcessController < ApplicationController
 		@process = Activity.new
 		@process.request = Request.find(params['request'])
 		@process.save
+		@request = @process.request
 	end	
 
 	def refreshOptionList

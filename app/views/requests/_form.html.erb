@@ -17,25 +17,25 @@
       <a href="http://дом.рф/wp-content/uploads/2016/10/anketa_kredit_zaim_dec.pdf" class="btn-link" style="color:blue" target="_new">Версия дом.рф</a>
     </td>
     <td align="right">
-      <input type="checkbox" data-toggle="toggle" data-on="Расширенная" data-off="Короткая" checked="checked" id="formTypeBox">
+        <input type="checkbox" data-toggle="toggle" data-on="Расширенная" data-off="Короткая" checked="checked" id="formTypeBox" data-width="130">
     </td>
   </tr>     
 </table>
   
  
 <div class="extended">
-  <%= render(:partial => 'part01',:locals => {:f => f}) %>
-  <%= render(:partial => 'part02',:locals => {:f => f}) %>
+  <%= render(:partial => 'requests/part01',:locals => {:f => f}) %>
+  <%= render(:partial => 'requests/part02',:locals => {:f => f}) %>
 </div>  
-  <%= render(:partial => 'part03',:locals => {:f => f}) %>
+  <%= render(:partial => 'requests/part03',:locals => {:f => f}) %>
 <div class="extended">  
-  <%= render(:partial => 'part04',:locals => {:f => f}) %>
-  <%= render(:partial => 'part05',:locals => {:f => f}) %>
-  <%= render(:partial => 'part06',:locals => {:f => f}) %>
-  <%= render(:partial => 'part07',:locals => {:f => f}) %>
+  <%= render(:partial => 'requests/part04',:locals => {:f => f}) %>
+  <%= render(:partial => 'requests/part05',:locals => {:f => f}) %>
+  <%= render(:partial => 'requests/part06',:locals => {:f => f}) %>
+  <%= render(:partial => 'requests/part07',:locals => {:f => f}) %>
 </div>  
 
-  <div class="actions" align = "right">
+  <div class="actions" align = "right" id="requestButtons">
     <%= f.submit "Принять", :class=>"btn btn-success"%> | <%= link_to 'Отмена', requests_path, :class=>'btn btn-default' %>
   </div>
 <% end %>

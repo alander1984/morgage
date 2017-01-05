@@ -2,7 +2,9 @@
  	<br><input type="checkbox" name="option" value="<%= option.id.to_s %>" data-radio="radio-option"><%= option.name %>
  <% end %>
  <script type="text/javascript" language="javascript">
-	 $('input:checkbox[name=option]').change(function() {
+	 $("#myCarousel").carousel();
+   
+   $('input:checkbox[name=option]').change(function() {
 	 	if(this.checked) {
         	$.ajax({
         	type: "GET",
