@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get '/process/refreshReqByPers/:person_id' => "process#refreshReqByPers"
   get '/process/refreshShortReqInfo/:request_id' => "process#refreshShortReqInfo"
   get '/selectProduct' => "process#selectProduct"
+  get '/process/:process_id/refreshOptionList/:product_id' => "process#refreshOptionList"
+  get '/process/:process_id/addOption/:option_id' => "process#addOption"
+  get '/process/:process_id/removeOption/:option_id' => "process#removeOption"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

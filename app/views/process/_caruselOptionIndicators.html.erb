@@ -1,0 +1,5 @@
+<ol class="carousel-indicators">
+	<% @options.each_with_index do |option, index| %>	
+		<li data-target="#myCarousel" data-slide-to=<%= index.to_s %> id="caruselindicator<%= option.id.to_s %>"></li>
+	<% end %>
+</ol>

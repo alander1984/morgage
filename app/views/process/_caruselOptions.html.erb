@@ -1,0 +1,7 @@
+<% @options.each_with_index do |option, index| %>  
+ 	<div class="item carusel-item"  id="caruseloption<%= option.id.to_s %>">
+    <div style="width:60%; margin:auto;">
+ 		   <%= render(:partial => 'options/formForCarusel', :locals => {:f => option}) %>
+    </div>   
+ 	</div>
+<% end %>

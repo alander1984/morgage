@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104125746) do
+ActiveRecord::Schema.define(version: 20170105124210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,15 @@ ActiveRecord::Schema.define(version: 20170104125746) do
   add_index "activities", ["product_id"], name: "index_activities_on_product_id", using: :btree
   add_index "activities", ["request_id"], name: "index_activities_on_request_id", using: :btree
 
-  create_table "activityOptions", force: :cascade do |t|
-    t.integer "activity_id"
-    t.integer "option_id"
+  create_table "activity_options", force: :cascade do |t|
+    t.integer  "activity_id"
+    t.integer  "option_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "activityOptions", ["activity_id"], name: "index_activityOptions_on_activity_id", using: :btree
-  add_index "activityOptions", ["option_id"], name: "index_activityOptions_on_option_id", using: :btree
+  add_index "activity_options", ["activity_id"], name: "index_activity_options_on_activity_id", using: :btree
+  add_index "activity_options", ["option_id"], name: "index_activity_options_on_option_id", using: :btree
 
   create_table "credits", force: :cascade do |t|
     t.integer  "type"
@@ -322,6 +324,8 @@ ActiveRecord::Schema.define(version: 20170104125746) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "activity_options", "activities"
+  add_foreign_key "activity_options", "options"
   add_foreign_key "requests", "credits", column: "credit1_id"
   add_foreign_key "requests", "credits", column: "credit2_id"
   add_foreign_key "requests", "people"

@@ -1,0 +1,26 @@
+ <% @options.each do |option| %>
+ 	<br><input type="checkbox" name="option" value="<%= option.id.to_s %>" data-radio="radio-option"><%= option.name %>
+ <% end %>
+ <script type="text/javascript" language="javascript">
+	 $('input:checkbox[name=option]').change(function() {
+	 	if(this.checked) {
+        	$.ajax({
+        	type: "GET",
+        	url: '/process/'+<%= params['process_id'] %>+'/addOption/'+this.value, 
+        	dataType: "script" 
+   			}).success(function(script){
+       	 		console.log("success", "adding option");
+  			});
+   		}
+   		else {
+        	$.ajax({
+        	type: "GET",
+        	url: '/process/'+<%= params['process_id'] %>+'/removeOption/'+this.value, 
+        	dataType: "script" 
+   			}).success(function(script){
+       	 		console.log("success", "removing option");
+  			});
+   		}	
+   			
+    });
+</script>

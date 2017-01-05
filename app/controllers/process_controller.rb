@@ -22,8 +22,23 @@ class ProcessController < ApplicationController
 		@process.save
 	end	
 
-	def new
-		logger.info "aa"
+	def refreshOptionList
+		@product = Product.find(params['product_id'])
+		@options = @product.options
+		@process = Activity.find(params['process_id'])
+		@process.options.clear()
+	end	
+
+	def addOption	
+		@process = Activity.find(params['process_id'])
+		@process.options << Option.find(params['option_id'])
+		@options = @process.options
+	end
+	
+	def removeOption
+		@process = Activity.find(params['process_id'])
+		@process.options.delete(Option.find(params['option_id']))
+		@options = @process.options
 	end	
 
 	def sqlSearchString

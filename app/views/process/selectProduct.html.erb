@@ -1,11 +1,43 @@
 <%= form_for @process do |f| %>
+	<%= f.hidden_field(:id, :id => "process_id")	 %>
 	<h1>Выбор условий выдачи кредита</h1>
-	<div class="form-group row">
-		<div class="col-md-2">
-			<label>Выберите продукт</label>
+	<table style="width:100%">
+		<tr>
+			<td style="width:40%" valign="top">
+				<div class="form-group row">
+					<div class="col-md-3">
+						<label>Выберите продукт</label>
+					</div>
+					<div class="col-md-8">
+						<%= f.collection_select(:product, Product.where.not(:isArchive=>true), :id, :name, {}, {:class => "form-control", :onclick=>"selProduct()", :id => "productList"}) %>
+					</div>	
+				</div>	
+			</td>
+			<td rowspan=2 valign="top">
+				<div id="productInfo">
+				</div>
+			</td>
+		<tr>
+			<td>
+				<div id="optionList" style="margin-left:20px">
+				</div>
+			</td>
+		</tr>					
+	</table>
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 40px">
+		<div id="indicators">
 		</div>
-		<div class="col-md-5">
-			<%= f.collection_select(:product, Product.where.not(:isArchive=>true), :id, :name, {}, {:class => "form-control"}) %>
-		</div>	
-	</div>	
+
+		<div class="carousel-inner" role="listbox" id="caruselItems">
+		</div>
+
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    		<span class="sr-only">Previous</span>
+  		</a>
+  		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    		<span class="sr-only">Next</span>
+  		</a>
+	</div>
 <% end %>
