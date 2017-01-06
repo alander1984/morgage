@@ -28,6 +28,10 @@ gem 'devise'
 gem 'bootstrap-sass', '~>3.2.0'
 gem 'bootstrap-datepicker-rails'
 gem 'pg'
+gem 'remotipart'
+gem 'jquery-fileupload-rails'
+gem 'paperclip', '~> 4.3', '>= 4.3.2'
+gem 'paperclip_database'
 
 gem 'bootstrap-toggle-rails'
 # Use ActiveModel has_secure_password

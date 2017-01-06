@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106092334) do
+ActiveRecord::Schema.define(version: 20170106192259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,20 @@ ActiveRecord::Schema.define(version: 20170106092334) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "name"
+    t.string   "note"
+    t.integer  "activity_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
+  add_index "documents", ["activity_id"], name: "index_documents_on_activity_id", using: :btree
 
   create_table "insurances", force: :cascade do |t|
     t.string   "name"
@@ -348,6 +362,7 @@ ActiveRecord::Schema.define(version: 20170106092334) do
   add_foreign_key "activity_insurances", "insurances"
   add_foreign_key "activity_options", "activities"
   add_foreign_key "activity_options", "options"
+  add_foreign_key "documents", "activities"
   add_foreign_key "requests", "credits", column: "credit1_id"
   add_foreign_key "requests", "credits", column: "credit2_id"
   add_foreign_key "requests", "people"

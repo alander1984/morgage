@@ -1,32 +1,85 @@
 <%= form_for @process do |f| %>
-	<h1>Выбор страхования для выбранного продукта/заявки</h1>
-	<div class="col-md-5">
-		<div class="form-group row">
-			<div class="col-md-3"><label>Процент</label></div>
-			<div class="col-md-4"><%= f.number_field :percent,  :class=>"form-control"%></div>
-		</div>
-		<div class="form-group row">
-			<div class="col-md-3"><label>Страхование</label></div>
-			<div class="col-md-9">
-				<%= collection_select(:insurance, :ins_id, Insurance.all, :id, :name, {}, {:class => "form-control", :onclick=>"selProduct()", :id => "insuranceList"}) %>
-			</div>
-		</div>		
-	</div>
-	<div class="col-md-7">
-		<div class="form-group row">
-			<%= render(:partial => 'process/shortProductInfo', :locals => {:p => @process.product}) %>
-		</div>
-		<div class="form-group row">
-			<h4>Выбраны опции:</h4>
-			<ul>
-				<% @process.options.each do |option| %>
-					<li><%= option.name %></li>
-				<% end %>	
-			</ul>	
-		</div>			
-	</div>	
+	<%= f.hidden_field(:id, :id => "process_id")%>
+	<h1>Параметры кредита и кредитное досье</h1>
+	<table style="width:100%">
+		<tr>
+			<td style="width:45%" valign="top">
+				<div class="form-group row">
+					<div class="col-md-3"><label>Процент</label></div>
+					<div class="col-md-4"><%= f.number_field :percent,  :class=>"form-control"%></div>
+				</div>
+				<div class="form-group row" id="selectedInsurance">
+					<%= render(:partial => 'selectedInsurances') %>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-2"><label>Страхование</label></div>
+					<div class="col-md-8">
+						<%= collection_select(:insurance, :ins_id, Insurance.all, :id, :name, {}, {:class => "form-control", :id => "insuranceList"}) %>
+					</div>
+					<div class="col-md-1">
+						<button type="button" class="btn btn-default" onclick="addIns()">
+  							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+						</button>
+					</div>
+				</div>		
+			</td>
+			<td rowspan=2 valign="top">
+				<%= render(:partial => 'process/shortProductInfo', :locals => {:p => @process.product}) %>
+				
+					<h4>Выбраны опции:</h4>
+					<ul>
+						<% @process.options.each do |option| %>
+							<li><%= option.name %></li>
+						<% end %>	
+					</ul>	
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<table style="width:100%"><tr><td><h3>Документы по кредиту</h3></td><td align="right"><button type="button" class="btn btn-info" onclick="attachFile()">Прикрепить документ
+  							<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+				</button></td></tr></table>
+				
+				<div id="attaches">
+					<%= render(:partial => 'attachedDocs') %>
+				</div>
+			</td>
+		</tr>
 
+	</table>
 	<div class="actions">
     	<%= f.submit %>
   	</div>
 <% end %>
+<div id="fileModal" class="modal fade" role="dialog">
+  		<div class="modal-dialog">
+
+    <!-- Modal content-->
+    		<%= form_tag("/activity/"+@process.id.to_s+"/addDocument", method: 'post', remote: true, id: 'frmAddDocument',:html => {:multipart => true }) do %>
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal">&times;</button>
+        			<h4 class="modal-title">Добавление документа к кредитному досье</h4>
+      			</div>
+      			<div class="modal-body">
+        				<div class="form-group row">
+        					<div class="col-md-2"><label>Название</label></div>
+        					<div class="col-md-10"><%= text_field(:document, :name, {:class => "form-control"}) %></div>
+        				</div>
+        				<div class="form-group row">
+        					<div class="col-md-2"><label>Примечание</label></div>
+        					<div class="col-md-10"><%= text_area(:document, :note, {:class => "form-control"}) %></div>
+        				</div>
+        				<div class="form-group row">
+        					<div class="col-md-2"><label>Вожение</label></div>
+        					<div class="col-md-10"><%= file_field(:document, :file, {:class => "form-control"}) %></div>
+        				</div>
+      			</div>
+      			<div class="modal-footer">
+      				<%= submit_tag "Добавить", data: { disable_with: "Please wait.." }, class: "btn btn-success" %>
+        			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+      			</div>
+    		</div>
+   			<% end %>	
+		</div>
+	</div>

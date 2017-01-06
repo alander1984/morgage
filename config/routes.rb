@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   get '/process/:process_id/addOption/:option_id' => "process#addOption"
   get '/process/:process_id/removeOption/:option_id' => "process#removeOption"
   get '/setProcessInsurance/:process_id' => "activity#setInsuranse", as: :activity_ins
+  get '/activity/:process_id/addInsurance/:insurance_id' => "activity#addInsurance"
+  get '/activity/:process_id/removeInsurance/:insurance_id' => "activity#removeInsurance"
+  post 'activity/:process_id/addDocument' => "activity#addDocument"
+  get 'activity/:process_id/removeDoc/:document_id'=> "activity#removeDoc"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
