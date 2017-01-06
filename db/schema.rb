@@ -11,21 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105184924) do
+ActiveRecord::Schema.define(version: 20170106092334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "type"
     t.integer  "request_id"
     t.integer  "product_id"
+    t.float    "percent"
+    t.integer  "insurance_id"
   end
 
+  add_index "activities", ["insurance_id"], name: "index_activities_on_insurance_id", using: :btree
   add_index "activities", ["product_id"], name: "index_activities_on_product_id", using: :btree
   add_index "activities", ["request_id"], name: "index_activities_on_request_id", using: :btree
+
+  create_table "activity_insurances", force: :cascade do |t|
+    t.integer  "activity_id"
+    t.integer  "insurance_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "activity_insurances", ["activity_id"], name: "index_activity_insurances_on_activity_id", using: :btree
+  add_index "activity_insurances", ["insurance_id"], name: "index_activity_insurances_on_insurance_id", using: :btree
 
   create_table "activity_options", force: :cascade do |t|
     t.integer  "activity_id"
@@ -330,6 +343,9 @@ ActiveRecord::Schema.define(version: 20170105184924) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "activities", "insurances"
+  add_foreign_key "activity_insurances", "activities"
+  add_foreign_key "activity_insurances", "insurances"
   add_foreign_key "activity_options", "activities"
   add_foreign_key "activity_options", "options"
   add_foreign_key "requests", "credits", column: "credit1_id"

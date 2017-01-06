@@ -6,5 +6,6 @@ class ActivityController < ApplicationController
 	end	
 
 	def setInsuranse
+		@process = Activity.find(params['process_id'])
 	end
 end

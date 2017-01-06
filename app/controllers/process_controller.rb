@@ -28,6 +28,8 @@ class ProcessController < ApplicationController
 		@options = @product.options
 		@process = Activity.find(params['process_id'])
 		@process.options.clear()
+		@process.product=@product
+		@process.save
 	end	
 
 	def addOption	
