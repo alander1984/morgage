@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106192259) do
+ActiveRecord::Schema.define(version: 20170107070913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,6 +195,16 @@ ActiveRecord::Schema.define(version: 20170106192259) do
   add_index "processOptions", ["option_id"], name: "index_processOptions_on_option_id", using: :btree
   add_index "processOptions", ["process_id"], name: "index_processOptions_on_process_id", using: :btree
 
+  create_table "product_insurances", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "insurance_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "product_insurances", ["insurance_id"], name: "index_product_insurances_on_insurance_id", using: :btree
+  add_index "product_insurances", ["product_id"], name: "index_product_insurances_on_product_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "audience"
     t.string   "target"
@@ -363,6 +373,8 @@ ActiveRecord::Schema.define(version: 20170106192259) do
   add_foreign_key "activity_options", "activities"
   add_foreign_key "activity_options", "options"
   add_foreign_key "documents", "activities"
+  add_foreign_key "product_insurances", "insurances"
+  add_foreign_key "product_insurances", "products"
   add_foreign_key "requests", "credits", column: "credit1_id"
   add_foreign_key "requests", "credits", column: "credit2_id"
   add_foreign_key "requests", "people"

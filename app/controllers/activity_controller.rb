@@ -2,8 +2,16 @@ class ActivityController < ApplicationController
 	before_action :set_process, only: [:addInsurance, :setInsuranse, :removeInsurance, :addDocument, :removeDoc]
 	
 	def update
+		@process = Activity.find(params['id'])
 		respond_to do |format|
-       		format.html { redirect_to activity_ins_path(params['id']), notice: 'Процесс выдачи успешно запущен.' }
+			params['activity'].permit!
+			if @process.update(params['activity'])
+    	    	format.html { redirect_to activity_ins_path(params['id']), notice: 'Процесс выдачи успешно запущен.' }
+        		format.json { render :show, status: :ok, location: @process }
+      		else
+		        format.html { render :edit }
+    	    	format.json { render json: @process.errors, status: :unprocessable_entity }
+      		end
         end	
 	end	
 

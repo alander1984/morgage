@@ -10,7 +10,7 @@
 						<label>Выберите продукт</label>
 					</div>
 					<div class="col-md-8">
-						<%= f.collection_select(:product, Product.where.not(:isArchive=>true), :id, :name, {}, {:class => "form-control", :onclick=>"selProduct()", :id => "productList"}) %>
+						<%= f.collection_select(:product_id, Product.where.not(:isArchive=>true), :id, :name, {}, {:class => "form-control", :onclick=>"selProduct()", :id => "productList"}) %>
 					</div>	
 				</div>	
 			</td>
