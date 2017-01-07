@@ -18,6 +18,12 @@
       <li><%= link_to 'Новая заявка', new_request_path, method: :get %></li>
       <li><%= link_to 'Выдать кредит', startIssuance_path, method: :get %></li>
     </ul>
+    <div class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Фамилия заявителя" id="searchBox">
+        </div>
+        <button class="btn btn-default" onclick="findRequest();">Найти заявки</button>
+      </div>
     <ul class="nav navbar-nav navbar-right">  
       <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Справочники <span class="caret"></span></a>

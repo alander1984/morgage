@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   post 'activity/:process_id/addDocument' => "activity#addDocument"
   get '/activity/:process_id/checkInsurance' => "activity#checkInsurance"
   get 'activity/:process_id/removeDoc/:document_id'=> "activity#removeDoc"
+  get 'search/:searchString' => 'navigate#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

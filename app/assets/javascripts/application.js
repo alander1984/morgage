@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require common
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
@@ -18,3 +19,4 @@
 //= require bootstrap-datepicker
 //= require bootstrap-toggle
 //= require_tree .
+

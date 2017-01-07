@@ -1,0 +1,24 @@
+<h2>По запросу "<%= params['searchString']%>" найдено заявок: <b><%= @requests.count.to_s %></b></h2>
+<table class="table">
+	<thead>
+		<th>#</th>
+		<th>Заявитель</th>
+		<th>Дата</th>
+		<th></th>
+	</thead>
+	<% @requests.each_with_index do |request, i| %>
+		<tr>
+			<td>
+				<%= request.id.to_s %> 
+			</td>
+			<td>	
+				<%= request.person.fname+' '+request.person.sname+' '+request.person.tname+' '+request.person.passserie %>
+			</td>
+			<td>
+				<%= request.created_at.strftime('%d.%m.%Y %H:%M') %>
+			</td>
+			<td>
+				 <%= link_to request, :data => {:confirm => 'Вы действительно хотите перейти к карточке заявки?'}, :method => 'get' do %><i class="btn btn-default glyphicon glyphicon-eye-open"></i><% end %>
+			</td>	
+	<% end %>
+</table>
