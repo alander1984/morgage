@@ -121,7 +121,20 @@ function callAddButton() {
       </tr>  
       <tr>
         <td><div>Страховое обеспечение</div></td>
-        <td><div><%= f.text_area :insurance, :class=>"form-control" %></div></td>
+        <td>
+          <div>
+            <%= f.text_area :insurance, :class=>"form-control" %>
+            <div id = "insListDiv">
+              <%= render(:partial => 'insuranceList') %>
+            </div>  
+            <div class="col-md-8" >
+              <%= collection_select(:inslist, :id,  Insurance.all, :id,:name, {},{:class => 'form-control optionSelect', :id => 'listInsurances'}) %>
+            </div>  
+            <div class="col-md-2">
+              <button id="btnAddInusrance" class="btn btn-primary" onclick="addInsuranceToProduct();" type="button">Добавить</button>
+            </div>
+          </div>
+        </td>
       </tr>  
       <tr>
         <td><div>Коэффициент К/З (кредит/залог)

@@ -1,0 +1,10 @@
+<ol>
+	<% @product.insurances.each do |i| %>
+		<li>
+			<%= i.name %> 
+			<button type="button" class="btn btn-default btn-xs" onclick="removeInsFromProduct(<%= i.id %>)">
+  				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+			</button>
+		</li>	
+	<% end %>
+</ol>	

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get '/products/:id/addOption/:opId' => 'products#addOption'
   get '/products/:id/removeOption/:opId' => 'products#removeOption'
+  get '/products/:id/addInsurance/:insuranceId' => 'products#addInsurance'
+  get '/products/:id/removeInsurance/:insuranceId' => 'products#removeInsurance'
   get '/options/:id/addProduct/:prId' => 'options#addProduct'
   get '/options/:id/removeProduct/:prId' => 'options#removeProduct'
   get '/options/:id/addOption/:opId' => 'options#addOption'

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy, :addOption, :removeOption]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :addOption, :removeOption, :addInsurance, :removeInsurance]
 
   # GET /products
   # GET /products.json
@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
     end  
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Продукт успешно изменен.' }
+        format.html { redirect_to products_url, notice: 'Продукт успешно изменен.' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -95,6 +95,19 @@ class ProductsController < ApplicationController
     respond_to do |format|
         format.js
       end 
+  end  
+
+  def addInsurance
+    ins =  Insurance.find(params['insuranceId'])
+    if !@product.insurances.include?(ins) 
+      @product.insurances << ins
+    end  
+    @product.save
+  end  
+
+  def removeInsurance
+    @product.insurances.delete(Insurance.find(params['insuranceId']))     
+    @product.save
   end  
 
   private
