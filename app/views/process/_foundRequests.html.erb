@@ -1,7 +1,12 @@
-<h2>3. Выберите зарегистрированную заявку</h2>
-<% @foundRequests.each_with_index do |request, index| %>
-	<br><input type="radio" name="request" value="<%= request.id.to_s %>" data-radio="radio-person"><%= (index+1).to_s %> Заявка №<%= request.id.to_s %> от <%=request.created_at.strftime('%d.%m.%Y %H:%M') %> 
-<% end %>
+<% if !@foundRequests.empty? %>
+  <h2>3. Выберите зарегистрированную заявку</h2>
+  <% @foundRequests.each_with_index do |request, index| %>
+	 <br>
+   <input type="radio" name="request" value="<%= request.id.to_s %>" data-radio="radio-person"><%= (index+1).to_s %> Заявка №<%= request.id.to_s %> от <%=request.created_at.strftime('%d.%m.%Y %H:%M') %> 
+  <% end %>
+<% else %> 
+  <h2>По данному заявителю все заявки в находятся в процессе рассмотрения</h2>
+<% end %> 
 <script type="text/javascript" language="javascript">
 	 $('input:radio[name=request]').change(function() {
         $.ajax({

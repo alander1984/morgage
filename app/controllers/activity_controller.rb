@@ -1,5 +1,5 @@
 class ActivityController < ApplicationController
-	before_action :set_process, only: [:addInsurance, :setInsuranse, :removeInsurance, :addDocument, :removeDoc]
+	before_action :set_process, only: [:addInsurance, :setInsuranse, :removeInsurance, :addDocument, :removeDoc, :checkInsurance]
 	
 	def update
 		@process = Activity.find(params['id'])
@@ -16,6 +16,7 @@ class ActivityController < ApplicationController
 	end	
 
 	def setInsuranse
+		@valid = (@process.product.insurances-@process.insurances).empty?
 	end
 
 	def addInsurance
@@ -42,6 +43,10 @@ class ActivityController < ApplicationController
 		@process.documents.delete(Document.find(params['document_id']))
 		@process.save
 	end
+
+	def checkInsurance
+		@valid = (@process.product.insurances-@process.insurances).empty?
+	end	
 
 	private 
 	def set_process

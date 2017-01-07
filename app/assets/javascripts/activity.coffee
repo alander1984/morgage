@@ -2,6 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+@checkRightInsuranceForProcess = ->
+	process_id = $("#process_id").val()
+	$.ajax '/activity/'+process_id+'/checkInsurance',
+		type: 'GET'
+		dataType: 'script'
+		success: (data,textStatus, jqXHR) ->
+			console.log "Проверка достаточности страхования выполнена успешно"
+
 $(document).ready ->
 	@addIns = ->
 		selectedIns = $("#insuranceList").val()
@@ -23,6 +31,9 @@ $(document).ready ->
 				console.log "succeed removed insurance: "+id	
 
 	@attachFile = ->
-		$('#fileModal').modal('toggle');			
+		$('#fileModal').modal('toggle')
+
 
 return
+
+	

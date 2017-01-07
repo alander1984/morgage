@@ -9,7 +9,9 @@ class ProcessController < ApplicationController
 	end	
 
 	def refreshReqByPers
-		@foundRequests = Request.where(person_id: params[:person_id])
+		r = Request.joins(:activity).where('person_id='+params[:person_id])
+		@foundRequests = Request.where(person_id: params[:person_id])-r
+
 	end	
 
 	def refreshShortReqInfo
@@ -17,7 +19,11 @@ class ProcessController < ApplicationController
 	end	
 
 	def selectProduct
-		@process = Activity.new
+		@process = Activity.find_by(:request => @request)
+		if @process==nil
+			@process = Activity.new
+		end	
+		@process.status='PROD'
 		@process.request = Request.find(params['request'])
 		@process.save
 		@request = @process.request

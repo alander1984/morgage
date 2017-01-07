@@ -8,6 +8,7 @@ class Request < ActiveRecord::Base
   	accepts_nested_attributes_for :credit1
   	accepts_nested_attributes_for :credit2
   	belongs_to :person
+  	has_one :activity
   	def to_s
 		s = id.to_s;
 		if person!=nil

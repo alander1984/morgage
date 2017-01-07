@@ -1,5 +1,5 @@
 <div class="panel-group">
-  <div class="panel panel-default">
+  <div class="panel panel-default" id="shortProductInfo">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" href="#collapse1">
@@ -11,7 +11,7 @@
         </a>
       </h4>
     </div>
-    <div id="collapse1" class="panel-collapse collapse">
+    <div id="collapse1" class="panel-collapse collapse"   >
       <div class="panel-body">
 <% if p.audience.present? %>
     <p><strong>Целевая аудитория:</strong> <%= p.audience %></p>
@@ -31,6 +31,11 @@
 <% if p.insurance.present? %>
     <p><strong>Страховое обеспечение</strong> <%= p.insurance %></p>
 <% end %>
+<ol>  
+  <% p.insurances.each do |i| %>
+    <li><%= i.name %></li>
+  <% end %>
+</ol>    
 <% if p.cpCoeff.present? %>
     <p><strong>Коэффициент К/З (кредит/залог)</strong> <%= p.cpCoeff %></p>
 <% end %>

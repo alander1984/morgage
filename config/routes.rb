@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get '/activity/:process_id/addInsurance/:insurance_id' => "activity#addInsurance"
   get '/activity/:process_id/removeInsurance/:insurance_id' => "activity#removeInsurance"
   post 'activity/:process_id/addDocument' => "activity#addDocument"
+  get '/activity/:process_id/checkInsurance' => "activity#checkInsurance"
   get 'activity/:process_id/removeDoc/:document_id'=> "activity#removeDoc"
 
   # The priority is based upon order of creation: first created -> highest priority.

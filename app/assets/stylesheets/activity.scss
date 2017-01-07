@@ -1,3 +1,10 @@
 // Place all the styles related to the Activity controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notvalid {
+	background-color: #FFA07A;
+}
+.valid {
+	background-color: #98FB98;
+}

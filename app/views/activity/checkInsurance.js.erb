@@ -1,0 +1,12 @@
+console.log("checking valid insurance for process")
+<% if @valid %>
+	$('#shortProductInfo').addClass('panel-default').removeClass('panel-danger');
+	$('#alertBox').hide();
+	$('#normBox').fadeIn();
+	$('#submitButton').removeClass('disabled')
+<% else %>
+	$('#shortProductInfo').addClass('panel-danger').removeClass('panel-default');
+	$('#normBox').hide();
+	$('#alertBox').fadeIn();
+	$('#submitButton').addClass('disabled')
+<% end %>	

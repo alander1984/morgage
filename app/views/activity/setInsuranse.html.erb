@@ -1,6 +1,29 @@
 <%= form_for @process do |f| %>
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function(){
+			<% if @valid %>
+				$('#shortProductInfo').addClass('panel-default').removeClass('panel-danger');
+				$('#alertBox').hide();
+				$('#normBox').fadeIn();
+				$('#submitButton').removeClass('disabled')
+			<% else %>
+				$('#shortProductInfo').addClass('panel-danger').removeClass('panel-default');
+				$('#normBox').hide();
+				$('#alertBox').fadeIn();
+				$('#submitButton').addClass('disabled')
+			<% end %>	
+		});
+	</script>
 	<%= f.hidden_field(:id, :id => "process_id")%>
-	<h1>Параметры кредита и кредитное досье</h1>
+	<table style="width:100%">
+		<tr><td style="width:70%">
+				<h1>Параметры кредита и кредитное досье № <%= @process.id.to_s %></h1>
+			</td>
+			<td align="right">
+				<%= link_to "Заявка №"+@process.request.id.to_s, @process.request, class: "btn btn-primary", :data => {:confirm => 'Вы действительно хотите перейти к карточке заявки?'}, :method => 'get' %> 
+			</td>	
+		</tr>
+	</table>		
 	<table style="width:100%">
 		<tr>
 			<td style="width:45%" valign="top">
@@ -8,10 +31,17 @@
 					<div class="col-md-3"><label>Процент</label></div>
 					<div class="col-md-4"><%= f.number_field :percent,  :class=>"form-control", :step => 0.01%></div>
 				</div>
+				<div class="form-group row">
+					<div class="col-md-3"><label>Сумма кредита</label></div>
+					<div class="col-md-3"><%= @process.request.amount %></div>
+					<div class="col-md-3"><label>Срок кредита</label></div>
+					<div class="col-md-3"><%= @process.request.months %> мес</div>
+				</div>
+				<hr style="border-color:#8bc540">
 				<div class="form-group row" id="selectedInsurance">
 					<%= render(:partial => 'selectedInsurances') %>
 				</div>
-				<div class="form-group row">
+				<div class="form-group row" id="selectInsBlock">
 					<div class="col-md-2"><label>Страхование</label></div>
 					<div class="col-md-8">
 						<%= collection_select(:insurance, :ins_id, Insurance.all, :id, :name, {}, {:class => "form-control", :id => "insuranceList"}) %>
@@ -23,7 +53,13 @@
 					</div>
 				</div>		
 			</td>
-			<td rowspan=2 valign="top">
+			<td rowspan=2 valign="top" >
+				<div class="alert alert-warning" role="alert" id="alertBox">
+  					<p>Для выдачи кредита недостаточно оформленных страховых продуктов. Необходимо дополнительное страхование.</p>
+				</div>
+				<div class="alert alert-success" role="alert" id="normBox">
+  					<p>Страхование по заявке удовляетворяет требованиям продукта.</p>
+				</div>
 				<%= render(:partial => 'process/shortProductInfo', :locals => {:p => @process.product}) %>
 				
 					<h4>Выбраны опции:</h4>
@@ -36,7 +72,8 @@
 		</tr>	
 		<tr>
 			<td>
-				<table style="width:100%"><tr><td><h3>Документы по кредиту</h3></td><td align="right"><button type="button" class="btn btn-info" onclick="attachFile()">Прикрепить документ
+			<hr style="border-color:#8bc540">
+				<table style="width:100%"><tr><td><h3>Документы по кредиту</h3></td><td align="center"><button type="button" class="btn btn-info" onclick="attachFile()">Прикрепить документ
   							<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
 				</button></td></tr></table>
 				
@@ -48,7 +85,7 @@
 
 	</table>
 	<div class="actions">
-    	<%= f.submit "Сохранить досье", class: "btn btn-default" %>
+    	<%= f.submit "Сохранить досье", class: "btn btn-default", id: "submitButton" %>
   	</div>
 <% end %>
 <div id="fileModal" class="modal fade" role="dialog">
