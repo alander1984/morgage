@@ -5,7 +5,10 @@ class NavigateController < ApplicationController
 
 	def search
 		@requests = Request.joins(:person).where(sqlSearchString);
-		
+		int = Integer(params['searchString']) rescue nil
+		if int 
+			@requests = @requests + Request.where("id='"+ params['searchString']+"'")
+		end	
 	end	
 
 	def sqlSearchString

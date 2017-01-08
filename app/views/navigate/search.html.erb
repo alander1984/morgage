@@ -1,4 +1,10 @@
-<h2>По запросу "<%= params['searchString']%>" найдено заявок: <b><%= @requests.count.to_s %></b></h2>
+<h2>По запросу "<%= params['searchString']%>" 
+	<% if !@requests.empty? %>
+		найдено заявок: <b><%= @requests.count.to_s %></b>
+	<% else %>
+		ничего не найдено
+	<% end %>	
+</h2>
 <table class="table">
 	<thead>
 		<th>#</th>
@@ -6,6 +12,7 @@
 		<th>Дата</th>
 		<th></th>
 	</thead>
+	<tbody>
 	<% @requests.each_with_index do |request, i| %>
 		<tr>
 			<td>
@@ -21,4 +28,5 @@
 				 <%= link_to request, :data => {:confirm => 'Вы действительно хотите перейти к карточке заявки?'}, :method => 'get' do %><i class="btn btn-default glyphicon glyphicon-eye-open"></i><% end %>
 			</td>	
 	<% end %>
+	</tbody>
 </table>

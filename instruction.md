@@ -134,6 +134,15 @@
 
 К кредитному досье можно прикрепить неограниченное количество файлов, размер загружаемых файлов не ограничен (но естественно может быть ограничен в случае необходимости: для работы с вложениями используется gem paperclip).
 
+## Дополнительные функции ##
+
+Так как пользователи чаще всего работают с номерами заявок и ФИО заявителей, то этот поиск был вынесен в главное меню системы.
+
+![image alt][9]
+
+Для поиска можно вводить часть фамилии, имени или отчества или номер искомой заявки.
+
+В результатах поиска при нажатии на пиктограмму ![image alt][10] доступен переход к соответствующей заявке.
 
 
 
@@ -147,3 +156,5 @@
   [6]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/product01.png?raw=true 
   [7]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/proc_01.png?raw=true 
   [8]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/productEdit.png?raw=true   
+  [9]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/search.png?raw=true   
+  [10]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/search.png?raw=true   
