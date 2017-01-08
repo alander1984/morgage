@@ -1,4 +1,5 @@
 <%= form_for @process do |f| %>
+	<%= f.hidden_field(:status, :value => 'READY')%>
 	<script type="text/javascript" language="javascript">
 		$(document).ready(function(){
 			<% if @valid %>

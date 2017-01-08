@@ -15,7 +15,13 @@ class RequestsController < ApplicationController
         if @process.status=="INS"
           @link = '/setProcessInsurance/'+@process.id.to_s
         else
-          @link='/selectProduct?person='+@request.person.id.to_s+'&request='+@request.id.to_s
+          if @process.status=="PROD" then
+            @link='/selectProduct?person='+@request.person.id.to_s+'&request='+@request.id.to_s
+          else
+            if @process.status=="READY" then
+              @link = '/setProcessAgreement/'+@process.id.to_s  
+            end  
+          end  
         end  
       else 
         @link='/selectProduct?person='+@request.person.id.to_s+'&request='+@request.id.to_s

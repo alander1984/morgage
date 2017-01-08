@@ -1,0 +1,83 @@
+<table style="width:100%">
+  <tr>
+    <td style="width:70%">
+      <h1>Кредитное досье <%= @process.id.to_s %></h1> 
+    </td>
+    <td align="right">
+      <%= link_to "Заявка №"+@process.request.id.to_s, @process.request, class: "btn btn-primary", :data => {:confirm => 'Вы действительно хотите перейти к карточке заявки?'}, :method => 'get' %> 
+    </td>
+  </tr>  
+</table>
+<p>Договор по заявке №<%=  @process.request.id.to_s %> доступен по <a href="#" data-toggle="tooltip" title="В рамках макета автоматическое заполнение не реализовано...">ссылке</a></p>
+<h2>Решение по кредитому досье</h2>
+<div id="processNote">
+  <blockquote><%= @process.note %></blockquote>
+</div>
+<button type="button" class="btn btn-info" onclick="attachProcessNote()">Зафиксировать решение</button>
+<table style="width:100%">
+	<tr>
+		<td>
+			<h3>Документы по кредиту</h3>
+		</td>
+		<td align="center">
+			<button type="button" class="btn btn-info" onclick="attachFile()">Прикрепить электронный образ решения/договора
+  				<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+			</button>
+		</td>
+	</tr>
+</table>  
+<div id="attachesAgr">
+	<%= render(:partial => 'attachedDocs') %>
+</div>
+
+<div id="fileModal" class="modal fade" role="dialog">
+  		<div class="modal-dialog">
+
+    <!-- Modal content-->
+    		<%= form_tag("/activity/"+@process.id.to_s+"/addAgreement", method: 'post', remote: true, id: 'frmAddDocument',:html => {:multipart => true }) do %>
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal">&times;</button>
+        			<h4 class="modal-title">Добавление документа к кредитному досье</h4>
+      			</div>
+      			<div class="modal-body">
+        				<div class="form-group row">
+        					<div class="col-md-2"><label>Вожение</label></div>
+        					<div class="col-md-10"><%= file_field(:document, :file, {:class => "form-control"}) %></div>
+        				</div>
+      			</div>
+      			<div class="modal-footer">
+      				<%= submit_tag "Добавить", data: { disable_with: "Please wait.." }, class: "btn btn-success" %>
+        			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+      			</div>
+    		</div>
+   			<% end %>	
+		</div>
+	</div>
+
+
+<div id="noteModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+    <!-- Modal content-->
+        <%= form_tag("/activity/"+@process.id.to_s+"/note", method: 'post', remote: true, id: 'frmAddNote',:html => {:multipart => true }) do %>
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Решение по кредитному досье</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                  <div class="col-md-2"><label>Решение</label></div>
+                  <div class="col-md-10"><%= text_area(:process, :note, {:class => "form-control"}) %></div>
+                </div>
+                <small>Знаки перевода строки не поддерживаются</small>
+            </div>
+            <div class="modal-footer">
+              <%= submit_tag "Добавить", data: { disable_with: "Please wait.." }, class: "btn btn-success" %>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+        <% end %> 
+    </div>
+  </div>  

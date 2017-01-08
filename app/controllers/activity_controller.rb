@@ -1,12 +1,17 @@
 class ActivityController < ApplicationController
-	before_action :set_process, only: [:addInsurance, :setInsuranse, :removeInsurance, :addDocument, :removeDoc, :checkInsurance]
+	before_action :set_process, only: [:addInsurance, :setInsuranse, :removeInsurance, :addDocument, :removeDoc, :checkInsurance, :setAgreement, :addAgreement, :addNote]
 	
 	def update
 		@process = Activity.find(params['id'])
+		if @process.status=="PROD"
+			link = activity_ins_path(params['id'])
+		else
+			link= activity_agr_path(params['id'])
+		end	
 		respond_to do |format|
 			params['activity'].permit!
 			if @process.update(params['activity'])
-    	    	format.html { redirect_to activity_ins_path(params['id']), notice: 'Процесс выдачи успешно запущен.' }
+   	    		format.html { redirect_to link, notice: 'Процесс выдачи успешно запущен.' }
         		format.json { render :show, status: :ok, location: @process }
       		else
 		        format.html { render :edit }
@@ -39,6 +44,20 @@ class ActivityController < ApplicationController
 		@process.save
 	end
 
+	def addAgreement
+		params['document'].permit!
+		document = Document.new(params['document'])
+		document.name="Решение/Договор"
+		document.note = "Приложен "+Time.now.strftime("%d.%m.%Y %H:%M")
+		@process.documents << document
+		@process.save
+	end	
+
+	def addNote
+		@process.note = params['process']['note']
+		@process.save
+	end	
+
 	def removeDoc
 		@process.documents.delete(Document.find(params['document_id']))
 		@process.save
@@ -46,6 +65,9 @@ class ActivityController < ApplicationController
 
 	def checkInsurance
 		@valid = (@process.product.insurances-@process.insurances).empty?
+	end	
+
+	def setAgreement
 	end	
 
 	private 

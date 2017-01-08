@@ -32,9 +32,12 @@ Rails.application.routes.draw do
   get '/process/:process_id/addOption/:option_id' => "process#addOption"
   get '/process/:process_id/removeOption/:option_id' => "process#removeOption"
   get '/setProcessInsurance/:process_id' => "activity#setInsuranse", as: :activity_ins
+  get '/setProcessAgreement/:process_id' => "activity#setAgreement", as: :activity_agr
   get '/activity/:process_id/addInsurance/:insurance_id' => "activity#addInsurance"
   get '/activity/:process_id/removeInsurance/:insurance_id' => "activity#removeInsurance"
   post 'activity/:process_id/addDocument' => "activity#addDocument"
+  post 'activity/:process_id/addAgreement' => "activity#addAgreement"
+  post 'activity/:process_id/note' => "activity#addNote"
   get '/activity/:process_id/checkInsurance' => "activity#checkInsurance"
   get 'activity/:process_id/removeDoc/:document_id'=> "activity#removeDoc"
   get 'search/:searchString' => 'navigate#search'

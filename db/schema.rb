@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108154021) do
+ActiveRecord::Schema.define(version: 20170108210140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170108154021) do
     t.float    "percent"
     t.integer  "insurance_id"
     t.string   "status"
+    t.string   "note"
   end
 
   add_index "activities", ["insurance_id"], name: "index_activities_on_insurance_id", using: :btree

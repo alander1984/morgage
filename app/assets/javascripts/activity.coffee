@@ -33,6 +33,9 @@ $(document).ready ->
 	@attachFile = ->
 		$('#fileModal').modal('toggle')
 
+	@attachProcessNote = ->
+		$('#noteModal').modal('toggle')	
+
 
 return
 
