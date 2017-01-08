@@ -112,7 +112,7 @@
 
 На данном этапе оформления выдачи кредита пользователь фиксирует процентную ставку, выбирает виды страхования, сопутствующие данному кредитному досье а также формирует перечень приложенных к заявке электронных образов документов.
 
-![image alt][4]
+![image alt][7]
 
 Виды страхования выбираются из выпадающего списка, значения для которого формируются из справочника "Виды страхования".
 
@@ -143,3 +143,4 @@
   [4]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/selProd01.png?raw=true
   [5]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/proc_file01.png?raw=true  
   [6]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/product01.png?raw=true 
+  [7]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/proc_01.png?raw=true 
