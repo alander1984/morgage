@@ -20,7 +20,7 @@
 сюда вставить картинку
 Для добавления продуктов и опций необходимо нажать соответствующие кнопки вверху формы
 
-![image alt][3]
+![image alt][1]
 
 При выставлении признака "Архивный" для продукта или опции в общем реестре в справочник продуктов и опций он будет попадать в раздел "Архив", который разворачивается при нажатии на заголовок раздела.
 
@@ -82,7 +82,6 @@
 
 ![image alt][3]
 
-
-  [1]: http://xn--d1aqf.xn--p1ai/partners/general_conditions/products/
-  [2]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/dos_01.png?raw=true
-  [3]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/prod_01.png?raw=true  
+  [1]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/prod_01.png?raw=true  
+  [2]: http://xn--d1aqf.xn--p1ai/partners/general_conditions/products/
+  [3]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/dos_01.png?raw=true
