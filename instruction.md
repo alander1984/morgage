@@ -157,4 +157,4 @@
   [7]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/proc_01.png?raw=true 
   [8]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/productEdit.png?raw=true   
   [9]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/search.png?raw=true   
-  [10]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/search.png?raw=true   
+  [10]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/eye.png?raw=true   
