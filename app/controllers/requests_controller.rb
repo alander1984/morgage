@@ -17,7 +17,9 @@ class RequestsController < ApplicationController
         else
           @link='/selectProduct?person='+@request.person.id.to_s+'&request='+@request.id.to_s
         end  
-      end  
+      else 
+        @link='/selectProduct?person='+@request.person.id.to_s+'&request='+@request.id.to_s
+      end
   end
 
   # GET /requests/new

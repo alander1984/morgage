@@ -4,9 +4,9 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" href="#collapse1">
         	<% if p.note.present? %> 
-        		<%= p.note %>
+        		<%= p.name %>: <%= p.note %>
         	<% else %>
-        		Подробная информация
+        		<%= p.name %>
         	<% end %>	
         </a>
       </h4>

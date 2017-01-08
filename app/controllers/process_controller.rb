@@ -19,7 +19,7 @@ class ProcessController < ApplicationController
 	end	
 
 	def selectProduct
-		@process = Activity.find_by(:request => @request)
+		@process = Activity.find_by(:request_id => params['request'])
 		if @process==nil
 			@process = Activity.new
 		end	

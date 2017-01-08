@@ -18,9 +18,9 @@
     </td>
     <td style="width:20%" align="center">
       <% if @process.blank? %>
-        <p>По заявке не офорлено кредитное досье</p>
+        <%= link_to "Начать процесс выдачи", @link, class: "btn btn-primary", :data => {:confirm => 'Вы действительно хотите оформить кредитное досье?'}, :method => 'get', :id => 'initProcessBtn' %> 
       <% else %>
-        <%= link_to "Процесс выдачи №"+@process.id.to_s, @link, class: "btn btn-primary", :data => {:confirm => 'Вы действительно хотите перейти к карточке кредитного досье?'}, :method => 'get' %> 
+        <%= link_to "Процесс выдачи №"+@process.id.to_s, @link, class: "btn btn-primary", :data => {:confirm => 'Вы действительно хотите перейти к карточке кредитного досье?'}, :method => 'get', :id => 'startProcessBtn' %> 
       <% end %>
     </td>
     <td align="right">
