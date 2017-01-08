@@ -11,10 +11,12 @@ class RequestsController < ApplicationController
   # GET /requests/1.json
   def show
       @process = Activity.find_by(:request => @request)
-      if @process.status=="INS"
-        @link = '/setProcessInsurance/'+@process.id.to_s
-      else
-        @link='/selectProduct?person='+@request.person.id.to_s+'&request='+@request.id.to_s
+      if @process!=nil
+        if @process.status=="INS"
+          @link = '/setProcessInsurance/'+@process.id.to_s
+        else
+          @link='/selectProduct?person='+@request.person.id.to_s+'&request='+@request.id.to_s
+        end  
       end  
   end
 
