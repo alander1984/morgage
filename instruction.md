@@ -140,5 +140,5 @@
   [1]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/prod_01.png?raw=true  
   [2]: http://xn--d1aqf.xn--p1ai/partners/general_conditions/products/
   [3]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/dos_01.png?raw=true
-  [4]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/proc_01.png?raw=true
+  [4]: 
   [5]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/proc_file01.png?raw=true  
