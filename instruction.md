@@ -42,6 +42,8 @@
 
 Для добавления совместимых опций доступны опции без признака "Архивная". После их добавления в доступные, они удаляются из списка доступных для добавление, и наоборот, при удалении из совместимых - они возвращаются в доступные для добавления.
 
+![image alt][8]
+
 Продукту можно сопоставить несколько необходимых видов страхования. Для выбора доступны все элементы, находящиеся в справочнике "Виды страхования". Если для продукта уже определен выбранный в выпадающем списке вид страхования, то он не будет добавляться повторно.
 
 ### Добавление/редактирование опции ###
@@ -144,3 +146,4 @@
   [5]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/proc_file01.png?raw=true  
   [6]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/product01.png?raw=true 
   [7]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/proc_01.png?raw=true 
+  [8]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/productEdit.png?raw=true   
