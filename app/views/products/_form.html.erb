@@ -149,7 +149,10 @@ function callAddButton() {
         <td><div>Процентная ставка и порядок погашения кредита (займа)</div></td>
         <td><div><%= f.text_area :percent, :class=>"form-control" %></div></td>
       </tr>  
-
+      <tr>
+        <td><div>Другие значимые характеристики или информация</div></td>
+        <td><div><%= f.text_area :dopinfo, :class=>"form-control" %></div></td>
+      </tr>  
     </tbody>  
   </table>
 

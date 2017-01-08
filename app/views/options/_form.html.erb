@@ -107,25 +107,29 @@ function callAddButtonOption() {
             <%= render(:partial => 'optionList',:locals => {:o => @option}) %>
           </div>
           <%= form_tag('#', method: 'get', remote: true, id: 'frmAddProduct') do %>
-            <div class="col-md-1">
-              <label>Продукт</label>
-            </div>
-            <div class="col-md-9">
-              <%= collection_select(:product, :id,  @active_products, :id,:name, {},{:class => 'form-control productSelect'}) %>
+            <div class="form-group row">
+             <div class="col-md-1">
+                <label>Продукт</label>
+              </div>
+             <div class="col-md-9">
+                <%= collection_select(:product, :id,  @active_products, :id,:name, {},{:class => 'form-control productSelect'}) %>
+             </div>  
+              <div class="col-md-2">
+                <button id="btnAddProduct" class="btn btn-primary" onclick="callAddButton();" type="button">Добавить</button>
+              </div>
             </div>  
-            <div class="col-md-2">
-              <button id="btnAddProduct" class="btn btn-primary" onclick="callAddButton();" type="button">Добавить</button>
-            </div>
           <% end %>
           <%= form_tag('#', method: 'get', remote: true, id: 'frmAddOption') do %>
-            <div class="col-md-1">
-              <label>Опция</label>
-            </div>
-            <div class="col-md-9">
-              <%= collection_select(:option, :id,  @active_options, :id,:name, {},{:class => 'form-control optionSelect'}) %>
-            </div>  
-            <div class="col-md-2">
-              <button id="btnAddOption" class="btn btn-primary" onclick="callAddButtonOption();" type="button">Добавить</button>
+            <div class="form-group row">
+              <div class="col-md-1">
+               <label>Опция</label>
+              </div>
+              <div class="col-md-9">
+                <%= collection_select(:option, :id,  @active_options, :id,:name, {},{:class => 'form-control optionSelect'}) %>
+              </div>  
+              <div class="col-md-2">
+               <button id="btnAddOption" class="btn btn-primary" onclick="callAddButtonOption();" type="button">Добавить</button>
+              </div>
             </div>
           <% end %>
         </td>
@@ -153,6 +157,26 @@ function callAddButtonOption() {
       <tr>
         <td><div>Порядок погашения кредита (займа)</div></td>
         <td><div><%= f.text_area :rule, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Срок кредита (займа)</div></td>
+        <td><div><%= f.text_area :months, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Цель кредита (займа)</div></td>
+        <td><div><%= f.text_area :credittarget, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Залоговое обеспечение</div></td>
+        <td><div><%= f.text_area :mort, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Другие значимые характеристики</div></td>
+        <td><div><%= f.text_area :dopinfo, :class=>"form-control" %></div></td>
+      </tr>  
+      <tr>
+        <td><div>Требования к подтверждению доходов</div></td>
+        <td><div><%= f.text_area :acceptIncome, :class=>"form-control" %></div></td>
       </tr>  
     </tbody>
   </table>

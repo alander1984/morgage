@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108134003) do
+ActiveRecord::Schema.define(version: 20170108154021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,14 +113,19 @@ ActiveRecord::Schema.define(version: 20170108134003) do
     t.string   "cpCoeff"
     t.string   "percent"
     t.string   "rule"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "name"
     t.string   "NPA"
     t.datetime "startdate"
     t.string   "note"
     t.boolean  "isArchive"
     t.datetime "enddate"
+    t.string   "months"
+    t.string   "credittarget"
+    t.string   "mort"
+    t.string   "dopinfo"
+    t.string   "acceptIncome"
   end
 
   create_table "people", force: :cascade do |t|

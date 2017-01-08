@@ -119,6 +119,6 @@ class OptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def option_params
-      params.require(:option).permit(:target, :borrower, :mortgagor, :sAmount, :cpCoeff, :percent, :rule, :name, :NPA, :startdate, :note, :enddate, :isArchive)
+      params.require(:option).permit(:target, :borrower, :mortgagor, :sAmount, :cpCoeff, :percent, :rule, :name, :NPA, :startdate, :note, :enddate, :isArchive, :months, :credittarget, :mort, :dopinfo, :acceptIncome)
     end
 end
