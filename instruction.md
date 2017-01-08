@@ -78,8 +78,8 @@
 
 Данный этап сделан чтобы упростить 
 
-![image](https://cloclo39.datacloudmail.ru/weblink/view/BZov/mmjHTtDd9?etag=80CA60BC2EEC7177170B7A520073387DB5BAA317&key=0a84489f83419fe62d92e39cb8e51cf9b3aad450)
+![image alt][2]
 
 
   [1]: http://xn--d1aqf.xn--p1ai/partners/general_conditions/products/
-  [2]: https://cloclo39.datacloudmail.ru/weblink/view/BZov/mmjHTtDd9?etag=80CA60BC2EEC7177170B7A520073387DB5BAA317&key=0a84489f83419fe62d92e39cb8e51cf9b3aad450
+  [2]: https://github.com/alander1984/morgage/blob/master/docs/instruction/images/dos_01.png?raw=true
