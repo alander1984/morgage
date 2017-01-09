@@ -1,6 +1,26 @@
 class ActivityController < ApplicationController
-	before_action :set_process, only: [:addInsurance, :setInsuranse, :removeInsurance, :addDocument, :removeDoc, :checkInsurance, :setAgreement, :addAgreement, :addNote]
+	before_action :set_process, only: [:addInsurance, :setInsuranse, :removeInsurance, :addDocument, :removeDoc, :checkInsurance, :setAgreement, :addAgreement, :addNote, :redirectToIns, :redirectToProd]
 	
+	def redirectToIns
+		@process.status = "INS"
+		@process.save
+		respond_to do |format|
+    		format.html { redirect_to activity_ins_path(@process.id), notice: 'Возврат на шаг выбора параметров кредита.' }
+       		format.json { render :show, status: :ok, location: @process }
+        end	
+	end	
+
+	def redirectToProd
+		@process.status = "PROD"
+		@process.save
+		path = '/selectProduct?person='+@process.request.person.id.to_s+'5&request='+@process.request.person.id.to_s
+		respond_to do |format|
+    		format.html { redirect_to path, notice: 'Возврат на шаг выбора кредитного продукта.' }
+       		format.json { render :show, status: :ok, location: @process }
+        end	
+	end	
+
+
 	def update
 		@process = Activity.find(params['id'])
 		if @process.status=="PROD"

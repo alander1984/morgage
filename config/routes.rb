@@ -42,6 +42,9 @@ Rails.application.routes.draw do
   get 'activity/:process_id/removeDoc/:document_id'=> "activity#removeDoc"
   get 'search/:searchString' => 'navigate#search'
 
+  get 'redirectToIns/:process_id' => "activity#redirectToIns", as: :activity_toIns
+  get 'redirectToProd/:process_id' => "activity#redirectToProd", as: :activity_toProd
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

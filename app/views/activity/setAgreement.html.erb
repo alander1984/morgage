@@ -1,5 +1,8 @@
 <table style="width:100%">
   <tr>
+    <td>
+       <%= link_to "/redirectToIns/"+@process.id.to_s do %><i class="btn btn-default glyphicon glyphicon-chevron-left"></i><% end %>
+    </td>
     <td style="width:70%">
       <h1>Кредитное досье <%= @process.id.to_s %></h1> 
     </td>
